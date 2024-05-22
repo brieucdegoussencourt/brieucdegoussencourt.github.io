@@ -2,7 +2,7 @@
 
 main {
 	background: #EDEDED;
-	color: #4B5658;
+	color: #4b5658;
 }
 
 .icons-social a {
@@ -10,7 +10,7 @@ main {
 }
 
 a:hover {
-	color: #3a707a;
+	color: #2F4F4F;
 	background-color: transparent;
 	text-decoration: none;
   }
