@@ -55,6 +55,13 @@ main > .tagline {
 	font-weight: 100;
 }
 
+.portofolio {
+	font-size: 1.5rem;
+	margin: 1.5rem 0;
+	font-weight: 700;
+	
+}
+
 .icons-social i {
 	padding: 10px;
 }
@@ -73,3 +80,26 @@ main > .tagline {
 	width: 2.65rem;
 	height: 2.65rem;
 }
+a:link {
+	color: green;
+	background-color: transparent;
+	text-decoration: none;
+  }
+  
+a:visited {
+	color: #4B5658;
+	background-color: transparent;
+	text-decoration: none;
+  }
+  
+a:hover {
+	color: #3a707a;
+	background-color: transparent;
+	text-decoration: none;
+  }
+  
+a:active {
+	color: yellow;
+	background-color: transparent;
+	text-decoration: underline;
+  }

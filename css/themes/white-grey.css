@@ -9,6 +9,12 @@ main {
 	color: #4B5658;
 }
 
+a:hover {
+	color: #3a707a;
+	background-color: transparent;
+	text-decoration: none;
+  }
+
 .icons-social a svg path{
 	fill: #4B5658;
 }
