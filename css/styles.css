@@ -58,8 +58,7 @@ main > .tagline {
 .portofolio {
 	font-size: 1.5rem;
 	margin: 1.5rem 0;
-	font-weight: 300;
-	
+	font-weight: 100;
 }
 
 .icons-social i {
@@ -81,25 +80,35 @@ main > .tagline {
 	height: 2.65rem;
 }
 a:link {
-	color: green;
+	color: #0277BD;
 	background-color: transparent;
 	text-decoration: none;
   }
   
 a:visited {
-	color: #4B5658;
+	color:  #303F9F;
 	background-color: transparent;
 	text-decoration: none;
   }
   
 a:hover {
-	color: #2E8B57;
+	color: #0277BD;
 	background-color: transparent;
 	text-decoration: none;
   }
   
 a:active {
-	color: yellow;
-	background-color: transparent;
 	text-decoration: underline;
   }
+
+button {
+	border-radius: 20px;
+	border: 1px solid;
+	padding: 0.9rem;
+}
+
+.center{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
