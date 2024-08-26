@@ -45,7 +45,7 @@ main {
 
 main > .intro {
 	font-family: 'Reem Kufi', sans-serif;
-	font-size: 3.75em;
+	font-size: 3em;
 	font-weight: 300;
 }
 
@@ -56,7 +56,7 @@ main > .tagline {
 }
 
 .portofolio {
-	font-size: 1.5rem;
+	font-size: 1.2rem;
 	margin: 1.5rem 0;
 	font-weight: 100;
 }
@@ -80,7 +80,7 @@ main > .tagline {
 	height: 2.65rem;
 }
 a:link {
-	color: #0277BD;
+	color :#303F9F;
 	background-color: transparent;
 	text-decoration: none;
   }
@@ -102,9 +102,10 @@ a:active {
   }
 
 button {
-	border-radius: 20px;
-	border: 1px solid;
+	border-radius: 10px;
+	border: 1px solid #303F9F;;
 	padding: 0.9rem;
+	font-weight: 100;
 }
 
 .center{
