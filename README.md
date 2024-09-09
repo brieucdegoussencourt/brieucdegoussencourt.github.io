@@ -1,4 +1,5 @@
 # This is my dev landing page
+#### Visit [here](https://brieucdegoussencourt.github.io)
 
 ### Feature
 
@@ -8,4 +9,4 @@
 
     - Donwload my resume .pdf
 
-#### Visit [here](https://brieucdegoussencourt.github.io)
+![screenshot](screenshot.png)
