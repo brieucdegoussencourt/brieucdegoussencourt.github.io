@@ -113,4 +113,23 @@ button {
 	flex-direction: row;
 	justify-content: center;
 	align-items: center;
+	padding: 1 rem;
+	gap: 1rem;
+}
+
+.portfolio-button {
+    display: inline-block;
+	border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+
+}
+
+.portfolio-button:hover {
+    background-color: white;
 }
