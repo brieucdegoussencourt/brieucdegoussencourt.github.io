@@ -28,7 +28,7 @@ export default function Process() {
       className="border-t border-stone/60 px-6 py-24 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div ref={heading} className="reveal max-w-2xl">
+        <div ref={heading} className="reveal mx-auto max-w-2xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay">
             How I Work
           </p>

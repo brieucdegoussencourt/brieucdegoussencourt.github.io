@@ -16,9 +16,12 @@ export default function Hero() {
         <div className="absolute -left-40 top-1/3 h-[28rem] w-[28rem] rounded-full bg-sage-soft/15 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl">
-        <div ref={r1} className="reveal max-w-3xl">
-          <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-stone bg-sand/60 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-charcoal-soft">
+      <div className="relative mx-auto max-w-4xl">
+        <div
+          ref={r1}
+          className="reveal rounded-[2rem] border border-stone bg-sand/55 px-7 py-14 text-center shadow-[0_28px_70px_-40px_rgba(58,54,49,0.4)] backdrop-blur-sm sm:px-14 sm:py-20"
+        >
+          <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-stone bg-canvas/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-charcoal-soft">
             <span className="h-1.5 w-1.5 rounded-full bg-clay" />
             Independent IT Specialist &amp; Digital Consultant
           </p>
@@ -29,7 +32,7 @@ export default function Hero() {
             <span className="italic text-clay-deep"> so your business can grow.</span>
           </h1>
 
-          <p className="mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
+          <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
             I pair{" "}
             <span className="font-semibold text-charcoal">business strategy</span>{" "}
             with{" "}
@@ -40,26 +43,26 @@ export default function Hero() {
             that every interaction feels effortless for the people who matter:
             your customers.
           </p>
-        </div>
 
-        <div
-          ref={r2}
-          className="reveal mt-10 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
-          style={{ transitionDelay: "120ms" }}
-        >
-          <a
-            href="#contact"
-            className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:bg-clay-deep"
+          <div
+            ref={r2}
+            className="reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            style={{ transitionDelay: "120ms" }}
           >
-            Discuss Your Project
-            <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-          </a>
-          <a
-            href="#work"
-            className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-charcoal-soft transition-colors hover:text-charcoal"
-          >
-            See selected work
-          </a>
+            <a
+              href="#contact"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:bg-clay-deep"
+            >
+              Discuss Your Project
+              <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+            <a
+              href="#work"
+              className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-charcoal-soft transition-colors hover:text-charcoal"
+            >
+              See selected work
+            </a>
+          </div>
         </div>
       </div>
     </section>

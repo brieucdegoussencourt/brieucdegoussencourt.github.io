@@ -54,12 +54,12 @@ export default function Portfolio() {
       className="bg-sand/50 px-6 py-24 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <div ref={heading} className="reveal max-w-2xl">
+        <div ref={heading} className="reveal mx-auto max-w-2xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay">
             Selected Work
           </p>
           <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal sm:text-4xl">
-            Friction in. Smooth experiences out.
+            Friction out. Smooth experiences in.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
             A few projects where thoughtful design and dependable engineering
