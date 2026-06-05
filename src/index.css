@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/*
+  Japandi palette — warm, grounded neutrals.
+  Soft stone + warm wood (clay) + matte charcoal, with a muted sage accent.
+  No stark black/white, no neon. Tokens become Tailwind utilities
+  (e.g. --color-clay → bg-clay / text-clay / border-clay).
+*/
+@theme {
+  --color-canvas: #f6f2ec; /* warm paper background */
+  --color-sand: #efe8dc; /* soft raised surface */
+  --color-stone: #e2d9ca; /* structural lines / cards */
+  --color-stone-deep: #cabfad;
+
+  --color-clay: #b08968; /* warm wood accent */
+  --color-clay-soft: #c4a589;
+  --color-clay-deep: #8f6b4f;
+
+  --color-sage: #7f8b76; /* organic secondary accent */
+  --color-sage-soft: #9aa491;
+
+  --color-charcoal: #3a3631; /* matte charcoal (primary text) */
+  --color-charcoal-soft: #57514a;
+  --color-muted: #8a8278; /* muted captions */
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+
+  /* Gentle, intentional motion */
+  --ease-organic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-charcoal);
+    font-family: var(--font-sans);
+    font-feature-settings: "cv11", "ss01";
+  }
+
+  /* Respect users who prefer reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-clay-deep);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+}
+
+/* Subtle, intentional fade-in-on-scroll. Elements start hidden,
+   become visible when .is-visible is toggled by an IntersectionObserver. */
+@layer utilities {
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition:
+      opacity 0.9s var(--ease-organic),
+      transform 0.9s var(--ease-organic);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}

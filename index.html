@@ -1,115 +1,36 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="a simple landing page to show some of my work as junior web developer full stack"
+      content="Brieuc de Goussencourt — independent IT specialist & digital consultant. I remove digital friction so your business can grow: UX-driven websites, apps, custom APIs and data management for small businesses."
     />
+    <meta name="theme-color" content="#3a3631" />
 
-    <title>Brieuc de Goussencourt - Dev Landing Page</title>
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Brieuc de Goussencourt — Digital Consultant" />
+    <meta
+      property="og:description"
+      content="I remove digital friction so your business can grow. Business strategy meets UX-driven IT solutions."
+    />
+    <meta property="og:url" content="https://brieucdegoussencourt.github.io" />
 
-    <link rel="icon" href="favicon.ico" type="image/png" />
+    <!-- Fonts: Inter (body) + Playfair Display (accents) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://use.fontawesome.com/releases/v5.13.1/css/all.css"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/reset.css" />
-    <link rel="stylesheet" href="css/styles.css" />
-    <!-- <link rel="stylesheet" href="css/themes/indigo-white.css"> -->
-    <!-- <link rel="stylesheet" href="css/themes/green-white.css"> -->
-    <!-- <link rel="stylesheet" href="css/themes/red-white.css"> -->
-    <!-- <link rel="stylesheet" href="css/themes/grey-white.css"> -->
-    <link rel="stylesheet" href="css/themes/white-indigo.css" />
-    <!-- <link rel="stylesheet" href="css/themes/white-blue.css"> -->
-    <!-- <link rel="stylesheet" href="css/themes/white-grey.css"> -->
-    <!-- <link rel="stylesheet" href="css/themes/white-red.css"> -->
-    <!-- <link rel="stylesheet" href="css/themes/yellow-black.css"> -->
+
+    <title>Brieuc de Goussencourt — Digital Consultant</title>
   </head>
-
   <body>
-    <main>
-      <div class="intro">Hello, I'm Brieuc !</div>
-      <div class="tagline">Junior Web Developer | Full-Stack</div>
-      <div class="center">
-        <a
-          class="portfolio-button"
-          target="_blank"
-          href="https://getflix-brieuc-ceab4797679e.herokuapp.com/index.php"
-          >Streaming Website</a
-        >
-
-        <a
-          class="portfolio-button"
-          target="_blank"
-          href="https://easyvest-dev-ed.develop.my.salesforce-sites.com/B_Home"
-          >Investment App</a
-        >
-
-        <a
-          class="portfolio-button"
-          target="_blank"
-          href="https://brieucdegoussencourt.github.io/CookieClicker---Nat_Fab_Bri/"
-          >Cookie Clicker</a
-        >
-      </div>
-      <!-- Find your icons from here - https://fontawesome.com/icons?d=gallery&s=brands -->
-      <div class="icons-social">
-        <a target="_blank" href="https://github.com/brieucdegoussencourt">
-          <i
-            class="fab fa-github"
-            aria-hidden="true"
-            title="Check out my Github"
-          ></i>
-          <span class="sr-only">Github</span>
-        </a>
-        <a target="_blank" href="./CV_BdG.pdf">
-          <i
-            class="fa-regular fa-file"
-            aria-hidden="true"
-            title="Download resume"
-          ></i>
-          <span class="sr-only">Resume</span>
-        </a>
-        <a
-          target="_blank"
-          href="https://www.linkedin.com/in/brieuc-de-goussencourt-003324304"
-        >
-          <i class="fab fa-linkedin" aria-hidden="true" title="LinkedIn"></i>
-          <span class="sr-only">LinkedIn</span>
-        </a>
-      </div>
-      <!-- <a target="_blank" href="https://twitter.com/flexdinesh">
-        <i class="fab fa-twitter" aria-hidden="true" title="Twitter"></i>
-        <span class="sr-only">Twitter</span>
-      </a>
-      <a target="_blank" href="https://dev.to/flexdinesh">
-        <i class="fab fa-dev" aria-hidden="true" title="DEV Community"></i>
-        <span class="sr-only">DEV Community</span>
-      </a>
-      <a target="_blank" href="https://stackoverflow.com/story/flexdinesh">
-        <i class="fab fa-stack-overflow" aria-hidden="true" title="StackOverflow"></i>
-        <span class="sr-only">StackOverflow</span>
-      </a>
-     
-      <a target="_blank" href="https://medium.com/@flexdinesh">
-        <i class="fab fa-medium" aria-hidden="true" title="Medium"></i>
-        <span class="sr-only">Medium</span>
-      </a>
-      <a target="_blank" href="https://www.freecodecamp.org">
-        <i class="fab fa-free-code-camp" aria-hidden="true" title="FreeCodeCamp"></i>
-        <span class="sr-only">FreeCodeCamp</span>
-      </a>
-      <a target="_blank" href="https://www.behance.net">
-        <i class="fab fa-behance" aria-hidden="true" title="Behance"></i>
-        <span class="sr-only">Behance</span>
-      </a>
-      <a target="_blank" href="https://codepen.io">
-        <i class="fab fa-codepen" aria-hidden="true" title="CodePen"></i>
-        <span class="sr-only">CodePen</span>
-      </a> -->
-    </main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
