@@ -33,12 +33,12 @@ export default function Process() {
             How I Work
           </p>
           <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal sm:text-4xl">
-            A calm bridge between clean design and capable technology.
+            A bridge between design and technology.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
             You don't need to speak fluent tech. You need a partner who
             translates business goals into digital experiences that simply
-            work — beautifully on the surface, dependable underneath.
+            work.
           </p>
         </div>
 

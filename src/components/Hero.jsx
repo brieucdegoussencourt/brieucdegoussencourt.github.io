@@ -29,19 +29,21 @@ export default function Hero() {
           <h1 className="font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
             I remove digital friction
             <br className="hidden sm:block" />
-            <span className="italic text-clay-deep"> so your business can grow.</span>
+            <span className="italic text-clay-deep"> so your business can</span>
+            <span className=" font-semibold text-clay-deep"> grow.</span>
           </h1>
 
           <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
             I pair{" "}
             <span className="font-semibold text-charcoal">business strategy</span>{" "}
+            and{" "}
+            <span className="font-semibold text-charcoal">user experience</span>{" "}
             with{" "}
             <span className="font-semibold text-charcoal">
-              UX-driven IT solutions
+              IT solutions
             </span>{" "}
             — building websites, apps, and the quiet machinery behind them so
-            that every interaction feels effortless for the people who matter:
-            your customers.
+            that every interaction feels effortless.
           </p>
 
           <div
