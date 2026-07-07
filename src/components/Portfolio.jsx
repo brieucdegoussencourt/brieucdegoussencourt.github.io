@@ -1,47 +1,46 @@
 import { useReveal } from "../lib/useReveal.js";
-import { ArrowIcon } from "./icons.jsx";
+import { ArrowIcon, GithubIcon } from "./icons.jsx";
 
 /*
-  Three curated micro-case studies. Copy is placeholder scaffolding —
-  the structure (Friction → Solution → Outcome) is the deliverable;
-  fill the real details later via the `projects` array below.
+  Curated micro-case studies, each structured Friction → Solution → Outcome.
+  Real projects carry `href` (live) and `repo` (source); slots still being
+  written leave both off and render a "coming soon" note instead of dead links.
 */
 const projects = [
   {
     index: "01",
-    tag: "Web Platform",
-    title: "Project Title",
+    tag: "Wealth Platform",
+    title: "Patrimony",
     friction:
-      "Customers abandoned the booking flow halfway through — too many steps, unclear pricing, no mobile support.",
+      "Tracking real wealth means scattered spreadsheets and loud, anxious finance apps — neon tickers, urgent red and green — that bury the one thing that matters: a calm, clear view of where you actually stand.",
     solution:
-      "A rethought UX with a three-step flow, transparent pricing, and a lightweight custom API feeding real-time availability.",
+      "A warm, editorial platform that unifies listed stocks, private equity and real-world assets in one place — live market data, honest performance math (MWR / TWR / XIRR) and role-based multi-portfolio sharing, wrapped in a light “morning-light” interface. Built with Next.js, Supabase and Prisma.",
     outcome:
-      "A smooth, mobile-first experience that turned hesitation into completed bookings.",
-    href: "#",
+      "One trustworthy dashboard that answers “where do I stand?” at a glance — allocation, performance and dividends across every asset class, with the only alerting colour reserved for what truly matters.",
+    href: "https://patrimony-neon.vercel.app/",
+    repo: "https://github.com/brieucdegoussencourt/patrimony",
   },
   {
     index: "02",
     tag: "Custom App",
-    title: "Project Title",
+    title: "Coming soon",
     friction:
       "The team juggled three disconnected tools and a spreadsheet, losing hours to manual double-entry every week.",
     solution:
       "A single tailored app that unifies their workflow, with integrations syncing data automatically across systems.",
     outcome:
       "Hours reclaimed each week and a single source of truth the whole team actually trusts.",
-    href: "#",
   },
   {
     index: "03",
     tag: "Data & API",
-    title: "Project Title",
+    title: "Coming soon",
     friction:
       "Decisions were made on stale exports; nobody could see what was happening in their business right now.",
     solution:
       "A clean dashboard backed by a real-time data pipeline, surfacing the few numbers that actually drive decisions.",
     outcome:
       "Clarity at a glance — the business now steers by live signal instead of last month's guesswork.",
-    href: "#",
   },
 ];
 
@@ -99,13 +98,35 @@ function CaseStudy({ project, index }) {
         <h3 className="mt-5 font-serif text-2xl tracking-tight text-charcoal">
           {project.title}
         </h3>
-        <a
-          href={project.href}
-          className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-clay-deep transition-colors hover:text-charcoal"
-        >
-          View Project
-          <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-        </a>
+
+        {project.href ? (
+          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
+            <a
+              href={project.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-clay-deep transition-colors hover:text-charcoal"
+            >
+              View Project
+              <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+            </a>
+            {project.repo && (
+              <a
+                href={project.repo}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal-soft transition-colors hover:text-charcoal"
+              >
+                <GithubIcon className="h-4 w-4" />
+                Code
+              </a>
+            )}
+          </div>
+        ) : (
+          <p className="mt-6 text-sm font-medium text-muted">
+            Case study coming soon
+          </p>
+        )}
       </div>
 
       {/* Right rail: Friction → Solution → Outcome */}
