@@ -30,7 +30,7 @@ export default function Footer() {
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
             <a
               href={`mailto:${EMAIL}`}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-canvas px-7 py-3.5 text-sm font-semibold text-charcoal transition-colors duration-300 hover:bg-clay-soft"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-canvas px-7 py-3.5 text-sm font-semibold text-charcoal transition-all duration-300 hover:bg-dawn-soft active:scale-[0.97]"
             >
               Start the conversation
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -39,7 +39,7 @@ export default function Footer() {
               href={LINKEDIN}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-canvas/25 px-7 py-3.5 text-sm font-semibold text-canvas transition-colors duration-300 hover:border-canvas/60"
+              className="inline-flex items-center gap-2 rounded-full border border-dawn/45 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/10 active:scale-[0.97]"
             >
               Connect on LinkedIn
             </a>
@@ -62,13 +62,13 @@ export default function Footer() {
               href={LINKEDIN}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-canvas"
+              className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
             >
               <LinkedInIcon className="h-4 w-4" /> LinkedIn
             </a>
             <a
               href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 transition-colors hover:text-canvas"
+              className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
             >
               <MailIcon className="h-4 w-4" /> Contact
             </a>
@@ -76,11 +76,11 @@ export default function Footer() {
               href={GITHUB}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-canvas"
+              className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
             >
               <GithubIcon className="h-4 w-4" /> GitHub
             </a>
-            <a href="#legal" className="transition-colors hover:text-canvas">
+            <a href="#legal" className="transition-colors hover:text-dawn-soft">
               Legal
             </a>
           </nav>

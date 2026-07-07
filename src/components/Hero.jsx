@@ -53,14 +53,14 @@ export default function Hero() {
           >
             <a
               href="#contact"
-              className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:bg-clay-deep"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas ring-2 ring-transparent transition-all duration-300 hover:bg-charcoal-soft hover:ring-dawn/60 active:scale-[0.97]"
             >
               Discuss Your Project
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             <a
               href="#work"
-              className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-charcoal-soft transition-colors hover:text-charcoal"
+              className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-charcoal-soft transition-colors hover:text-dawn-deep"
             >
               See selected work
             </a>

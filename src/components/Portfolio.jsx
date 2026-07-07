@@ -19,6 +19,8 @@ const projects = [
       "One trustworthy dashboard that answers “where do I stand?” at a glance — allocation, performance and dividends across every asset class, with the only alerting colour reserved for what truly matters.",
     href: "https://patrimony-neon.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/patrimony",
+    image: "/projects/patrimony.png",
+    imageAlt: "Patrimony landing page — a calm, editorial wealth-tracking dashboard",
   },
   {
     index: "02",
@@ -82,9 +84,30 @@ function CaseStudy({ project, index }) {
   return (
     <article
       ref={ref}
-      className="reveal group grid gap-8 rounded-3xl border border-stone bg-canvas p-8 transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgba(58,54,49,0.35)] lg:grid-cols-12 lg:gap-10 lg:p-10"
+      className="reveal group flex flex-col gap-8 rounded-3xl border border-stone bg-canvas p-8 transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgba(58,54,49,0.35)] lg:gap-10 lg:p-10"
       style={{ transitionDelay: `${index * 90}ms` }}
     >
+      {/* Optional preview image */}
+      {project.image && (
+        <a
+          href={project.href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="block overflow-hidden rounded-2xl border border-stone bg-sand"
+          aria-label={`Open ${project.title}`}
+        >
+          <img
+            src={project.image}
+            alt={project.imageAlt || `${project.title} preview`}
+            loading="lazy"
+            width={2880}
+            height={1240}
+            className="aspect-[2.32/1] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+          />
+        </a>
+      )}
+
+      <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
       {/* Left rail: index + tag + title */}
       <div className="lg:col-span-4">
         <div className="flex items-center gap-4">
@@ -105,7 +128,7 @@ function CaseStudy({ project, index }) {
               href={project.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-clay-deep transition-colors hover:text-charcoal"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-clay-deep transition-colors hover:text-dawn-deep"
             >
               View Project
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
@@ -115,7 +138,7 @@ function CaseStudy({ project, index }) {
                 href={project.repo}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal-soft transition-colors hover:text-charcoal"
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal-soft transition-colors hover:text-dawn-deep"
               >
                 <GithubIcon className="h-4 w-4" />
                 Code
@@ -134,6 +157,7 @@ function CaseStudy({ project, index }) {
         <Facet label="The Friction" body={project.friction} accent="sage" />
         <Facet label="The Solution" body={project.solution} accent="clay" />
         <Facet label="The Outcome" body={project.outcome} accent="charcoal" />
+      </div>
       </div>
     </article>
   );

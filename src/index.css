@@ -19,6 +19,10 @@
   --color-sage: #7f8b76; /* organic secondary accent */
   --color-sage-soft: #9aa491;
 
+  --color-dawn: #a7bccb; /* soft pastel blue — interaction accent (Patrimony's hills) */
+  --color-dawn-soft: #c6d4dd; /* lighter tint — fills/text on dark surfaces */
+  --color-dawn-deep: #566e7f; /* deeper slate-blue — link hover on light surfaces */
+
   --color-charcoal: #3a3631; /* matte charcoal (primary text) */
   --color-charcoal-soft: #57514a;
   --color-muted: #8a8278; /* muted captions */
@@ -59,7 +63,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-clay-deep);
+    outline: 2px solid var(--color-dawn-deep);
     outline-offset: 3px;
     border-radius: 2px;
   }
