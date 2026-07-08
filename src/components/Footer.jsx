@@ -1,5 +1,8 @@
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
 import { useReveal } from "../lib/useReveal.js";
 import { ArrowIcon, LinkedInIcon, MailIcon, GithubIcon } from "./icons.jsx";
+import { CAL_LINK, CAL_NAMESPACE, CAL_BRAND } from "../lib/booking.js";
 
 const EMAIL = "brieuc.degoussencourt@gmail.com";
 const LINKEDIN = "https://www.linkedin.com/in/brieuc-de-goussencourt-003324304";
@@ -8,6 +11,19 @@ const GITHUB = "https://github.com/brieucdegoussencourt";
 export default function Footer() {
   const cta = useReveal();
   const year = new Date().getFullYear();
+
+  // Initialise the Cal.com embed once; the button below opens it as a modal.
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+      cal("ui", {
+        theme: "light",
+        cssVarsPerTheme: { light: { "cal-brand": CAL_BRAND } },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
 
   return (
     <footer id="contact" className="bg-charcoal text-canvas">
@@ -28,13 +44,16 @@ export default function Footer() {
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <a
-              href={`mailto:${EMAIL}`}
+            <button
+              type="button"
+              data-cal-namespace={CAL_NAMESPACE}
+              data-cal-link={CAL_LINK}
+              data-cal-config='{"layout":"month_view"}'
               className="group inline-flex items-center gap-2.5 rounded-full bg-canvas px-7 py-3.5 text-sm font-semibold text-charcoal transition-all duration-300 hover:bg-dawn-soft active:scale-[0.97]"
             >
               Start the conversation
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </button>
             <a
               href={LINKEDIN}
               target="_blank"
