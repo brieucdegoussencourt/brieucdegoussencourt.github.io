@@ -52,7 +52,7 @@ export default function Portfolio() {
   return (
     <section
       id="work"
-      className="bg-sand/50 px-6 py-24 lg:px-8 lg:py-32"
+      className="bg-gradient-to-b from-canvas via-sand/60 to-canvas px-6 py-24 lg:px-8 lg:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <div ref={heading} className="reveal mx-auto max-w-2xl text-center">

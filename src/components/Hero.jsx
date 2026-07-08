@@ -9,18 +9,17 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden px-6 pt-36 pb-24 lg:px-8 lg:pt-44 lg:pb-32"
+      className="relative overflow-hidden bg-gradient-to-b from-stone/60 via-sand/40 to-canvas px-6 pt-36 pb-28 lg:px-8 lg:pt-44 lg:pb-36"
     >
-      {/* Soft structural grid + warm wash — quiet, architectural backdrop */}
+      {/* Quiet warm wash for a touch of depth */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -right-32 -top-24 h-[34rem] w-[34rem] rounded-full bg-clay-soft/20 blur-3xl" />
-        <div className="absolute -left-40 top-1/3 h-[28rem] w-[28rem] rounded-full bg-sage-soft/15 blur-3xl" />
       </div>
 
       <div className="relative mx-auto max-w-4xl">
         <div
           ref={r1}
-          className="reveal rounded-[2rem] border border-stone bg-sand/55 px-7 py-14 text-center shadow-[0_28px_70px_-40px_rgba(58,54,49,0.4)] backdrop-blur-sm sm:px-14 sm:py-20"
+          className="reveal rounded-[2rem] border border-stone bg-canvas px-7 py-14 text-center shadow-[0_38px_90px_-44px_rgba(58,54,49,0.6)] sm:px-14 sm:py-20"
         >
           <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-stone bg-canvas/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-charcoal-soft">
             <span className="h-1.5 w-1.5 rounded-full bg-clay" />
@@ -55,7 +54,7 @@ export default function Hero() {
             <button
               type="button"
               {...calButtonProps}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas ring-2 ring-transparent transition-all duration-300 hover:bg-charcoal-soft hover:ring-dawn/60 active:scale-[0.97]"
+              className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas ring-2 ring-transparent ring-offset-2 ring-offset-transparent transition-all duration-300 hover:bg-charcoal-soft hover:ring-dawn hover:ring-offset-canvas active:scale-[0.97]"
             >
               Discuss Your Project
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />

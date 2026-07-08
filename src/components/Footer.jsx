@@ -41,7 +41,7 @@ export default function Footer() {
               href={LINKEDIN}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-full border border-dawn/45 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/10 active:scale-[0.97]"
+              className="inline-flex items-center gap-2 rounded-full border border-dawn/70 bg-dawn/10 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/25 active:scale-[0.97]"
             >
               Connect on LinkedIn
             </a>
