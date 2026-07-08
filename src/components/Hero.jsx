@@ -1,5 +1,6 @@
 import { useReveal } from "../lib/useReveal.js";
 import { ArrowIcon } from "./icons.jsx";
+import { calButtonProps } from "../lib/booking.js";
 
 export default function Hero() {
   const r1 = useReveal();
@@ -51,13 +52,14 @@ export default function Hero() {
             className="reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
             style={{ transitionDelay: "120ms" }}
           >
-            <a
-              href="#contact"
+            <button
+              type="button"
+              {...calButtonProps}
               className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas ring-2 ring-transparent transition-all duration-300 hover:bg-charcoal-soft hover:ring-dawn/60 active:scale-[0.97]"
             >
               Discuss Your Project
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
+            </button>
             <a
               href="#work"
               className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-charcoal-soft transition-colors hover:text-dawn-deep"

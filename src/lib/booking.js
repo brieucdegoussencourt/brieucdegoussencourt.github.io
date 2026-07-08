@@ -12,3 +12,30 @@ export const CAL_NAMESPACE = "let-s-have-a-conversation";
 
 // Brand colour used for the modal's highlights (warm clay, matching the site).
 export const CAL_BRAND = "#8f6b4f";
+
+// ---------------------------------------------------------------------------
+// Shared Cal.com wiring. Call useCalInit() once at app level, then spread
+// {...calButtonProps} onto any button/link that should open the booking modal.
+// ---------------------------------------------------------------------------
+import { useEffect } from "react";
+import { getCalApi } from "@calcom/embed-react";
+
+export function useCalInit() {
+  useEffect(() => {
+    (async () => {
+      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
+      cal("ui", {
+        theme: "light",
+        cssVarsPerTheme: { light: { "cal-brand": CAL_BRAND } },
+        hideEventTypeDetails: false,
+        layout: "month_view",
+      });
+    })();
+  }, []);
+}
+
+export const calButtonProps = {
+  "data-cal-namespace": CAL_NAMESPACE,
+  "data-cal-link": CAL_LINK,
+  "data-cal-config": '{"layout":"month_view"}',
+};

@@ -3,8 +3,12 @@ import Hero from "./components/Hero.jsx";
 import Process from "./components/Process.jsx";
 import Portfolio from "./components/Portfolio.jsx";
 import Footer from "./components/Footer.jsx";
+import { useCalInit } from "./lib/booking.js";
 
 export default function App() {
+  // Initialise the Cal.com booking embed once for the whole app.
+  useCalInit();
+
   return (
     <>
       {/* Skip link for keyboard & screen-reader users */}
