@@ -24,14 +24,19 @@ const projects = [
   },
   {
     index: "02",
-    tag: "Custom App",
-    title: "Coming soon",
+    tag: "Trip Companion",
+    title: "Trek Kleinwalsertal",
     friction:
-      "The team juggled three disconnected tools and a spreadsheet, losing hours to manual double-entry every week.",
+      "Planning a multi-day alpine trek meant juggling scattered sources — trail maps in one place, weather forecasts in another, hut bookings, safety notes and packing lists everywhere else — with nothing tying it together before heading into the mountains.",
     solution:
-      "A single tailored app that unifies their workflow, with integrations syncing data automatically across systems.",
+      "A single companion app that gathers everything the trip needs in one calm place: an interactive topographic map of the full route, day-by-day stages, live weather, safety guidance and a packing checklist.",
     outcome:
-      "Hours reclaimed each week and a single source of truth the whole team actually trusts.",
+      "The whole trek at a glance — trails, weather and safety in one view, so the group could stop tab-juggling and start walking with confidence.",
+    href: "https://trek-kleinwalsertal.vercel.app/",
+    repo: "https://github.com/brieucdegoussencourt/trek-kleinwalsertal",
+    image: "/projects/trek.jpg",
+    imageAlt:
+      "Trek Kleinwalsertal — interactive topographic map of the four-day alpine route",
   },
   {
     index: "03",
