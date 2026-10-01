@@ -34,8 +34,8 @@ const projects = [
       "One trustworthy dashboard that answers “where do I stand?” at a glance — allocation, performance and dividends across every asset class, with the only alerting colour reserved for what truly matters.",
     href: "https://patrimony-neon.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/patrimony",
-    image: "/projects/patrimony.png",
-    imageAlt: "Patrimony landing page — a calm, editorial wealth-tracking dashboard",
+    image: "/projects/patrimony.jpg",
+    imageAlt: "Patrimony overview dashboard — portfolio value, returns and a performance chart against the MSCI World",
   },
   {
     index: "03",
