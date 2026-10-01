@@ -23,7 +23,7 @@ export default function Hero() {
         >
           <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-stone bg-canvas/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-charcoal-soft">
             <span className="h-1.5 w-1.5 rounded-full bg-clay" />
-            Web Developer
+            Independent Web Developer
           </p>
 
           <h1 className="font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
