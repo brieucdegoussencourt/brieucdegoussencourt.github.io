@@ -51,7 +51,7 @@ const projects = [
     repo: "https://github.com/brieucdegoussencourt/trek-kleinwalsertal",
     image: "/projects/trek.jpg",
     imageAlt:
-      "Trek Kleinwalsertal — landing page with the trip menu and route stats: 43.1 km, ~18h walking, +2690 m, 4 days",
+      "Trek Kleinwalsertal — alpine hero over a mountain photo with route stats: 43.1 km, ~18h walking, +2690 m, 4 days",
   },
 ];
 
