@@ -35,7 +35,7 @@ const projects = [
     href: "https://patrimony-neon.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/patrimony",
     image: "/projects/patrimony.jpg",
-    imageAlt: "Patrimony overview dashboard — portfolio value, returns and a performance chart against the MSCI World",
+    imageAlt: "Patrimony overview dashboard — total value, returns and a portfolio value chart against the MSCI World",
   },
   {
     index: "03",
