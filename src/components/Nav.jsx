@@ -60,7 +60,7 @@ export default function Nav() {
           {...calButtonProps}
           className="rounded-full border border-dawn bg-dawn/10 px-5 py-2 text-sm font-medium text-charcoal transition-all duration-300 hover:border-dawn-deep hover:bg-dawn/30 active:scale-[0.97] active:bg-dawn/40"
         >
-          Let's talk
+          Book a meeting
         </button>
       </nav>
     </header>

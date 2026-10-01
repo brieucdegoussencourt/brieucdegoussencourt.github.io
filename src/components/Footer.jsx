@@ -1,8 +1,9 @@
 import { useReveal } from "../lib/useReveal.js";
-import { ArrowIcon, LinkedInIcon, MailIcon, GithubIcon } from "./icons.jsx";
+import { ArrowIcon, LinkedInIcon, MailIcon, GithubIcon, PhoneIcon } from "./icons.jsx";
 import { calButtonProps } from "../lib/booking.js";
 
 const EMAIL = "brieuc.degoussencourt@gmail.com";
+const PHONE = "+32 472 80 22 25";
 const LINKEDIN = "https://www.linkedin.com/in/brieuc-de-goussencourt-003324304";
 const GITHUB = "https://github.com/brieucdegoussencourt";
 
@@ -34,9 +35,15 @@ export default function Footer() {
               {...calButtonProps}
               className="group inline-flex items-center gap-2.5 rounded-full bg-canvas px-7 py-3.5 text-sm font-semibold text-charcoal transition-all duration-300 hover:bg-dawn-soft active:scale-[0.97]"
             >
-              Start the conversation
+              Book a meeting
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
+            <a
+              href={`tel:${PHONE.replace(/\s/g, "")}`}
+              className="inline-flex items-center gap-2 rounded-full border border-dawn/70 bg-dawn/10 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/25 active:scale-[0.97]"
+            >
+              <PhoneIcon className="h-4 w-4" /> Call {PHONE}
+            </a>
             <a
               href={LINKEDIN}
               target="_blank"
