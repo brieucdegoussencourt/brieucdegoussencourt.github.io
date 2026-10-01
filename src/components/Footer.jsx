@@ -82,9 +82,6 @@ export default function Footer() {
             >
               <GithubIcon className="h-4 w-4" /> GitHub
             </a>
-            <a href="#legal" className="transition-colors hover:text-dawn-soft">
-              Legal
-            </a>
           </nav>
         </div>
 
