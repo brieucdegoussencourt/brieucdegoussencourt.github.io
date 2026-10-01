@@ -9,6 +9,21 @@ import { ArrowIcon, GithubIcon } from "./icons.jsx";
 const projects = [
   {
     index: "01",
+    tag: "Direct Booking",
+    title: "Le Cottage des Perdrix",
+    friction:
+      "A holiday cottage in a private forest estate depended on rental platforms — commission on every stay, a generic listing that couldn't convey the place, and guests left asking how to find the house behind a gated domain.",
+    solution:
+      "A warm, trilingual (FR / NL / EN) direct-booking site: a live availability calendar with nightly pricing and stay presets, an honest guide to the estate, and step-by-step access — map, illustrated domain plan, directions and FAQ, and most importantly a fast and secure way to make payments.",
+    outcome:
+      "Guests book directly, commission-free, and arrive knowing exactly where to go — the site does the host's explaining before anyone has to pick up the phone.",
+    href: "https://cottagedesperdrix.be/",
+    image: "/projects/cottage.jpg",
+    imageAlt:
+      "Le Cottage des Perdrix — a wooden cottage among the trees, with a direct-booking call to action",
+  },
+  {
+    index: "02",
     tag: "Wealth Platform",
     title: "Patrimony",
     friction:
@@ -23,7 +38,7 @@ const projects = [
     imageAlt: "Patrimony landing page — a calm, editorial wealth-tracking dashboard",
   },
   {
-    index: "02",
+    index: "03",
     tag: "Trip Companion",
     title: "Trek Kleinwalsertal",
     friction:
@@ -37,17 +52,6 @@ const projects = [
     image: "/projects/trek.jpg",
     imageAlt:
       "Trek Kleinwalsertal — interactive topographic map of the four-day alpine route",
-  },
-  {
-    index: "03",
-    tag: "Data & API",
-    title: "Coming soon",
-    friction:
-      "Decisions were made on stale exports; nobody could see what was happening in their business right now.",
-    solution:
-      "A clean dashboard backed by a real-time data pipeline, surfacing the few numbers that actually drive decisions.",
-    outcome:
-      "Clarity at a glance — the business now steers by live signal instead of last month's guesswork.",
   },
 ];
 
