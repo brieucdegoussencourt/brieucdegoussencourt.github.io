@@ -89,8 +89,7 @@ export default function Footer() {
         </div>
 
         <p className="pb-8 text-center text-xs text-canvas/40">
-          © {year} Brieuc de Goussencourt — Independent IT Specialist &amp;
-          Digital Consultant.
+          © {year} Brieuc de Goussencourt — Independent Web Developer.
         </p>
       </div>
     </footer>
