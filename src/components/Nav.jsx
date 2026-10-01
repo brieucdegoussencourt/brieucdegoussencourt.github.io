@@ -31,9 +31,16 @@ export default function Nav() {
       >
         <a
           href="#top"
-          className="font-serif text-lg tracking-tight text-charcoal"
+          aria-label="Brieuc de Goussencourt — home"
+          className="block shrink-0 transition-opacity hover:opacity-85"
         >
-          Brieuc<span className="text-clay">.</span>
+          <img
+            src={`${import.meta.env.BASE_URL}favicon.svg`}
+            alt=""
+            width="36"
+            height="36"
+            className="h-9 w-9"
+          />
         </a>
 
         <div className="hidden items-center gap-9 md:flex">
