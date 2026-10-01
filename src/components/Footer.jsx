@@ -17,16 +17,14 @@ export default function Footer() {
       <div className="px-6 py-24 lg:px-8 lg:py-32">
         <div ref={cta} className="reveal mx-auto max-w-3xl text-center">
           <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-clay-soft">
-            Let's Connect
+            Contact
           </p>
           <h2 className="font-serif text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            Technology should be an asset,
-            <br className="hidden sm:block" /> never a headache.
+            Vous avez un projet en tête ?
           </h2>
           <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-canvas/70">
-            If something digital is slowing your business down — or you simply
-            want it to feel more effortless — let's have a calm, jargon-free
-            conversation about it.
+            Le plus simple, c'est d'en parler. Prenez rendez-vous, appelez-moi
+            ou écrivez-moi, je vous réponds rapidement.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -35,14 +33,14 @@ export default function Footer() {
               {...calButtonProps}
               className="group inline-flex items-center gap-2.5 rounded-full bg-canvas px-7 py-3.5 text-sm font-semibold text-charcoal transition-all duration-300 hover:bg-dawn-soft active:scale-[0.97]"
             >
-              Book a meeting
+              Prendre rendez-vous
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             <a
               href={`tel:${PHONE.replace(/\s/g, "")}`}
               className="inline-flex items-center gap-2 rounded-full border border-dawn/70 bg-dawn/10 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/25 active:scale-[0.97]"
             >
-              <PhoneIcon className="h-4 w-4" /> Call {PHONE}
+              <PhoneIcon className="h-4 w-4" /> {PHONE}
             </a>
             <a
               href={LINKEDIN}
@@ -50,7 +48,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-full border border-dawn/70 bg-dawn/10 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/25 active:scale-[0.97]"
             >
-              Connect on LinkedIn
+              Me suivre sur LinkedIn
             </a>
           </div>
         </div>
@@ -79,7 +77,7 @@ export default function Footer() {
               href={`mailto:${EMAIL}`}
               className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
             >
-              <MailIcon className="h-4 w-4" /> Contact
+              <MailIcon className="h-4 w-4" /> E-mail
             </a>
             <a
               href={GITHUB}
@@ -93,7 +91,7 @@ export default function Footer() {
         </div>
 
         <p className="pb-8 text-center text-xs text-canvas/40">
-          © {year} Brieuc de Goussencourt — Independent Web Developer.
+          © {year} Brieuc de Goussencourt — Développeur web indépendant
         </p>
       </div>
     </footer>

@@ -2,8 +2,9 @@ import { useEffect, useState } from "react";
 import { calButtonProps } from "../lib/booking.js";
 
 const links = [
-  { href: "#approach", label: "How I Work" },
-  { href: "#work", label: "Selected Work" },
+  { href: "#approach", label: "Ma méthode" },
+  { href: "#about", label: "À propos" },
+  { href: "#work", label: "Réalisations" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -31,7 +32,7 @@ export default function Nav() {
       >
         <a
           href="#top"
-          aria-label="Brieuc de Goussencourt — home"
+          aria-label="Brieuc de Goussencourt — accueil"
           className="block shrink-0 transition-opacity hover:opacity-85"
         >
           <img
@@ -60,7 +61,7 @@ export default function Nav() {
           {...calButtonProps}
           className="rounded-full border border-dawn bg-dawn/10 px-5 py-2 text-sm font-medium text-charcoal transition-all duration-300 hover:border-dawn-deep hover:bg-dawn/30 active:scale-[0.97] active:bg-dawn/40"
         >
-          Book a meeting
+          Prendre rendez-vous
         </button>
       </nav>
     </header>

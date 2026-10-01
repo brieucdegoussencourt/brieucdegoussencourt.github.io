@@ -1,6 +1,7 @@
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import Process from "./components/Process.jsx";
+import About from "./components/About.jsx";
 import Portfolio from "./components/Portfolio.jsx";
 import Footer from "./components/Footer.jsx";
 import { useCalInit } from "./lib/booking.js";
@@ -16,13 +17,14 @@ export default function App() {
         href="#top"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-charcoal focus:px-5 focus:py-2 focus:text-sm focus:text-canvas"
       >
-        Skip to content
+        Aller au contenu
       </a>
 
       <Nav />
       <main>
         <Hero />
         <Process />
+        <About />
         <Portfolio />
       </main>
       <Footer />

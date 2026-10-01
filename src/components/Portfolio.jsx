@@ -2,21 +2,16 @@ import { useReveal } from "../lib/useReveal.js";
 import { ArrowIcon, GithubIcon } from "./icons.jsx";
 
 /*
-  Curated micro-case studies, each structured Friction → Solution → Outcome.
-  Real projects carry `href` (live) and `repo` (source); slots still being
-  written leave both off and render a "coming soon" note instead of dead links.
+  A few real projects, each with a short description. Projects without `href`
+  render a "bientôt en ligne" note instead of dead links.
 */
 const projects = [
   {
     index: "01",
-    tag: "Direct Booking",
+    tag: "Réservation en direct",
     title: "Le Cottage des Perdrix",
-    friction:
-      "A holiday cottage in a private forest estate depended on rental platforms — commission on every stay, a generic listing that couldn't convey the place, and guests left asking how to find the house behind a gated domain.",
-    solution:
-      "A warm, trilingual (FR / NL / EN) direct-booking site: a live availability calendar with nightly pricing and stay presets, an honest guide to the estate, and step-by-step access — map, illustrated domain plan, directions and FAQ, and most importantly a fast and secure way to make payments.",
-    outcome:
-      "Guests book directly, commission-free, and arrive knowing exactly where to go — the site does the host's explaining before anyone has to pick up the phone.",
+    description:
+      "Un gîte dans un domaine privé en forêt, qui dépendait des plateformes de location. J'ai créé un site en trois langues avec un calendrier de disponibilités, le paiement en ligne et toutes les infos pour trouver la maison. Les clients réservent maintenant en direct, sans commission.",
     href: "https://cottagedesperdrix.be/",
     image: "/projects/cottage.jpg",
     imageAlt:
@@ -24,14 +19,10 @@ const projects = [
   },
   {
     index: "02",
-    tag: "Wealth Platform",
+    tag: "Suivi de patrimoine",
     title: "Patrimony",
-    friction:
-      "Tracking real wealth means scattered spreadsheets and loud, anxious finance apps — neon tickers, urgent red and green — that bury the one thing that matters: a calm, clear view of where you actually stand.",
-    solution:
-      "A warm, editorial platform that unifies listed stocks, private equity and real-world assets in one place — live market data, honest performance math (MWR / TWR / XIRR) and role-based multi-portfolio sharing, wrapped in a light “morning-light” interface. Built with Next.js, Supabase and Prisma.",
-    outcome:
-      "One trustworthy dashboard that answers “where do I stand?” at a glance — allocation, performance and dividends across every asset class, with the only alerting colour reserved for what truly matters.",
+    description:
+      "Une application pour suivre tout son patrimoine au même endroit : actions, private equity et biens réels. Des données de marché à jour, des calculs de performance fiables et des graphiques clairs, sans le stress des applis financières habituelles.",
     href: "https://patrimony-neon.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/patrimony",
     image: "/projects/patrimony.jpg",
@@ -39,14 +30,10 @@ const projects = [
   },
   {
     index: "03",
-    tag: "Trip Companion",
+    tag: "Carnet de voyage",
     title: "Trek Kleinwalsertal",
-    friction:
-      "Planning a multi-day alpine trek meant juggling scattered sources — trail maps in one place, weather forecasts in another, hut bookings, safety notes and packing lists everywhere else — with nothing tying it together before heading into the mountains.",
-    solution:
-      "A single companion app that gathers everything the trip needs in one calm place: an interactive topographic map of the full route, day-by-day stages, live weather, safety guidance and a packing checklist.",
-    outcome:
-      "The whole trek at a glance — trails, weather and safety in one view, so the group could stop tab-juggling and start walking with confidence.",
+    description:
+      "Une appli pour préparer un trek de plusieurs jours dans les Alpes avec des amis : la carte du parcours, les étapes jour par jour, la météo et la liste du matériel, tout au même endroit.",
     href: "https://trek-kleinwalsertal.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/trek-kleinwalsertal",
     image: "/projects/trek.jpg",
@@ -66,15 +53,14 @@ export default function Portfolio() {
       <div className="mx-auto max-w-6xl">
         <div ref={heading} className="reveal mx-auto max-w-2xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay">
-            Selected Work
+            Réalisations
           </p>
           <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal sm:text-4xl">
-            Friction out. Smooth experiences in.
+            Quelques projets récents.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-            A few projects where thoughtful design and dependable engineering
-            removed a real business headache. Each one started with friction —
-            and ended with growth.
+            Des sites et des applications sur lesquels j'ai travaillé, pour
+            des clients ou pour moi.
           </p>
         </div>
 
@@ -103,11 +89,11 @@ function CaseStudy({ project, index }) {
           target="_blank"
           rel="noopener noreferrer"
           className="block overflow-hidden rounded-2xl border border-stone bg-sand"
-          aria-label={`Open ${project.title}`}
+          aria-label={`Ouvrir ${project.title}`}
         >
           <img
             src={project.image}
-            alt={project.imageAlt || `${project.title} preview`}
+            alt={project.imageAlt || `Aperçu de ${project.title}`}
             loading="lazy"
             width={2880}
             height={1240}
@@ -139,7 +125,7 @@ function CaseStudy({ project, index }) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 text-sm font-semibold text-clay-deep transition-colors hover:text-dawn-deep"
             >
-              View Project
+              Voir le projet
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </a>
             {project.repo && (
@@ -156,38 +142,16 @@ function CaseStudy({ project, index }) {
           </div>
         ) : (
           <p className="mt-6 text-sm font-medium text-muted">
-            Case study coming soon
+            Bientôt en ligne
           </p>
         )}
       </div>
 
-      {/* Right rail: Friction → Solution → Outcome */}
-      <div className="grid gap-6 lg:col-span-8 sm:grid-cols-3">
-        <Facet label="The Friction" body={project.friction} accent="sage" />
-        <Facet label="The Solution" body={project.solution} accent="clay" />
-        <Facet label="The Outcome" body={project.outcome} accent="charcoal" />
-      </div>
+      {/* Right rail: short description */}
+      <p className="text-[17px] leading-relaxed text-charcoal-soft lg:col-span-8 lg:border-t lg:border-stone lg:pt-5">
+        {project.description}
+      </p>
       </div>
     </article>
-  );
-}
-
-function Facet({ label, body, accent }) {
-  const dot =
-    accent === "clay"
-      ? "bg-clay"
-      : accent === "sage"
-        ? "bg-sage"
-        : "bg-charcoal";
-  return (
-    <div className="border-t border-stone pt-4">
-      <p className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.14em] text-charcoal-soft">
-        <span className={`h-1.5 w-1.5 rounded-full ${dot}`} />
-        {label}
-      </p>
-      <p className="mt-3 text-[15px] leading-relaxed text-charcoal-soft">
-        {body}
-      </p>
-    </div>
   );
 }

@@ -23,27 +23,19 @@ export default function Hero() {
         >
           <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-stone bg-canvas/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-charcoal-soft">
             <span className="h-1.5 w-1.5 rounded-full bg-clay" />
-            Independent Web Developer
+            Développeur web indépendant
           </p>
 
           <h1 className="font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-            I remove digital friction
-            <br className="hidden sm:block" />
-            <span className="italic text-clay-deep"> so your business can</span>
-            <span className=" font-semibold text-clay-deep"> grow.</span>
+            Bonjour, je suis
+            <span className="italic text-clay-deep"> Brieuc.</span>
           </h1>
 
           <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
-            I pair{" "}
-            <span className="font-semibold text-charcoal">business strategy</span>{" "}
-            and{" "}
-            <span className="font-semibold text-charcoal">user experience</span>{" "}
-            with{" "}
-            <span className="font-semibold text-charcoal">
-              IT solutions
-            </span>{" "}
-            — building websites, apps, and the quiet machinery behind them so
-            that every interaction feels effortless.
+            J'aide les petites entreprises à se doter d'un outil numérique
+            professionnel : un site, une application, ou un système de
+            réservation relié à votre agenda et à vos e-mails. Fait sur mesure,
+            pour vous.
           </p>
 
           <div
@@ -56,14 +48,14 @@ export default function Hero() {
               {...calButtonProps}
               className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas ring-2 ring-transparent ring-offset-2 ring-offset-transparent transition-all duration-300 hover:bg-charcoal-soft hover:ring-dawn hover:ring-offset-canvas active:scale-[0.97]"
             >
-              Discuss Your Project
+              Parlons de votre projet
               <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </button>
             <a
               href="#work"
               className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-charcoal-soft transition-colors hover:text-dawn-deep"
             >
-              See selected work
+              Voir mes réalisations
             </a>
           </div>
         </div>
