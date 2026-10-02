@@ -59,8 +59,8 @@ export default function Portfolio() {
             Quelques projets récents.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-            Des sites et des applications sur lesquels j'ai travaillé, pour
-            des clients ou pour moi.
+            Une sélection de plateformes, applications et outils sur mesure
+            développés pour mes clients ou menés en propre.
           </p>
         </div>
 

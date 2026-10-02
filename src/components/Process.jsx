@@ -5,20 +5,20 @@ const steps = [
   {
     icon: CompassIcon,
     index: "01",
-    title: "La maquette",
-    body: "Après notre échange, je prépare une maquette visuelle et un devis complet. Nous ne lançons le projet que si la proposition vous convient parfaitement.",
+    title: "Cadrage & Maquette",
+    body: "Suite à notre discussion, je conçois une maquette visuelle accompagnée d'un devis détaillé. Aucun risque : nous ne lançons le développement que si la proposition vous convient parfaitement.",
   },
   {
     icon: LayersIcon,
     index: "02",
-    title: "Le prototype",
-    body: "Une fois la maquette validée, je construis une première version qui fonctionne. Vous la testez, et on ajuste ce qui doit l'être.",
+    title: "Prototype & Ajustements",
+    body: "Une fois le design validé, je développe une première version fonctionnelle. Vous la prenez en main en conditions réelles, et nous affinons chaque détail selon vos retours.",
   },
   {
     icon: FlowIcon,
     index: "03",
-    title: "La version finale",
-    body: "Je peaufine les détails et je mets tout en ligne. Ensuite, je peux aussi m'occuper de la maintenance et des évolutions.",
+    title: "Mise en ligne & Suivi",
+    body: "Après les derniers ajustements, je déploie votre solution clé en main. Je reste à vos côtés pour assurer la maintenance technique et faire évoluer l'outil au fil de vos besoins.",
   },
 ];
 
@@ -36,11 +36,12 @@ export default function Process() {
             Ma méthode
           </p>
           <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal sm:text-4xl">
-            Une solution adaptée, en trois étapes.
+            Une méthode claire, en trois étapes.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-            Tout commence par une discussion : vous m'expliquez ce dont vous
-            avez besoin, on réfléchit ensemble et je m'occupe du reste.
+            Tout commence par un échange pour cerner vos enjeux et poser les
+            bases. L'objectif : concevoir un outil robuste qui simplifie
+            réellement votre quotidien.
           </p>
         </div>
 

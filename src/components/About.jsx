@@ -14,18 +14,21 @@ export default function About() {
             Qui suis-je ?
           </p>
           <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal">
-            De la mise en scène au développement sur mesure.
+            De la réalisation au code.
           </h2>
         </div>
 
         <div className="space-y-5 text-lg leading-relaxed text-charcoal-soft lg:col-span-8">
           <p>
-            Avant d'être développeur, j'ai été réalisateur dans l'audiovisuel.
-            J'ai appris à écrire une histoire, à mettre en images et à placer l'humain au cœur de chaque création.
-            Cette expérience m'a enseigné les principes du « storytelling », du design et de l'expérience utilisateur.
+            Avant de concevoir des outils numériques, j'ai réalisé des projets
+            audiovisuels. Ce parcours a façonné ma façon de travailler : le
+            sens du rythme, l'exigence du cadrage et la priorité absolue donnée
+            à l'humain — hier spectateur, aujourd'hui utilisateur.
           </p>
           <p>
-            Rigoureux, pragmatique et orienté solution, j'aime transformer des problématiques complexes en interfaces claires, intuitives et utiles.
+            Alliant rigueur analytique et sensibilité visuelle, j'aime
+            transformer des logiques complexes en parcours simples, élégants
+            et immédiatement utiles.
           </p>
         </div>
       </div>

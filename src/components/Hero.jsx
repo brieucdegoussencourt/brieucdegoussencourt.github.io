@@ -32,8 +32,10 @@ export default function Hero() {
           </h1>
 
           <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
-            J'accompagne indépendants et entreprises dans la création de leurs sites, applications et outils numériques.
-            Du design au code : des solutions intuitives, taillées sur mesure et immédiatement utiles pour optimiser vos projets.
+            J'accompagne indépendants et entreprises dans la création de leurs
+            sites, applications et outils connectés. Du design d'interface au
+            développement : des solutions fluides, conçues sur mesure pour
+            votre activité.
           </p>
 
           <div
