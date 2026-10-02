@@ -23,7 +23,7 @@ const projects = [
     tag: "Suivi de patrimoine",
     title: "Patrimony",
     description:
-      "Une application pour suivre tout son patrimoine au même endroit : actions et fonds cotés en temps réel, biens non cotés personnalisables, des calculs de performance fiables et des graphiques clairs afin d'avoir une vue claire et consolidée du rendement global de son portefeuille.",
+      "Une application pour suivre tout son patrimoine au même endroit : actions et fonds cotés en temps réel, biens non cotés personnalisables, des calculs de performance fiables et des graphiques lisibles afin d'avoir une vue claire et consolidée du rendement global de son portefeuille.",
     href: "https://patrimony-neon.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/patrimony",
     image: "/projects/patrimony.jpg",
