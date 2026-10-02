@@ -1,6 +1,7 @@
 import { useReveal } from "../lib/useReveal.js";
 import { ArrowIcon, LinkedInIcon, MailIcon, GithubIcon, PhoneIcon } from "./icons.jsx";
 import { calButtonProps } from "../lib/booking.js";
+import Legal from "./Legal.jsx";
 
 const EMAIL = "brieuc.degoussencourt@gmail.com";
 const PHONE = "+32 472 80 22 25";
@@ -82,9 +83,10 @@ export default function Footer() {
           </nav>
         </div>
 
-        <p className="pb-8 text-center text-xs text-canvas/40">
-          © {year} Brieuc de Goussencourt — Développeur web indépendant
-        </p>
+        <div className="pb-8 text-center text-xs text-canvas/40">
+          © {year} Brieuc de Goussencourt — Développeur web indépendant ·{" "}
+          <Legal className="underline-offset-2 transition-colors hover:text-dawn-soft hover:underline" />
+        </div>
       </div>
     </footer>
   );

@@ -6,7 +6,7 @@ const steps = [
     icon: CompassIcon,
     index: "01",
     title: "La maquette",
-    body: "Après notre échange, je conçois une maquette visuelle et un devis complet. Nous ne lançons le projet que si la proposition vous convient parfaitement.",
+    body: "Après notre échange, je prépare une maquette visuelle et un devis complet. Nous ne lançons le projet que si la proposition vous convient parfaitement.",
   },
   {
     icon: LayersIcon,
