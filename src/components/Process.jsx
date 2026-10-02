@@ -1,4 +1,5 @@
 import { useReveal } from "../lib/useReveal.js";
+import { Section, SectionHeader } from "./ui.jsx";
 import { CompassIcon, LayersIcon, FlowIcon } from "./icons.jsx";
 
 const steps = [
@@ -23,35 +24,26 @@ const steps = [
 ];
 
 export default function Process() {
-  const heading = useReveal();
-
   return (
-    <section
-      id="approach"
-      className="px-6 py-24 lg:px-8 lg:py-32"
-    >
-      <div className="mx-auto max-w-6xl">
-        <div ref={heading} className="reveal mx-auto max-w-2xl text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay">
-            Ma méthode
-          </p>
-          <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal sm:text-4xl">
-            Une méthode claire, en trois étapes.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-            Tout commence par un échange pour cerner vos enjeux et poser les
-            bases. L'objectif : concevoir un outil robuste qui simplifie
-            réellement votre quotidien.
-          </p>
-        </div>
+    <Section id="approach" labelledBy="approach-title">
+      <SectionHeader
+        id="approach-title"
+        eyebrow="Ma méthode"
+        title="Une méthode claire, en trois étapes."
+      >
+        <p>
+          Tout commence par un échange pour cerner vos enjeux et poser les
+          bases. L'objectif : concevoir un outil robuste qui simplifie
+          réellement votre quotidien.
+        </p>
+      </SectionHeader>
 
-        <div className="mt-16 grid gap-px overflow-hidden rounded-2xl border border-stone bg-stone/70 sm:grid-cols-3">
-          {steps.map((step, i) => (
-            <ProcessCard key={step.title} step={step} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
+      <ol className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-stone bg-stone md:grid-cols-3 lg:mt-16">
+        {steps.map((step, i) => (
+          <ProcessCard key={step.title} step={step} index={i} />
+        ))}
+      </ol>
+    </Section>
   );
 }
 
@@ -59,21 +51,26 @@ function ProcessCard({ step, index }) {
   const ref = useReveal();
   const Icon = step.icon;
   return (
-    <article
+    <li
       ref={ref}
       className="reveal flex flex-col bg-canvas p-8 lg:p-10"
       style={{ transitionDelay: `${index * 110}ms` }}
     >
       <div className="flex items-center justify-between">
-        <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-sand text-clay-deep">
+        <span
+          aria-hidden="true"
+          className="flex h-12 w-12 items-center justify-center rounded-xl bg-sand text-clay-deep"
+        >
           <Icon className="h-6 w-6" />
         </span>
-        <span className="font-serif text-2xl text-stone-deep">{step.index}</span>
+        <span aria-hidden="true" className="font-serif text-2xl text-stone-deep">
+          {step.index}
+        </span>
       </div>
-      <h3 className="mt-6 text-lg font-semibold text-charcoal">{step.title}</h3>
-      <p className="mt-3 text-[15px] leading-relaxed text-charcoal-soft">
+      <h3 className="mt-8 text-lg font-semibold text-charcoal">{step.title}</h3>
+      <p className="mt-3 text-base leading-relaxed text-charcoal-soft">
         {step.body}
       </p>
-    </article>
+    </li>
   );
 }

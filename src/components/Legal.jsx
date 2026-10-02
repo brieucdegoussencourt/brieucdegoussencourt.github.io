@@ -1,4 +1,5 @@
 import { useRef } from "react";
+import { iconButtonClass } from "./ui.jsx";
 
 const EMAIL = "brieuc.degoussencourt@gmail.com";
 const PHONE = "+32 472 80 22 25";
@@ -22,7 +23,7 @@ export default function Legal({ className = "" }) {
         onClick={() => dialog.current?.showModal()}
         className={className}
       >
-        Mentions légales
+        <span className="link-underline">Mentions légales</span>
       </button>
 
       <dialog
@@ -40,13 +41,23 @@ export default function Legal({ className = "" }) {
               type="button"
               onClick={() => dialog.current?.close()}
               aria-label="Fermer"
-              className="-mr-2 -mt-1 rounded-full px-3 py-1 text-2xl leading-none text-charcoal-soft transition-colors hover:bg-sand hover:text-charcoal"
+              className={`${iconButtonClass} -mr-2 -mt-1 text-charcoal-soft hover:text-charcoal`}
             >
-              ×
+              <svg
+                viewBox="0 0 24 24"
+                className="h-5 w-5"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.5"
+                strokeLinecap="round"
+                aria-hidden="true"
+              >
+                <path d="M6 6l12 12M18 6 6 18" />
+              </svg>
             </button>
           </div>
 
-          <div className="mt-8 space-y-7 text-[15px] leading-relaxed text-charcoal-soft">
+          <div className="mt-8 space-y-7 text-base leading-relaxed text-charcoal-soft">
             <Block title="Éditeur du site">
               <p>
                 Brieuc de Goussencourt, développeur
@@ -58,7 +69,7 @@ export default function Legal({ className = "" }) {
                 TVA : <ToFill />
                 <br />
                 E-mail :{" "}
-                <a href={`mailto:${EMAIL}`} className="underline hover:text-dawn-deep">
+                <a href={`mailto:${EMAIL}`} className="underline underline-offset-2 transition-colors duration-300 hover:text-charcoal">
                   {EMAIL}
                 </a>
                 <br />

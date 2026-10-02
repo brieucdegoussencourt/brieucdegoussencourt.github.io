@@ -1,5 +1,6 @@
 import { useReveal } from "../lib/useReveal.js";
-import { ArrowIcon, GithubIcon } from "./icons.jsx";
+import { GithubIcon } from "./icons.jsx";
+import { Section, SectionHeader, NewTabHint, HoverArrow, linkClass } from "./ui.jsx";
 
 /*
   A few real projects, each with a short description. Projects without `href`
@@ -43,115 +44,121 @@ const projects = [
 ];
 
 export default function Portfolio() {
-  const heading = useReveal();
-
   return (
-    <section
+    <Section
       id="work"
-      className="bg-gradient-to-b from-canvas via-sand/60 to-canvas px-6 py-24 lg:px-8 lg:py-32"
+      labelledBy="work-title"
+      className="bg-gradient-to-b from-canvas via-sand/60 to-canvas"
     >
-      <div className="mx-auto max-w-6xl">
-        <div ref={heading} className="reveal mx-auto max-w-2xl text-center">
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay">
-            Réalisations
-          </p>
-          <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal sm:text-4xl">
-            Quelques projets récents.
-          </h2>
-          <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-            Une sélection de plateformes, applications et outils sur mesure
-            développés pour mes clients ou menés en propre.
-          </p>
-        </div>
+      <SectionHeader
+        id="work-title"
+        eyebrow="Réalisations"
+        title="Quelques projets récents."
+      >
+        <p>
+          Une sélection de plateformes, applications et outils sur mesure
+          développés pour mes clients ou menés en propre.
+        </p>
+      </SectionHeader>
 
-        <div className="mt-16 space-y-6">
-          {projects.map((p, i) => (
-            <CaseStudy key={p.index} project={p} index={i} />
-          ))}
-        </div>
-      </div>
-    </section>
+      <ul className="mt-12 space-y-8 lg:mt-16">
+        {projects.map((p) => (
+          <CaseStudy key={p.index} project={p} />
+        ))}
+      </ul>
+    </Section>
   );
 }
 
-function CaseStudy({ project, index }) {
+function CaseStudy({ project }) {
   const ref = useReveal();
+  const titleId = `project-${project.index}`;
   return (
-    <article
+    <li
       ref={ref}
-      className="reveal group flex flex-col gap-8 rounded-3xl border border-stone bg-canvas p-8 transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgba(58,54,49,0.35)] lg:gap-10 lg:p-10"
-      style={{ transitionDelay: `${index * 90}ms` }}
+      className="reveal group rounded-3xl border border-stone bg-canvas p-4 transition-shadow duration-500 hover:shadow-[0_24px_60px_-30px_rgba(58,54,49,0.35)] sm:p-6 lg:p-8"
     >
-      {/* Optional preview image */}
-      {project.image && (
-        <a
-          href={project.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block overflow-hidden rounded-2xl border border-stone bg-sand"
-          aria-label={`Ouvrir ${project.title}`}
-        >
-          <img
-            src={project.image}
-            alt={project.imageAlt || `Aperçu de ${project.title}`}
-            loading="lazy"
-            width={2880}
-            height={1240}
-            className="aspect-[2.32/1] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
-          />
-        </a>
-      )}
+      <article aria-labelledby={titleId}>
+        {/* Preview image — a duplicate of the "Voir le projet" link, so it is
+            skipped in the tab order to avoid two stops for one destination. */}
+        {project.image && (
+          <a
+            href={project.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            tabIndex={-1}
+            className="block overflow-hidden rounded-2xl border border-stone bg-sand"
+          >
+            <img
+              src={project.image}
+              alt={project.imageAlt || `Aperçu de ${project.title}`}
+              loading="lazy"
+              decoding="async"
+              width={2880}
+              height={1240}
+              className="aspect-[2.32/1] w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.02]"
+            />
+          </a>
+        )}
 
-      <div className="grid gap-8 lg:grid-cols-12 lg:gap-10">
-      {/* Left rail: index + tag + title */}
-      <div className="lg:col-span-4">
-        <div className="flex items-center gap-4">
-          <span className="font-serif text-3xl text-stone-deep">
-            {project.index}
-          </span>
-          <span className="rounded-full border border-stone bg-sand px-3 py-1 text-xs font-medium uppercase tracking-wider text-charcoal-soft">
-            {project.tag}
-          </span>
-        </div>
-        <h3 className="mt-5 font-serif text-2xl tracking-tight text-charcoal">
-          {project.title}
-        </h3>
-
-        {project.href ? (
-          <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <a
-              href={project.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm font-semibold text-clay-deep transition-colors hover:text-dawn-deep"
+        <div className="grid gap-6 px-2 pt-8 pb-2 lg:grid-cols-12 lg:gap-12 lg:pt-10">
+          {/* Left: index + tag + title + links */}
+          <div className="lg:col-span-5">
+            <div className="flex flex-wrap items-center gap-4">
+              <span aria-hidden="true" className="font-serif text-2xl text-stone-deep">
+                {project.index}
+              </span>
+              <span className="rounded-full border border-stone bg-sand px-3 py-1 text-xs font-medium uppercase tracking-wider text-charcoal-soft">
+                {project.tag}
+              </span>
+            </div>
+            <h3
+              id={titleId}
+              className="mt-5 font-serif text-2xl tracking-tight text-charcoal"
             >
-              Voir le projet
-              <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </a>
-            {project.repo && (
-              <a
-                href={project.repo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-charcoal-soft transition-colors hover:text-dawn-deep"
-              >
-                <GithubIcon className="h-4 w-4" />
-                Code
-              </a>
+              {project.title}
+            </h3>
+
+            {project.href ? (
+              <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2">
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${linkClass} min-h-11 text-sm font-semibold text-clay-deep hover:text-charcoal`}
+                >
+                  <span className="link-underline">Voir le projet</span>
+                  <span className="sr-only"> {project.title}</span>
+                  <NewTabHint />
+                  <HoverArrow />
+                </a>
+                {project.repo && (
+                  <a
+                    href={project.repo}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`${linkClass} min-h-11 text-sm font-medium text-charcoal-soft hover:text-charcoal`}
+                  >
+                    <GithubIcon className="h-4 w-4" />
+                    <span className="link-underline">Code</span>
+                    <span className="sr-only"> source de {project.title}</span>
+                    <NewTabHint />
+                  </a>
+                )}
+              </div>
+            ) : (
+              <p className="mt-5 text-sm font-medium text-muted">
+                Bientôt en ligne
+              </p>
             )}
           </div>
-        ) : (
-          <p className="mt-6 text-sm font-medium text-muted">
-            Bientôt en ligne
-          </p>
-        )}
-      </div>
 
-      {/* Right rail: short description */}
-      <p className="text-[17px] leading-relaxed text-charcoal-soft lg:col-span-8 lg:border-t lg:border-stone lg:pt-5">
-        {project.description}
-      </p>
-      </div>
-    </article>
+          {/* Right: short description */}
+          <p className="text-base leading-relaxed text-charcoal-soft lg:col-span-7 lg:border-t lg:border-stone lg:pt-6">
+            {project.description}
+          </p>
+        </div>
+      </article>
+    </li>
   );
 }

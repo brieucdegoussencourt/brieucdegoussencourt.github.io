@@ -14,7 +14,7 @@
 
   --color-clay: #b08968; /* warm wood accent */
   --color-clay-soft: #c4a589;
-  --color-clay-deep: #8f6b4f;
+  --color-clay-deep: #7a5a41; /* AA contrast on canvas & sand for small text */
 
   --color-sage: #7f8b76; /* organic secondary accent */
   --color-sage-soft: #9aa491;
@@ -25,7 +25,7 @@
 
   --color-charcoal: #3a3631; /* matte charcoal (primary text) */
   --color-charcoal-soft: #57514a;
-  --color-muted: #8a8278; /* muted captions */
+  --color-muted: #6f675d; /* muted captions (AA on canvas) */
 
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
@@ -37,6 +37,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Keep anchor targets clear of the fixed header */
+    scroll-padding-top: 5rem;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
@@ -72,6 +74,22 @@
 /* Subtle, intentional fade-in-on-scroll. Elements start hidden,
    become visible when .is-visible is toggled by an IntersectionObserver. */
 @layer utilities {
+  /* Text-link hover: an underline that grows from the left. Put it on the
+     element wrapping the label text. Stays drawn for the current nav item. */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 1px;
+    padding-bottom: 2px;
+    transition: background-size 0.35s var(--ease-organic);
+  }
+  :where(a, button):hover .link-underline,
+  :where(a, button):focus-visible .link-underline,
+  [aria-current] .link-underline {
+    background-size: 100% 1px;
+  }
+
   .reveal {
     opacity: 0;
     transform: translateY(18px);

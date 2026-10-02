@@ -1,6 +1,6 @@
 import { useReveal } from "../lib/useReveal.js";
-import { ArrowIcon } from "./icons.jsx";
 import { calButtonProps } from "../lib/booking.js";
+import { Container, buttonStyles, HoverArrow } from "./ui.jsx";
 
 export default function Hero() {
   const r1 = useReveal();
@@ -9,57 +9,54 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden bg-gradient-to-b from-stone/60 via-sand/40 to-canvas px-6 pt-36 pb-28 lg:px-8 lg:pt-44 lg:pb-36"
+      aria-labelledby="hero-title"
+      className="relative overflow-hidden bg-gradient-to-b from-stone/60 via-sand/40 to-canvas pt-32 pb-20 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28"
     >
       {/* Quiet warm wash for a touch of depth */}
       <div aria-hidden="true" className="pointer-events-none absolute inset-0">
         <div className="absolute -right-32 -top-24 h-[34rem] w-[34rem] rounded-full bg-clay-soft/20 blur-3xl" />
       </div>
 
-      <div className="relative mx-auto max-w-4xl">
+      <Container className="relative">
         <div
           ref={r1}
-          className="reveal rounded-[2rem] border border-stone bg-canvas px-7 py-14 text-center shadow-[0_38px_90px_-44px_rgba(58,54,49,0.6)] sm:px-14 sm:py-20"
+          className="reveal rounded-3xl border border-stone bg-canvas px-5 py-16 text-center shadow-[0_38px_90px_-44px_rgba(58,54,49,0.6)] sm:px-12 sm:py-20 lg:py-24"
         >
-          <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-stone bg-canvas/70 px-4 py-1.5 text-xs font-medium uppercase tracking-[0.18em] text-charcoal-soft">
-            <span className="h-1.5 w-1.5 rounded-full bg-clay" />
+          <p className="mb-8 inline-flex items-center gap-2 rounded-full border border-stone bg-sand/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-charcoal-soft">
+            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-clay" />
             Développeur
           </p>
 
-          <h1 className="font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
-            Bonjour, je suis
-            <span className="italic text-clay-deep"> Brieuc.</span>
+          <h1
+            id="hero-title"
+            className="font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
+          >
+            Bonjour, je&nbsp;suis <br className="sm:hidden" />
+            <span className="italic text-clay-deep">Brieuc.</span>
           </h1>
 
-          <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-charcoal-soft sm:text-xl">
             J'accompagne indépendants et entreprises dans la création de leurs
-            sites, applications et outils connectés. Du design d'interface au
+            sites, applications et outils connectés. Du design au
             développement : des solutions fluides, conçues sur mesure pour
             votre activité.
           </p>
 
           <div
             ref={r2}
-            className="reveal mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
+            className="reveal mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
             style={{ transitionDelay: "120ms" }}
           >
-            <button
-              type="button"
-              {...calButtonProps}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-charcoal px-7 py-3.5 text-sm font-semibold text-canvas ring-2 ring-transparent ring-offset-2 ring-offset-transparent transition-all duration-300 hover:bg-charcoal-soft hover:ring-dawn hover:ring-offset-canvas active:scale-[0.97]"
-            >
+            <button type="button" {...calButtonProps} className={buttonStyles.primary}>
               Parlons de votre projet
-              <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              <HoverArrow />
             </button>
-            <a
-              href="#work"
-              className="inline-flex items-center gap-2 px-2 py-2 text-sm font-semibold text-charcoal-soft transition-colors hover:text-dawn-deep"
-            >
+            <a href="#work" className={buttonStyles.secondary}>
               Voir mes réalisations
             </a>
           </div>
         </div>
-      </div>
+      </Container>
     </section>
   );
 }

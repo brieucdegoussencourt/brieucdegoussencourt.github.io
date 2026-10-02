@@ -1,7 +1,14 @@
-import { useReveal } from "../lib/useReveal.js";
-import { ArrowIcon, LinkedInIcon, MailIcon, GithubIcon, PhoneIcon } from "./icons.jsx";
+import { LinkedInIcon, MailIcon, GithubIcon, PhoneIcon } from "./icons.jsx";
 import { calButtonProps } from "../lib/booking.js";
 import Legal from "./Legal.jsx";
+import {
+  Container,
+  SectionHeader,
+  buttonStyles,
+  linkClass,
+  HoverArrow,
+  NewTabHint,
+} from "./ui.jsx";
 
 const EMAIL = "brieuc.degoussencourt@gmail.com";
 const PHONE = "+32 472 80 22 25";
@@ -9,84 +16,84 @@ const LINKEDIN = "https://www.linkedin.com/in/brieuc-de-goussencourt-003324304";
 const GITHUB = "https://github.com/brieucdegoussencourt";
 
 export default function Footer() {
-  const cta = useReveal();
   const year = new Date().getFullYear();
+  const barLink = `${linkClass} min-h-11 hover:text-canvas`;
 
   return (
     <footer id="contact" className="bg-charcoal text-canvas">
       {/* Closing invitation */}
-      <div className="px-6 py-24 lg:px-8 lg:py-32">
-        <div ref={cta} className="reveal mx-auto max-w-3xl text-center">
-          <p className="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-clay-soft">
-            Contact
-          </p>
-          <h2 className="font-serif text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-            Vous avez un projet en tête ?
-          </h2>
-          <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-canvas/70">
-            Le plus simple, c'est d'en parler. Prenez rendez-vous, appelez-moi
-            ou écrivez-moi, je vous réponds rapidement.
-          </p>
-
-          <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-            <button
-              type="button"
-              {...calButtonProps}
-              className="group inline-flex items-center gap-2.5 rounded-full bg-canvas px-7 py-3.5 text-sm font-semibold text-charcoal transition-all duration-300 hover:bg-dawn-soft active:scale-[0.97]"
-            >
-              Prendre rendez-vous
-              <ArrowIcon className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-            </button>
-            <a
-              href={`tel:${PHONE.replace(/\s/g, "")}`}
-              className="inline-flex items-center gap-2 rounded-full border border-dawn/70 bg-dawn/10 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/25 active:scale-[0.97]"
-            >
-              <PhoneIcon className="h-4 w-4" /> {PHONE}
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 rounded-full border border-dawn/70 bg-dawn/10 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/25 active:scale-[0.97]"
-            >
-              <MailIcon className="h-4 w-4" /> E-mail
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Standard footer bar */}
-      <div className="border-t border-canvas/10">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 px-6 py-8 lg:flex-row lg:px-8">
-          <p className="font-serif text-lg">
-            Brieuc de Goussencourt<span className="text-clay-soft">.</span>
-          </p>
-
-          <nav
-            aria-label="Liens"
-            className="flex items-center gap-7 text-sm text-canvas/70"
+      <section aria-labelledby="contact-title" className="py-20 sm:py-24 lg:py-28">
+        <Container>
+          <SectionHeader
+            id="contact-title"
+            tone="dark"
+            eyebrow="Contact"
+            title="Vous avez un projet en tête ?"
           >
-            <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
-            >
-              <LinkedInIcon className="h-4 w-4" /> LinkedIn
-            </a>
-            <a
-              href={GITHUB}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
-            >
-              <GithubIcon className="h-4 w-4" /> GitHub
-            </a>
-          </nav>
-        </div>
+            <p>
+              Le plus simple, c'est d'en parler. Prenez rendez-vous, appelez-moi
+              ou écrivez-moi, je vous réponds rapidement.
+            </p>
 
-        <div className="pb-8 text-center text-xs text-canvas/40">
-          © {year} Brieuc de Goussencourt — Développeur ·{" "}
-          <Legal className="underline-offset-2 transition-colors hover:text-dawn-soft hover:underline" />
-        </div>
+            <div className="flex flex-col gap-3 pt-3 sm:flex-row sm:flex-wrap">
+              <button
+                type="button"
+                {...calButtonProps}
+                className={buttonStyles.primaryOnDark}
+              >
+                Prendre rendez-vous
+                <HoverArrow />
+              </button>
+              <a
+                href={`tel:${PHONE.replace(/\s/g, "")}`}
+                className={buttonStyles.secondaryOnDark}
+              >
+                <PhoneIcon className="h-4 w-4" />
+                <span className="sr-only">Téléphone : </span>
+                {PHONE}
+              </a>
+              <a href={`mailto:${EMAIL}`} className={buttonStyles.secondaryOnDark}>
+                <MailIcon className="h-4 w-4" />
+                <span className="sr-only">Envoyer un </span>E-mail
+              </a>
+            </div>
+          </SectionHeader>
+        </Container>
+      </section>
+
+      {/* Bottom bar */}
+      <div className="border-t border-canvas/10">
+        <Container className="flex flex-col gap-4 py-6 text-sm text-canvas/70 md:flex-row md:items-center md:justify-between">
+          <p>
+            <span className="font-serif text-base text-canvas">
+              Brieuc de Goussencourt<span className="text-clay-soft">.</span>
+            </span>
+            <span className="mx-2 text-canvas/40" aria-hidden="true">·</span>
+            © {year}
+          </p>
+
+          <nav aria-label="Liens secondaires">
+            <ul className="flex flex-wrap items-center gap-x-7">
+              <li>
+                <a href={LINKEDIN} target="_blank" rel="noopener noreferrer" className={barLink}>
+                  <LinkedInIcon className="h-4 w-4" />
+                  <span className="link-underline">LinkedIn</span>
+                  <NewTabHint />
+                </a>
+              </li>
+              <li>
+                <a href={GITHUB} target="_blank" rel="noopener noreferrer" className={barLink}>
+                  <GithubIcon className="h-4 w-4" />
+                  <span className="link-underline">GitHub</span>
+                  <NewTabHint />
+                </a>
+              </li>
+              <li>
+                <Legal className={barLink} />
+              </li>
+            </ul>
+          </nav>
+        </Container>
       </div>
     </footer>
   );

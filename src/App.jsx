@@ -14,14 +14,14 @@ export default function App() {
     <>
       {/* Skip link for keyboard & screen-reader users */}
       <a
-        href="#top"
+        href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-charcoal focus:px-5 focus:py-2 focus:text-sm focus:text-canvas"
       >
         Aller au contenu
       </a>
 
       <Nav />
-      <main>
+      <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
         <Process />
         <About />
