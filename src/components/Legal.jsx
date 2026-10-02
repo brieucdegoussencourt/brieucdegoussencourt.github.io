@@ -49,7 +49,7 @@ export default function Legal({ className = "" }) {
           <div className="mt-8 space-y-7 text-[15px] leading-relaxed text-charcoal-soft">
             <Block title="Éditeur du site">
               <p>
-                Brieuc de Goussencourt, développeur web indépendant
+                Brieuc de Goussencourt, développeur
                 <br />
                 Adresse : <ToFill />
                 <br />

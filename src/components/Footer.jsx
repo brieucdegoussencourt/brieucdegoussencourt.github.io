@@ -84,7 +84,7 @@ export default function Footer() {
         </div>
 
         <div className="pb-8 text-center text-xs text-canvas/40">
-          © {year} Brieuc de Goussencourt — Développeur web indépendant ·{" "}
+          © {year} Brieuc de Goussencourt — Développeur ·{" "}
           <Legal className="underline-offset-2 transition-colors hover:text-dawn-soft hover:underline" />
         </div>
       </div>
