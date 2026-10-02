@@ -33,7 +33,7 @@ const projects = [
     tag: "Carnet de voyage",
     title: "Trek Kleinwalsertal",
     description:
-      "Une appli pour préparer un trek de plusieurs jours dans les Alpes avec des amis : la carte du parcours, les étapes jour par jour, la météo et la liste du matériel, tout au même endroit.",
+      "Une appli pour préparer un trek de plusieurs jours dans les Alpes : la carte du parcours avec géolocalisation en temps réel, la météo live à chaque étape et une checklist du matériel, tout au même endroit.",
     href: "https://trek-kleinwalsertal.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/trek-kleinwalsertal",
     image: "/projects/trek.jpg",

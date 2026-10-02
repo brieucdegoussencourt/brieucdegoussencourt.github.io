@@ -11,24 +11,21 @@ export default function About() {
       >
         <div className="lg:col-span-4">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-clay">
-            À propos
+            Qui suis-je ?
           </p>
           <h2 className="font-serif text-3xl leading-tight tracking-tight text-charcoal">
-            Avant le code, la réalisation.
+            De la mise en scène au développement sur mesure.
           </h2>
         </div>
 
         <div className="space-y-5 text-lg leading-relaxed text-charcoal-soft lg:col-span-8">
           <p>
-            J'ai d'abord été réalisateur. C'est de là que vient mon attention
-            pour le design, pour la façon de raconter une histoire, et pour
-            les personnes qui vont utiliser ce que je crée.
+            Avant d'être développeur, j'ai été réalisateur dans l'audiovisuel.
+            J'ai appris à écrire une histoire, à mettre en images et à placer l'humain au cœur de chaque création.
+            Cette expérience m'a enseigné le principe du « storytelling », du design et de l'expérience utilisateur.
           </p>
           <p>
-            J'ai aussi un esprit très analytique : j'aime comprendre un
-            problème et trouver comment le résoudre. Manipuler des données,
-            faire des graphiques, travailler sur des projets qui ont du sens,
-            c'est ce qui me motive.
+            Rigoureux, pragmatique et orienté solution, j'aime transformer des problématiques complexes en interfaces claires, intuitives et utiles.
           </p>
         </div>
       </div>

@@ -32,10 +32,8 @@ export default function Hero() {
           </h1>
 
           <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
-            J'aide les petites entreprises à se doter d'un outil numérique
-            professionnel : un site, une application, ou un système de
-            réservation relié à votre agenda et à vos e-mails. Fait sur mesure,
-            pour vous.
+            J'aide les particuliers, les indépendants et les entreprises à concrétiser leurs projets numériques :
+            site web, application ou écosystème de communication.
           </p>
 
           <div

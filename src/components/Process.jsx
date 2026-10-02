@@ -6,7 +6,7 @@ const steps = [
     icon: CompassIcon,
     index: "01",
     title: "La maquette",
-    body: "Après notre échange, je prépare une maquette pour vous montrer concrètement à quoi ça va ressembler. Vous ne payez que si elle vous convient.",
+    body: "Après notre échange, je conçois une maquette visuelle et un devis complet. Nous ne lançons le projet que si la proposition vous convient parfaitement.",
   },
   {
     icon: LayersIcon,
@@ -39,8 +39,10 @@ export default function Process() {
             Une solution adaptée, en trois étapes.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-            Tout commence par une discussion. Vous m'expliquez ce dont vous
-            avez besoin, on réfléchit ensemble, et je m'occupe du reste.
+            De la création de l'identité graphique à la mise en production,
+            je conçois des solutions sur mesure pour développer vos projets.
+            Tout commence par une discussion : vous m'expliquez ce dont vous
+            avez besoin, on réfléchit ensemble et je m'occupe du reste.
           </p>
         </div>
 

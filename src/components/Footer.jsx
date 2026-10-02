@@ -43,12 +43,10 @@ export default function Footer() {
               <PhoneIcon className="h-4 w-4" /> {PHONE}
             </a>
             <a
-              href={LINKEDIN}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={`mailto:${EMAIL}`}
               className="inline-flex items-center gap-2 rounded-full border border-dawn/70 bg-dawn/10 px-7 py-3.5 text-sm font-semibold text-canvas transition-all duration-300 hover:border-dawn hover:bg-dawn/25 active:scale-[0.97]"
             >
-              Me suivre sur LinkedIn
+              <MailIcon className="h-4 w-4" /> E-mail
             </a>
           </div>
         </div>
@@ -72,12 +70,6 @@ export default function Footer() {
               className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
             >
               <LinkedInIcon className="h-4 w-4" /> LinkedIn
-            </a>
-            <a
-              href={`mailto:${EMAIL}`}
-              className="inline-flex items-center gap-2 transition-colors hover:text-dawn-soft"
-            >
-              <MailIcon className="h-4 w-4" /> E-mail
             </a>
             <a
               href={GITHUB}
