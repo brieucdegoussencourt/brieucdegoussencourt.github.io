@@ -39,8 +39,6 @@ export default function Process() {
             Une solution adaptée, en trois étapes.
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-charcoal-soft">
-            De la création de l'identité graphique à la mise en production,
-            je conçois des solutions sur mesure pour développer vos projets.
             Tout commence par une discussion : vous m'expliquez ce dont vous
             avez besoin, on réfléchit ensemble et je m'occupe du reste.
           </p>

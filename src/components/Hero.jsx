@@ -32,8 +32,8 @@ export default function Hero() {
           </h1>
 
           <p className="mx-auto mt-7 max-w-xl text-lg leading-relaxed text-charcoal-soft">
-            J'aide les particuliers, les indépendants et les entreprises à concrétiser leurs projets numériques :
-            site web, application ou écosystème de communication.
+            J'accompagne indépendants et entreprises dans la création de leurs sites, applications et outils numériques.
+            Du design au code : des solutions intuitives, taillées sur mesure et immédiatement utiles pour optimiser vos projets.
           </p>
 
           <div

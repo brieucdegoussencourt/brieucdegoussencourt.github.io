@@ -22,7 +22,7 @@ export default function About() {
           <p>
             Avant d'être développeur, j'ai été réalisateur dans l'audiovisuel.
             J'ai appris à écrire une histoire, à mettre en images et à placer l'humain au cœur de chaque création.
-            Cette expérience m'a enseigné le principe du « storytelling », du design et de l'expérience utilisateur.
+            Cette expérience m'a enseigné les principes du « storytelling », du design et de l'expérience utilisateur.
           </p>
           <p>
             Rigoureux, pragmatique et orienté solution, j'aime transformer des problématiques complexes en interfaces claires, intuitives et utiles.

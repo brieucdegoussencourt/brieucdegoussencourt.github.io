@@ -15,7 +15,7 @@ const projects = [
     href: "https://cottagedesperdrix.be/",
     image: "/projects/cottage.jpg",
     imageAlt:
-      "Le Cottage des Perdrix — a wooden cottage among the trees, with a direct-booking call to action",
+      "Le Cottage des Perdrix : un chalet en bois au milieu des arbres, avec un bouton de réservation",
   },
   {
     index: "02",
@@ -26,7 +26,7 @@ const projects = [
     href: "https://patrimony-neon.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/patrimony",
     image: "/projects/patrimony.jpg",
-    imageAlt: "Patrimony overview dashboard — total value, returns and a portfolio value chart against the MSCI World",
+    imageAlt: "Tableau de bord de Patrimony : valeur totale, rendements et graphique du portefeuille comparé au MSCI World",
   },
   {
     index: "03",
@@ -38,7 +38,7 @@ const projects = [
     repo: "https://github.com/brieucdegoussencourt/trek-kleinwalsertal",
     image: "/projects/trek.jpg",
     imageAlt:
-      "Trek Kleinwalsertal — alpine hero over a mountain photo with route stats: 43.1 km, ~18h walking, +2690 m, 4 days",
+      "Trek Kleinwalsertal : photo de montagne avec les chiffres du parcours, 43,1 km, environ 18 h de marche, +2690 m, 4 jours",
   },
 ];
 

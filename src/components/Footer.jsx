@@ -61,7 +61,7 @@ export default function Footer() {
           </p>
 
           <nav
-            aria-label="Footer"
+            aria-label="Liens"
             className="flex items-center gap-7 text-sm text-canvas/70"
           >
             <a
