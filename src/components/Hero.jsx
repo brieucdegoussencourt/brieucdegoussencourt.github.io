@@ -2,6 +2,61 @@ import { useReveal } from "../lib/useReveal.js";
 import { calButtonProps } from "../lib/booking.js";
 import { Container, buttonStyles, HoverArrow } from "./ui.jsx";
 
+/*
+  "Written live" intro: the title fades in letter by letter, then the lead
+  paragraph word by word, as if being written — fades, no typewriter caret.
+  Each glyph gets its own delay (--d), picked up by .reveal-char in CSS.
+*/
+const TITLE_START = 300; // ms, after the photo and the label
+const CHAR_STEP = 40;
+const WORD_STEP = 35;
+const LEAD =
+  "J'accompagne indépendants et entreprises dans la création de leurs sites, applications et outils connectés. Du design à la mise en production : des solutions fluides, conçues sur mesure pour votre activité.";
+
+/* Split text into nowrap words of fading letters (by="char") or fading
+   words (by="word"), starting at `start` ms. Returns [nodes, nextStart]. */
+function written(text, start, step, by) {
+  let t = start;
+  const words = text.split(" ");
+  const nodes = words.map((word, i) => {
+    const space = i < words.length - 1 ? " " : "";
+    if (by === "word") {
+      const d = t;
+      t += step;
+      return (
+        <span key={i}>
+          <span className="reveal-char" style={{ "--d": `${d}ms` }}>
+            {word}
+          </span>
+          {space}
+        </span>
+      );
+    }
+    return (
+      <span key={i}>
+        <span className="inline-block whitespace-nowrap">
+          {[...word].map((ch, j) => {
+            const d = t;
+            t += step;
+            return (
+              <span key={j} className="reveal-char" style={{ "--d": `${d}ms` }}>
+                {ch}
+              </span>
+            );
+          })}
+        </span>
+        {space}
+      </span>
+    );
+  });
+  return [nodes, t];
+}
+
+const [helloNodes, afterHello] = written("Bonjour, je\u00a0suis", TITLE_START, CHAR_STEP, "char");
+const [nameNodes, afterName] = written("Brieuc.", afterHello + CHAR_STEP, CHAR_STEP, "char");
+const [leadNodes, afterLead] = written(LEAD, afterName + 120, WORD_STEP, "word");
+const BUTTONS_DELAY = afterLead - 200;
+
 export default function Hero() {
   const r1 = useReveal();
   const r2 = useReveal({ rootMargin: "0px" });
@@ -49,26 +104,24 @@ export default function Hero() {
 
           <h1
             id="hero-title"
-            style={{ "--d": "220ms" }}
-            className="reveal-item font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
+            aria-label="Bonjour, je suis Brieuc."
+            className="font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
           >
-            Bonjour, je&nbsp;suis <br className="sm:hidden" />
-            <span className="italic text-clay-deep">Brieuc.</span>
+            <span aria-hidden="true">
+              {helloNodes} <br className="sm:hidden" />
+              <span className="italic text-clay-deep">{nameNodes}</span>
+            </span>
           </h1>
 
-          <p
-            style={{ "--d": "340ms" }}
-            className="reveal-item mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-charcoal-soft sm:text-xl"
-          >
-            J'accompagne indépendants et entreprises dans la création de leurs
-            sites, applications et outils connectés. Du design à la mise en production : des solutions fluides, conçues sur mesure pour
-            votre activité.
+          <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-charcoal-soft sm:text-xl">
+            <span className="sr-only">{LEAD}</span>
+            <span aria-hidden="true">{leadNodes}</span>
           </p>
 
           <div
             ref={r2}
             className="reveal mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
-            style={{ transitionDelay: "460ms" }}
+            style={{ transitionDelay: `${BUTTONS_DELAY}ms` }}
           >
             <button type="button" {...calButtonProps} className={buttonStyles.primary}>
               Parlons de votre projet

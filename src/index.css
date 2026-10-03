@@ -118,6 +118,19 @@
       filter 0.9s var(--ease-organic);
     transition-delay: var(--d, 0ms);
   }
+  /* "Written live" glyphs: each letter or word fades and un-blurs in turn. */
+  .reveal-char {
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(0.12em);
+    filter: blur(5px);
+    transition:
+      opacity 0.8s var(--ease-organic),
+      transform 0.8s var(--ease-organic),
+      filter 0.8s var(--ease-organic);
+    transition-delay: var(--d, 0ms);
+  }
+  .is-visible .reveal-char,
   .is-visible .reveal-item {
     opacity: 1;
     transform: none;
