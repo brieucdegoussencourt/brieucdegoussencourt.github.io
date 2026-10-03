@@ -94,46 +94,28 @@
   .reveal {
     opacity: 0;
     transform: translateY(24px);
-    filter: blur(6px);
     transition:
       opacity 1s var(--ease-organic),
-      transform 1s var(--ease-organic),
-      filter 1s var(--ease-organic);
+      transform 1s var(--ease-organic);
   }
   .reveal.is-visible {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 
   /* Staggered text: inside a revealed block, each .reveal-item rises and
-     un-blurs in turn. Set the step with style={{ "--d": "120ms" }}. */
+     fades in turn, top to bottom. Set the step with style={{ "--d": "120ms" }}.
+     Opacity + transform only, so it stays on the GPU (smooth on iOS Safari). */
   .reveal-item {
     opacity: 0;
-    transform: translateY(16px);
-    filter: blur(4px);
+    transform: translateY(14px);
     transition:
-      opacity 0.9s var(--ease-organic),
-      transform 0.9s var(--ease-organic),
-      filter 0.9s var(--ease-organic);
+      opacity 1s var(--ease-organic),
+      transform 1s var(--ease-organic);
     transition-delay: var(--d, 0ms);
   }
-  /* "Written live" glyphs: each letter or word fades and un-blurs in turn. */
-  .reveal-char {
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(0.12em);
-    filter: blur(5px);
-    transition:
-      opacity 0.8s var(--ease-organic),
-      transform 0.8s var(--ease-organic),
-      filter 0.8s var(--ease-organic);
-    transition-delay: var(--d, 0ms);
-  }
-  .is-visible .reveal-char,
   .is-visible .reveal-item {
     opacity: 1;
     transform: none;
-    filter: none;
   }
 }
