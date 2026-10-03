@@ -65,7 +65,7 @@ export default function Hero() {
             <strong className="font-semibold text-charcoal">sites</strong>,{" "}
             <strong className="font-semibold text-charcoal">applications</strong>{" "}
             et <strong className="font-semibold text-charcoal">outils connectés</strong>.
-            Du design à la mise en production : des solutions fluides, conçues{" "}
+            Du design à la mise en production : des <strong className="font-semibold text-charcoal">solutions fluides</strong>, conçues{" "}
             <strong className="font-semibold text-charcoal">sur mesure</strong> pour
             votre activité.
           </p>
