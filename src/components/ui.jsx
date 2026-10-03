@@ -96,7 +96,7 @@ const variants = {
   primary:
     "bg-charcoal text-canvas hover:bg-charcoal-soft hover:shadow-[0_12px_24px_-12px_rgba(58,54,49,0.7)]",
   secondary:
-    "border border-stone-deep text-charcoal hover:border-dawn-deep hover:bg-dawn/15 hover:shadow-[0_12px_24px_-14px_rgba(86,110,127,0.6)]",
+    "border border-charcoal/30 bg-charcoal/[0.04] text-charcoal hover:border-dawn-deep hover:bg-dawn/15 hover:shadow-[0_12px_24px_-14px_rgba(86,110,127,0.6)]",
   primaryOnDark:
     "bg-canvas text-charcoal hover:bg-dawn-soft hover:shadow-[0_12px_24px_-12px_rgba(0,0,0,0.6)]",
   secondaryOnDark:

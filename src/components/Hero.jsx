@@ -2,9 +2,6 @@ import { useReveal } from "../lib/useReveal.js";
 import { calButtonProps } from "../lib/booking.js";
 import { Container, buttonStyles, HoverArrow } from "./ui.jsx";
 
-const LEAD =
-  "J'accompagne indépendants et entreprises dans la création de leurs sites, applications et outils connectés. Du design à la mise en production : des solutions fluides, conçues sur mesure pour votre activité.";
-
 export default function Hero() {
   const r1 = useReveal();
   const r2 = useReveal({ rootMargin: "0px" });
@@ -23,7 +20,7 @@ export default function Hero() {
       <Container className="relative">
         <div
           ref={r1}
-          className="reveal rounded-3xl border border-stone bg-canvas px-5 py-7 text-center shadow-[0_38px_90px_-44px_rgba(58,54,49,0.6)] sm:px-12 sm:py-20 lg:py-24"
+          className="reveal rounded-3xl border border-stone bg-canvas px-5 py-6 text-center shadow-[0_10px_30px_rgba(58,54,49,0.05),0_30px_80px_-24px_rgba(58,54,49,0.18)] sm:px-12 sm:py-20 lg:py-24"
         >
           <div className="reveal-item">
             <div className="group mx-auto mb-4 h-[5.5rem] w-[5.5rem] overflow-hidden rounded-full shadow-[0_18px_40px_-20px_rgba(58,54,49,0.55)] ring-1 ring-stone ring-offset-4 ring-offset-canvas transition-shadow duration-500 ease-organic hover:shadow-[0_24px_50px_-18px_rgba(58,54,49,0.6)] sm:mb-8 sm:h-40 sm:w-40">
@@ -44,10 +41,10 @@ export default function Hero() {
 
           <p
             style={{ "--d": "120ms" }}
-            className="reveal-item mb-4 inline-flex sm:mb-8 items-center gap-2 rounded-full border border-stone bg-sand/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-charcoal-soft"
+            className="reveal-item mb-3 inline-flex items-center sm:mb-8 gap-2 whitespace-nowrap rounded-full border border-stone bg-sand/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-charcoal-soft sm:tracking-[0.2em]"
           >
             <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-clay" />
-            Développeur
+            Développeur &amp; UX Designer
           </p>
 
           <h1
@@ -62,14 +59,20 @@ export default function Hero() {
 
           <p
             style={{ "--d": "420ms" }}
-            className="reveal-item mx-auto mt-3 max-w-2xl text-pretty text-base leading-[1.55] text-charcoal-soft sm:mt-6 sm:text-xl sm:leading-relaxed"
+            className="reveal-item mx-auto mt-3 max-w-2xl text-pretty text-base leading-[1.7] text-charcoal-soft sm:mt-6 sm:text-xl sm:leading-relaxed"
           >
-            {LEAD}
+            J'accompagne indépendants et entreprises dans la création de leurs{" "}
+            <strong className="font-semibold text-charcoal">sites</strong>,{" "}
+            <strong className="font-semibold text-charcoal">applications</strong>{" "}
+            et <strong className="font-semibold text-charcoal">outils connectés</strong>.
+            Du design à la mise en production : des solutions fluides, conçues{" "}
+            <strong className="font-semibold text-charcoal">sur mesure</strong> pour
+            votre activité.
           </p>
 
           <div
             ref={r2}
-            className="reveal mt-6 flex flex-col items-stretch justify-center gap-2.5 sm:mt-10 sm:gap-3 sm:flex-row sm:items-center"
+            className="reveal mt-6 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center"
             style={{ transitionDelay: "580ms" }}
           >
             <button type="button" {...calButtonProps} className={buttonStyles.primary}>

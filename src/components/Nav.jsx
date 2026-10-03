@@ -97,8 +97,8 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
-            {/* Desktop: book a call directly. Mobile: jump to the contact
-                section, which offers booking, phone and e-mail. */}
+            {/* Desktop only: on mobile the header keeps just logo + menu;
+                Contact lives in the menu. */}
             <div className="hidden md:block">
               <button
                 type="button"
@@ -108,13 +108,6 @@ export default function Nav() {
                 Prendre rendez-vous
               </button>
             </div>
-            <a
-              href="#contact"
-              onClick={() => setOpen(false)}
-              className={`${buttonClass("primary", "sm")} md:hidden`}
-            >
-              Contact
-            </a>
 
             <button
               type="button"
