@@ -97,13 +97,24 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <button
-              type="button"
-              {...calButtonProps}
-              className={buttonClass("primary", "sm")}
+            {/* Desktop: book a call directly. Mobile: jump to the contact
+                section, which offers booking, phone and e-mail. */}
+            <div className="hidden md:block">
+              <button
+                type="button"
+                {...calButtonProps}
+                className={buttonClass("primary", "sm")}
+              >
+                Prendre rendez-vous
+              </button>
+            </div>
+            <a
+              href="#contact"
+              onClick={() => setOpen(false)}
+              className={`${buttonClass("primary", "sm")} md:hidden`}
             >
-              Prendre rendez-vous
-            </button>
+              Contact
+            </a>
 
             <button
               type="button"
