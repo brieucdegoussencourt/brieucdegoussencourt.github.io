@@ -5,7 +5,7 @@ export default function About() {
     <Section
       id="about"
       labelledBy="about-title"
-      className="border-y border-stone/70 bg-sand/50"
+      className="bg-gradient-to-b from-canvas via-sand/70 to-canvas"
     >
       <SectionHeader
         id="about-title"

@@ -20,7 +20,10 @@ export default function Footer() {
   const barLink = `${linkClass} min-h-11 hover:text-canvas`;
 
   return (
-    <footer id="contact" className="bg-charcoal text-canvas">
+    <footer
+      id="contact"
+      className="rounded-t-[2rem] bg-charcoal text-canvas sm:rounded-t-[3rem]"
+    >
       {/* Closing invitation */}
       <section aria-labelledby="contact-title" className="py-20 sm:py-24 lg:py-28">
         <Container>

@@ -42,20 +42,21 @@ export function Eyebrow({ tone = "light", children }) {
 /*
   Section header on a 12-column grid: eyebrow + title on the left,
   lead text (or any content) on the right. Stacks on small screens.
+  On scroll, eyebrow → title → lead fade in one after another.
 */
 export function SectionHeader({ id, eyebrow, title, tone = "light", children }) {
   const ref = useReveal();
   const dark = tone === "dark";
   return (
-    <div
-      ref={ref}
-      className="reveal grid gap-6 lg:grid-cols-12 lg:gap-12"
-    >
+    <div ref={ref} className="grid gap-6 lg:grid-cols-12 lg:gap-12">
       <div className="space-y-4 lg:col-span-5">
-        <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
+        <div className="reveal-item">
+          <Eyebrow tone={tone}>{eyebrow}</Eyebrow>
+        </div>
         <h2
           id={id}
-          className={`text-balance font-serif text-3xl leading-tight tracking-tight sm:text-4xl ${
+          style={{ "--d": "100ms" }}
+          className={`reveal-item text-balance font-serif text-3xl leading-tight tracking-tight sm:text-4xl ${
             dark ? "text-canvas" : "text-charcoal"
           }`}
         >
@@ -64,7 +65,8 @@ export function SectionHeader({ id, eyebrow, title, tone = "light", children }) 
       </div>
       {children && (
         <div
-          className={`space-y-5 text-lg leading-relaxed lg:col-span-7 lg:pt-8 ${
+          style={{ "--d": "220ms" }}
+          className={`reveal-item space-y-5 text-lg leading-relaxed lg:col-span-7 lg:pt-8 ${
             dark ? "text-canvas/75" : "text-charcoal-soft"
           }`}
         >

@@ -61,6 +61,7 @@
       animation-duration: 0.01ms !important;
       animation-iteration-count: 1 !important;
       transition-duration: 0.01ms !important;
+      transition-delay: 0ms !important;
     }
   }
 
@@ -92,14 +93,34 @@
 
   .reveal {
     opacity: 0;
-    transform: translateY(18px);
+    transform: translateY(24px);
+    filter: blur(6px);
     transition:
-      opacity 0.9s var(--ease-organic),
-      transform 0.9s var(--ease-organic);
-    will-change: opacity, transform;
+      opacity 1s var(--ease-organic),
+      transform 1s var(--ease-organic),
+      filter 1s var(--ease-organic);
   }
   .reveal.is-visible {
     opacity: 1;
     transform: none;
+    filter: none;
+  }
+
+  /* Staggered text: inside a revealed block, each .reveal-item rises and
+     un-blurs in turn. Set the step with style={{ "--d": "120ms" }}. */
+  .reveal-item {
+    opacity: 0;
+    transform: translateY(16px);
+    filter: blur(4px);
+    transition:
+      opacity 0.9s var(--ease-organic),
+      transform 0.9s var(--ease-organic),
+      filter 0.9s var(--ease-organic);
+    transition-delay: var(--d, 0ms);
+  }
+  .is-visible .reveal-item {
+    opacity: 1;
+    transform: none;
+    filter: none;
   }
 }
