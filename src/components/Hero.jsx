@@ -22,6 +22,19 @@ export default function Hero() {
           ref={r1}
           className="reveal rounded-3xl border border-stone bg-canvas px-5 py-16 text-center shadow-[0_38px_90px_-44px_rgba(58,54,49,0.6)] sm:px-12 sm:py-20 lg:py-24"
         >
+          <picture>
+            <source srcSet="/picture/brieuc.avif" type="image/avif" />
+            <img
+              src="/picture/brieuc.webp"
+              alt="Portrait de Brieuc"
+              width="640"
+              height="640"
+              fetchPriority="high"
+              decoding="async"
+              className="mx-auto mb-8 h-32 w-32 rounded-full object-cover shadow-[0_18px_40px_-20px_rgba(58,54,49,0.55)] ring-1 ring-stone ring-offset-4 ring-offset-canvas sm:h-40 sm:w-40"
+            />
+          </picture>
+
           <p className="mb-8 inline-flex items-center gap-2 rounded-full border border-stone bg-sand/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.2em] text-charcoal-soft">
             <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-clay" />
             Développeur
@@ -37,8 +50,7 @@ export default function Hero() {
 
           <p className="mx-auto mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-charcoal-soft sm:text-xl">
             J'accompagne indépendants et entreprises dans la création de leurs
-            sites, applications et outils connectés. Du design au
-            développement : des solutions fluides, conçues sur mesure pour
+            sites, applications et outils connectés. Du design à la mise en production : des solutions fluides, conçues sur mesure pour
             votre activité.
           </p>
 
