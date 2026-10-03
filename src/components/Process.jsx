@@ -53,22 +53,31 @@ function ProcessCard({ step, index }) {
   return (
     <li
       ref={ref}
-      className="reveal flex flex-col bg-canvas p-8 lg:p-10"
+      className="reveal group relative flex flex-col bg-canvas p-8 lg:p-10"
       style={{ transitionDelay: `${index * 110}ms` }}
     >
-      <div className="flex items-center justify-between">
+      {/* Hover: warm wash + accent line growing along the bottom edge */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-sand/70 opacity-0 transition-opacity duration-500 ease-organic group-hover:opacity-100"
+      />
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-clay transition-transform duration-700 ease-organic group-hover:scale-x-100"
+      />
+      <div className="relative flex items-center justify-between">
         <span
           aria-hidden="true"
-          className="flex h-12 w-12 items-center justify-center rounded-xl bg-sand text-clay-deep"
+          className="flex h-12 w-12 items-center justify-center rounded-xl bg-sand text-clay-deep transition-[background-color,color,transform] duration-500 ease-organic group-hover:-translate-y-0.5 group-hover:-rotate-6 group-hover:bg-clay-deep group-hover:text-canvas"
         >
           <Icon className="h-6 w-6" />
         </span>
-        <span aria-hidden="true" className="font-serif text-2xl text-stone-deep">
+        <span aria-hidden="true" className="font-serif text-2xl text-stone-deep transition-colors duration-500 ease-organic group-hover:text-clay">
           {step.index}
         </span>
       </div>
-      <h3 className="mt-8 text-lg font-semibold text-charcoal">{step.title}</h3>
-      <p className="mt-3 text-base leading-relaxed text-charcoal-soft">
+      <h3 className="relative mt-8 text-lg font-semibold text-charcoal">{step.title}</h3>
+      <p className="relative mt-3 text-base leading-relaxed text-charcoal-soft">
         {step.body}
       </p>
     </li>
