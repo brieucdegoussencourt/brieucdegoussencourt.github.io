@@ -52,8 +52,8 @@ export default function Hero() {
             style={{ "--d": "260ms" }}
             className="reveal-item font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
           >
-            Bonjour,
-            <br />
+            Bonjour,{" "}
+            <br className="md:hidden" />
             je suis <span className="italic text-clay-deep">Brieuc</span>
           </h1>
 
