@@ -23,8 +23,8 @@ export default function App() {
       <Nav />
       <main id="main" tabIndex={-1} className="outline-none">
         <Hero />
-        <Process />
         <About />
+        <Process />
         <Portfolio />
       </main>
       <Footer />

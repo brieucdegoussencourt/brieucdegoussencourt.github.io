@@ -3,8 +3,8 @@ import { calButtonProps } from "../lib/booking.js";
 import { Container, buttonClass, linkClass, iconButtonClass } from "./ui.jsx";
 
 const links = [
-  { href: "#approach", label: "Ma méthode" },
-  { href: "#about", label: "Qui suis-je ?" },
+  { href: "#about", label: "Vision" },
+  { href: "#approach", label: "Méthode" },
   { href: "#work", label: "Réalisations" },
   { href: "#contact", label: "Contact" },
 ];

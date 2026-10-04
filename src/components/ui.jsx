@@ -128,3 +128,8 @@ export const iconButtonClass = `inline-flex h-11 w-11 shrink-0 items-center just
 export function NewTabHint() {
   return <span className="sr-only"> (s'ouvre dans un nouvel onglet)</span>;
 }
+
+/* Emphasised key word inside body copy. */
+export function Strong({ children }) {
+  return <strong className="font-semibold text-charcoal">{children}</strong>;
+}

@@ -1,5 +1,5 @@
 import { useReveal } from "../lib/useReveal.js";
-import { Section, SectionHeader } from "./ui.jsx";
+import { Section, SectionHeader, Strong } from "./ui.jsx";
 import { CompassIcon, LayersIcon, FlowIcon } from "./icons.jsx";
 
 const steps = [
@@ -7,19 +7,40 @@ const steps = [
     icon: CompassIcon,
     index: "01",
     title: "Cadrage & Maquette",
-    body: "Suite à notre discussion, je conçois une maquette visuelle accompagnée d'un devis détaillé. Aucun risque : nous ne lançons le développement que si la proposition vous convient parfaitement.",
+    body: (
+      <>
+        Suite à notre échange, je conçois une <Strong>maquette visuelle</Strong>{" "}
+        accompagnée d'un <Strong>devis détaillé</Strong>.{" "}
+        <Strong>Aucun risque</Strong> : le développement ne démarre que si la
+        proposition vous convient parfaitement.
+      </>
+    ),
   },
   {
     icon: LayersIcon,
     index: "02",
     title: "Prototype & Ajustements",
-    body: "Une fois le design validé, je développe une première version fonctionnelle. Vous la prenez en main en conditions réelles, et nous affinons chaque détail selon vos retours.",
+    body: (
+      <>
+        Une fois le design validé, je développe une{" "}
+        <Strong>première version fonctionnelle</Strong>. Vous la prenez en main{" "}
+        <Strong>en conditions réelles</Strong>, et nous affinons chaque détail{" "}
+        <Strong>selon vos retours</Strong>.
+      </>
+    ),
   },
   {
     icon: FlowIcon,
     index: "03",
     title: "Mise en ligne & Suivi",
-    body: "Après les derniers ajustements, je déploie votre solution clé en main. Je reste à vos côtés pour assurer la maintenance technique et faire évoluer l'outil au fil de vos besoins.",
+    body: (
+      <>
+        Après les derniers ajustements, je déploie votre solution{" "}
+        <Strong>clé en main</Strong>. Je reste à vos côtés pour la{" "}
+        <Strong>maintenance technique</Strong> et pour{" "}
+        <Strong>faire évoluer l'outil</Strong> au fil de vos besoins.
+      </>
+    ),
   },
 ];
 
@@ -28,13 +49,14 @@ export default function Process() {
     <Section id="approach" labelledBy="approach-title">
       <SectionHeader
         id="approach-title"
-        eyebrow="Ma méthode"
-        title="Une méthode claire, en trois étapes."
+        eyebrow="Méthode"
+        title="Un accompagnement clair, en trois étapes."
       >
         <p>
-          Tout commence par un échange pour cerner vos enjeux et poser les
-          bases. L'objectif : concevoir un outil robuste qui simplifie
-          réellement votre quotidien.
+          Tout commence par un <Strong>échange</Strong> pour cerner vos enjeux
+          et poser les bases. L'objectif : tirer le meilleur de la technologie
+          pour concevoir un <Strong>outil robuste</Strong> qui{" "}
+          <Strong>simplifie votre quotidien</Strong>.
         </p>
       </SectionHeader>
 

@@ -1,6 +1,6 @@
 import { useReveal } from "../lib/useReveal.js";
 import { GithubIcon } from "./icons.jsx";
-import { Section, SectionHeader, NewTabHint, HoverArrow, linkClass } from "./ui.jsx";
+import { Section, SectionHeader, Strong, NewTabHint, HoverArrow, linkClass } from "./ui.jsx";
 
 /*
   A few real projects, each with a short description. Projects without `href`
@@ -56,7 +56,8 @@ export default function Portfolio() {
         title="Quelques projets récents."
       >
         <p>
-          Une sélection de plateformes, applications et outils sur mesure
+          Une sélection de <Strong>plateformes</Strong>,{" "}
+          <Strong>applications</Strong> et <Strong>outils sur mesure</Strong>,
           développés pour mes clients ou menés en propre.
         </p>
       </SectionHeader>

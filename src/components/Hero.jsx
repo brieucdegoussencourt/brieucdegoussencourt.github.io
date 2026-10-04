@@ -1,6 +1,6 @@
 import { useReveal } from "../lib/useReveal.js";
 import { calButtonProps } from "../lib/booking.js";
-import { Container, buttonStyles, HoverArrow } from "./ui.jsx";
+import { Container, Strong, buttonStyles, HoverArrow } from "./ui.jsx";
 
 export default function Hero() {
   const r1 = useReveal();
@@ -61,13 +61,12 @@ export default function Hero() {
             style={{ "--d": "420ms" }}
             className="reveal-item mx-auto mt-3 max-w-2xl text-pretty text-base leading-[1.7] text-charcoal-soft sm:mt-6 sm:text-xl sm:leading-relaxed"
           >
-            J'accompagne indépendants et entreprises dans la création de leurs{" "}
-            <strong className="font-semibold text-charcoal">sites</strong>,{" "}
-            <strong className="font-semibold text-charcoal">applications</strong>{" "}
-            et <strong className="font-semibold text-charcoal">outils connectés</strong>.
-            Du design à la mise en production : des <strong className="font-semibold text-charcoal">solutions fluides</strong>, conçues{" "}
-            <strong className="font-semibold text-charcoal">sur mesure</strong> pour
-            votre activité.
+            J'accompagne <Strong>indépendants</Strong> et <Strong>entreprises</Strong>{" "}
+            dans la création de leurs <Strong>sites</Strong>,{" "}
+            <Strong>applications</Strong> et <Strong>outils connectés</Strong>.
+            Du design d'interface à la mise en production : des{" "}
+            <Strong>solutions fluides</Strong>, taillées{" "}
+            <Strong>sur mesure</Strong> pour optimiser votre activité.
           </p>
 
           <div
