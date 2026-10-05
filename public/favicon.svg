@@ -1,9 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Brieuc de Goussencourt">
   <rect width="64" height="64" rx="12" fill="#18181b" />
-  <!-- Geometric "B" on a 4.5-unit stroke: straight stem, two bowls, crisp counters -->
-  <path fill="#fafaf9" fill-rule="evenodd"
-        d="M13 14H29A8.5 8.5 0 0 1 29 31H31A9.5 9.5 0 0 1 31 50H13Z
-           M17.5 18.5H27.875A5.125 5.125 0 0 1 27.875 28.75H17.5Z
-           M17.5 33.25H29.875A6.125 6.125 0 0 1 29.875 45.5H17.5Z" />
-  <rect x="44.5" y="45.5" width="4.5" height="4.5" fill="#ef4444" />
+  <!-- Monoline "B" with a red dot dropped below the baseline (subscript) -->
+  <path d="M16 15V45M16 15H30a7 7 0 0 1 0 14H16M16 29H32a8 8 0 0 1 0 16H16"
+        fill="none" stroke="#fafaf9" stroke-width="4.5" stroke-linecap="square" />
+  <rect x="43" y="46.5" width="5" height="5" fill="#ef4444" />
 </svg>
