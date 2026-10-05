@@ -125,7 +125,7 @@ function Step({ step }) {
       >
         <div className="md:col-span-5">
           <div className="flex items-center gap-2">
-            <span className="font-mono text-xs text-faint">step_{step.index}</span>
+            <span className="font-mono text-xs text-muted">step_{step.index}</span>
             <Chip className="group-hover:border-pink/30 group-hover:bg-pink-soft group-hover:text-pink-deep transition-colors duration-300">
               {step.label}
             </Chip>

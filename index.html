@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="canonical" href="https://brieuc.co/" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
@@ -18,15 +20,48 @@
       property="og:description"
       content="Sites web, applications et solutions sur mesure pour les indépendants et les entreprises."
     />
-    <meta property="og:url" content="https://brieucdegoussencourt.github.io" />
+    <meta property="og:url" content="https://brieuc.co/" />
+    <meta property="og:site_name" content="brieuc.co" />
+    <meta property="og:image" content="https://brieuc.co/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="brieuc.co — Brieuc de Goussencourt, développeur &amp; UX designer" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Structured data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Brieuc de Goussencourt",
+        "jobTitle": "Développeur & UX designer",
+        "url": "https://brieuc.co/",
+        "image": "https://brieuc.co/picture/brieuc.webp",
+        "telephone": "+32472802225",
+        "address": { "@type": "PostalAddress", "addressCountry": "BE" },
+        "sameAs": [
+          "https://www.linkedin.com/in/brieuc-de-goussencourt-003324304",
+          "https://github.com/brieucdegoussencourt"
+        ]
+      }
+    </script>
 
     <!-- Fonts: Inter (body) + JetBrains Mono (interface) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Loaded without blocking first paint; text animates in, so the swap is unseen. -->
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      rel="stylesheet"
+      onload="this.onload=null;this.rel='stylesheet'"
     />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      />
+    </noscript>
 
     <title>Brieuc de Goussencourt — Développeur</title>
   </head>

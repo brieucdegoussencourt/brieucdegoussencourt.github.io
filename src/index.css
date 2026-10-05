@@ -16,7 +16,7 @@
 
   --color-ink: #0f172a; /* charcoal (primary text) */
   --color-ink-soft: #334155;
-  --color-muted: #64748b; /* captions (AA on canvas) */
+  --color-muted: #5b6b80; /* captions — slate-500 nudged darker for AA on subtle */
   --color-faint: #94a3b8; /* decorative only */
 
   --color-pink: #ec4899; /* brand pink: logo dot, ".co", accent fills & lines */

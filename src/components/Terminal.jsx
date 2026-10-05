@@ -214,7 +214,7 @@ export default function Terminal({ className = "" }) {
           {done ? (
             <span>
               <span className="text-pink-deep">✓</span> rendu terminé{" "}
-              <span className="text-faint">· 640×640</span>
+              <span className="text-muted">· 640×640</span>
             </span>
           ) : (
             <span>
@@ -224,7 +224,7 @@ export default function Terminal({ className = "" }) {
               <span className="tabular-nums">{String(progress).padStart(3, " ")}%</span>
             </span>
           )}
-          <span className="hidden text-faint sm:inline">
+          <span className="hidden text-muted sm:inline">
             {done ? "survolez-moi" : "rendering…"}
           </span>
         </p>

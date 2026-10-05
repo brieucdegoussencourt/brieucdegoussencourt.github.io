@@ -71,7 +71,7 @@ export default function Nav() {
         <nav aria-label="Navigation principale" className="flex h-16 items-center justify-between gap-6">
           <a
             href="#top"
-            aria-label="Brieuc de Goussencourt — accueil"
+            aria-label="brieuc.co — accueil"
             className="group flex items-center gap-3 rounded-md text-[17px] font-bold tracking-[-0.03em] text-ink"
           >
             <img

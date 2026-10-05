@@ -12,6 +12,7 @@ header). This file extracts the rules from it.
 | [`mark.svg`](mark.svg) | The **B.** mark — master vector (also `public/favicon.svg`) |
 | [`mark-512.png`](mark-512.png) | Raster mark for places that refuse SVG |
 | `public/email/logo.png` | 144 px mark for the email signature (served at brieuc.co/email/logo.png) |
+| [`og-image.svg`](og-image.svg) | 1200×630 social share card → `public/og-image.png` (render with headless Chrome so Inter / JetBrains Mono load; ImageMagick's SVG renderer breaks the text) |
 
 - **Mark:** squircle tile (`rx` = 24% of the side) in obsidian `#111318` with a
   1.5px `#2A2F3A` hairline; a bold geometric white **B** with even bowls; a
@@ -34,7 +35,7 @@ header). This file extracts the rules from it.
 | Surface dark | `#181B22` | Raised panels on obsidian |
 | Border dark | `#2A2F3A` | Hairlines on obsidian |
 | Blueprint | `#E2E8F0` | Hairlines and the grid on light |
-| Neutrals | Tailwind slate 50–500 | Canvas `#F8FAFC`, subtle `#F1F5F9`, muted text `#64748B` |
+| Neutrals | Tailwind slate 50–500 | Canvas `#F8FAFC`, subtle `#F1F5F9`, muted text `#5B6B80` (slate-500 `#64748B` fails AA on subtle) |
 | Status | `#10B981` / `#F59E0B` / `#EF4444` | "Ready" pill and window-chrome dots only |
 
 Brand pink `#EC4899` is below 4.5:1 on white — use it for shapes and large

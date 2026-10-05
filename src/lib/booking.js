@@ -20,17 +20,57 @@ export const CAL_BRAND = "#0f172a";
 import { useEffect } from "react";
 import { getCalApi } from "@calcom/embed-react";
 
+/*
+  The embed (script + a third-party cookie) only loads once a visitor shows
+  intent: hovering, focusing or touching a booking button. A click that beats
+  the load is caught and replayed as a modal once the embed is ready.
+*/
+const CAL_SELECTOR = "[data-cal-link]";
+let calReady = null;
+let embedLoaded = false; // embed.js has run, so its own click handler is live
+
+function loadCal() {
+  calReady ??= getCalApi({ namespace: CAL_NAMESPACE }).then((cal) => {
+    // getCalApi resolves with a queueing stub as soon as the script tag is added.
+    document
+      .querySelector('script[src*="cal.com/embed/embed.js"]')
+      ?.addEventListener("load", () => (embedLoaded = true), { once: true });
+    cal("ui", {
+      theme: "light",
+      cssVarsPerTheme: { light: { "cal-brand": CAL_BRAND } },
+      hideEventTypeDetails: false,
+      layout: "month_view",
+    });
+    return cal;
+  });
+  return calReady;
+}
+
 export function useCalInit() {
   useEffect(() => {
-    (async () => {
-      const cal = await getCalApi({ namespace: CAL_NAMESPACE });
-      cal("ui", {
-        theme: "light",
-        cssVarsPerTheme: { light: { "cal-brand": CAL_BRAND } },
-        hideEventTypeDetails: false,
-        layout: "month_view",
-      });
-    })();
+    let loaded = false;
+    const onIntent = (e) => {
+      if (loaded || !e.target.closest?.(CAL_SELECTOR)) return;
+      loaded = true;
+      loadCal();
+    };
+    const onClick = (e) => {
+      if (!e.target.closest?.(CAL_SELECTOR)) return;
+      // Before the embed is ready its own click handler doesn't exist yet.
+      if (embedLoaded) return;
+      e.preventDefault();
+      loaded = true;
+      loadCal().then((cal) =>
+        cal("modal", { calLink: CAL_LINK, config: { layout: "month_view" } }),
+      );
+    };
+    const intents = ["pointerover", "focusin", "touchstart"];
+    intents.forEach((t) => document.addEventListener(t, onIntent, { passive: true }));
+    document.addEventListener("click", onClick);
+    return () => {
+      intents.forEach((t) => document.removeEventListener(t, onIntent));
+      document.removeEventListener("click", onClick);
+    };
   }, []);
 }
 

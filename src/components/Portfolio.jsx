@@ -16,7 +16,7 @@ const projects = [
     description:
       "Un gîte dans un domaine privé en forêt, qui dépendait des plateformes de location. J'ai créé un site en trois langues avec un calendrier de disponibilités, le paiement en ligne et toutes les infos pour trouver la maison. Les clients réservent maintenant en direct, sans commission.",
     href: "https://cottagedesperdrix.be/",
-    image: "/projects/cottage.jpg",
+    image: "/projects/cottage", // cottage-{800,1200,1800}.webp
     imageAlt:
       "Le Cottage des Perdrix : un chalet en bois au milieu des arbres, avec un bouton de réservation",
   },
@@ -28,7 +28,7 @@ const projects = [
       "Une application pour suivre tout son patrimoine au même endroit : actions et fonds cotés en temps réel, biens non cotés personnalisables, des calculs de performance fiables et des graphiques lisibles afin d'avoir une vue claire et consolidée du rendement global de son portefeuille.",
     href: "https://patrimony-neon.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/patrimony",
-    image: "/projects/patrimony.jpg",
+    image: "/projects/patrimony", // patrimony-{800,1200,1800}.webp
     imageAlt: "Tableau de bord de Patrimony : valeur totale, rendements et graphique du portefeuille comparé au MSCI World",
   },
   {
@@ -39,11 +39,15 @@ const projects = [
       "Une appli pour préparer un trek de plusieurs jours dans les Alpes : la carte du parcours avec géolocalisation en temps réel, la météo live à chaque étape et une checklist du matériel, tout au même endroit.",
     href: "https://trek-kleinwalsertal.vercel.app/",
     repo: "https://github.com/brieucdegoussencourt/trek-kleinwalsertal",
-    image: "/projects/trek.jpg",
+    image: "/projects/trek", // trek-{800,1200,1800}.webp
     imageAlt:
       "Trek Kleinwalsertal : photo de montagne avec les chiffres du parcours, 43,1 km, environ 18 h de marche, +2690 m, 4 jours",
   },
 ];
+
+// Each preview ships as WebP at three widths; the browser picks one via srcset.
+const IMAGE_WIDTHS = [800, 1200, 1800];
+const srcSet = (base) => IMAGE_WIDTHS.map((w) => `${base}-${w}.webp ${w}w`).join(", ");
 
 const host = (url) => url?.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
@@ -105,12 +109,14 @@ function CaseStudy({ project }) {
             className="block overflow-hidden bg-subtle"
           >
             <motion.img
-              src={project.image}
+              src={`${project.image}-1200.webp`}
+              srcSet={srcSet(project.image)}
+              sizes="(min-width: 1152px) 1104px, calc(100vw - 2rem)"
               alt={project.imageAlt || `Aperçu de ${project.title}`}
               loading="lazy"
               decoding="async"
-              width={2880}
-              height={1240}
+              width={1800}
+              height={775}
               variants={{ hover: { scale: 1.03 } }}
               transition={{ type: "spring", bounce: 0, duration: 0.9 }}
               className="aspect-[2.32/1] w-full object-cover"
@@ -121,7 +127,7 @@ function CaseStudy({ project }) {
         <div className="grid gap-5 border-t border-line p-5 sm:p-7 lg:grid-cols-12 lg:gap-10">
           <div className="lg:col-span-5">
             <div className="flex flex-wrap items-center gap-3">
-              <span aria-hidden="true" className="font-mono text-xs text-faint">
+              <span aria-hidden="true" className="font-mono text-xs text-muted">
                 {project.index}/
               </span>
               <Chip>#{project.tag}</Chip>

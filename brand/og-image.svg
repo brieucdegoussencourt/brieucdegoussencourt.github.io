@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Social share card (rendered to public/og-image.png). Wordmark paths come from brand-deck.html. -->
+  <defs>
+    <style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=JetBrains+Mono:wght@400&amp;display=block");</style>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#E2E8F0" stroke-width="1" />
+    </pattern>
+    <radialGradient id="glow" cx="1" cy="0" r="0.6">
+      <stop offset="0" stop-color="#EC4899" stop-opacity="0.14" />
+      <stop offset="1" stop-color="#EC4899" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#F8FAFC" />
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.8" />
+  <rect width="1200" height="630" fill="url(#glow)" />
+
+  <!-- Prompt -->
+  <text x="96" y="132" font-family="JetBrains Mono, Menlo, monospace" font-size="26" fill="#5B6B80"><tspan fill="#BE185D">~/brieuc</tspan> $ <tspan fill="#0F172A">./brieuc --init-identity</tspan></text>
+  <rect x="654" y="108" width="14" height="30" fill="#EC4899" />
+
+  <!-- Lockup: mark + wordmark, scaled 2x from the deck's 540×120 lockup -->
+  <g transform="translate(76 190) scale(2)">
+    <rect x="10.75" y="10.75" width="98.5" height="98.5" rx="24" fill="#111318" stroke="#2A2F3A" stroke-width="1.5" />
+    <path fill="#FFFFFF" fill-rule="evenodd" d="M34 32H61C71 32 78 36 78 45.5C78 51.5 74.5 56 68.5 58C75.5 60 80 65 80 72C80 82 72 88 61 88H34V32ZM46 42V53H59.5C64.5 53 67 51 67 47.5C67 44 64.5 42 59.5 42H46ZM46 63V78H60.5C66 78 68.5 75.5 68.5 70.5C68.5 65.5 66 63 60.5 63H46Z" />
+    <rect x="85" y="76" width="12" height="12" rx="2" fill="#EC4899" />
+    <g transform="translate(142 0)" fill="#0F172A">
+      <path d="M 0 35 H 10 V 50 C 13.5 46.5 18 45 23 45 C 34.5 45 42 53.5 42 66.5 C 42 79.5 34.5 88 23 88 C 18 88 13.5 86.5 10 83 V 87 H 0 V 35 Z M 10 66.5 C 10 74 15 79 21.5 79 C 28 79 32 74 32 66.5 C 32 59 28 54 21.5 54 C 15 54 10 59 10 66.5 Z" />
+      <path d="M 52 46 H 62 V 53 C 65 47.5 70 45 76.5 45 C 78.5 45 80.5 45.5 82 46.5 V 56.5 C 79.5 55 77 54.5 74.5 54.5 C 67.5 54.5 62 59.5 62 68 V 87 H 52 V 46 Z" />
+      <path d="M 92 34 H 102 V 42 H 92 V 34 Z M 92 46 H 102 V 87 H 92 V 46 Z" />
+      <path d="M 144 68 H 122 C 122.5 74.5 127 79 134 79 C 138.5 79 142 77 144 74 L 151 79 C 147 84.5 141 88 133.5 88 C 121 88 112 79 112 66.5 C 112 54 121 45 133 45 C 145 45 153 53.5 153 66 C 153 66.8 153 67.5 152.8 68 H 144 Z M 122 61 H 143 C 142.5 55.5 138.5 52.5 133 52.5 C 127.5 52.5 123 55.5 122 61 Z" />
+      <path d="M 163 46 H 173 V 68 C 173 74 177 78.5 183.5 78.5 C 190 78.5 194 74 194 68 V 46 H 204 V 87 H 194 V 81 C 190.5 85.5 186 88 180.5 88 C 169.5 88 163 80 163 68 V 46 Z" />
+      <path transform="translate(8 0)" d="M 245 54.5 L 238 59.5 C 235.5 56 232 54 227 54 C 220 54 215 59.5 215 66.5 C 215 73.5 220 79 227 79 C 232 79 235.5 77 238 73.5 L 245 78.5 C 241 84.5 235 88 226.5 88 C 214 88 205 78.5 205 66.5 C 205 54.5 214 45 226.5 45 C 235 45 241 48.5 245 54.5 Z" />
+      <g fill="#EC4899" transform="translate(8 0)">
+        <rect x="256" y="77" width="10" height="10" rx="2" />
+        <path d="M 314 54.5 L 307 59.5 C 304.5 56 301 54 296 54 C 289 54 284 59.5 284 66.5 C 284 73.5 289 79 296 79 C 301 79 304.5 77 307 73.5 L 314 78.5 C 310 84.5 304 88 295.5 88 C 283 88 274 78.5 274 66.5 C 274 54.5 283 45 295.5 45 C 304 45 310 48.5 314 54.5 Z" />
+        <path d="M 324 66.5 C 324 54.5 333 45 345 45 C 357 45 366 54.5 366 66.5 C 366 78.5 357 88 345 88 C 333 88 324 78.5 324 66.5 Z M 334 66.5 C 334 74 338.5 79 345 79 C 351.5 79 356 74 356 66.5 C 356 59 351.5 54 345 54 C 338.5 54 334 59 334 66.5 Z" />
+      </g>
+    </g>
+  </g>
+
+  <text x="96" y="500" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="700" font-size="56" letter-spacing="-1.6" fill="#0F172A">Brieuc de Goussencourt</text>
+  <text x="96" y="550" font-family="JetBrains Mono, Menlo, monospace" font-size="26" fill="#5B6B80"><tspan fill="#BE185D">//</tspan> développeur &amp; UX designer</text>
+</svg>
