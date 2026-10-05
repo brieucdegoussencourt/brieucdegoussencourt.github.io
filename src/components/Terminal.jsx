@@ -20,7 +20,7 @@ const LENS_CELLS = 7; // lens is LENS_CELLS × LENS_CELLS blocks
 const TOTAL_MS = DISSOLVE_MS + STEPS.length * STEP_MS;
 const TYPE_MS = 38;
 
-const PINK = "#ec4899";
+const PINK = "#e4467d";
 const BG = "#f4f4f2";
 
 // Downsample once per block size so each frame is a single scaled draw.

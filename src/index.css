@@ -18,12 +18,12 @@
   --color-muted: #6b6b73; /* captions (AA on canvas) */
   --color-faint: #a1a1aa; /* decorative only */
 
-  --color-pink: #ec4899; /* accent fills, lines, dots */
+  --color-pink: #e4467d; /* brand pink: logo dot, ".co", accent fills & lines */
   --color-pink-deep: #be185d; /* accent text (AA on canvas & surface) */
   --color-pink-light: #f9a8d4; /* accent text on ink */
   --color-pink-soft: #fce7f3; /* tints */
 
-  /* Window-chrome dots (red also marks the logo and heading period) */
+  /* Window-chrome dots only */
   --color-green: #22c55e;
   --color-amber: #f59e0b;
   --color-red: #ef4444;

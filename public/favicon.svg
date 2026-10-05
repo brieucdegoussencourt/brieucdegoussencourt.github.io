@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Brieuc de Goussencourt">
-  <rect width="64" height="64" rx="12" fill="#18181b" />
-  <!-- Monoline "B" with a red dot dropped below the baseline (subscript) -->
-  <path d="M16 15V45M16 15H30a7 7 0 0 1 0 14H16M16 29H32a8 8 0 0 1 0 16H16"
-        fill="none" stroke="#fafaf9" stroke-width="4.5" stroke-linecap="square" />
-  <rect x="43" y="46.5" width="5" height="5" fill="#ef4444" />
+  <rect width="64" height="64" rx="9" fill="#111111" />
+  <!-- Rounded geometric "B" (stroke-drawn, round joins) + pink square dot on the baseline -->
+  <path d="M16.5 30.5V13.5H29.7A8.5 8.5 0 0 1 29.7 30.5H32.5A9 9 0 0 1 32.5 48.5H16.5ZM16.5 30.5H30"
+        fill="none" stroke="#f4f4f2" stroke-width="7" stroke-linejoin="round" stroke-linecap="round" />
+  <rect x="47.5" y="45.5" width="6.5" height="6.5" rx="1" fill="#e4467d" />
 </svg>

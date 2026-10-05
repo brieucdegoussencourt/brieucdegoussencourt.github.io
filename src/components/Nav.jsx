@@ -72,17 +72,17 @@ export default function Nav() {
           <a
             href="#top"
             aria-label="Brieuc de Goussencourt — accueil"
-            className="group flex items-center gap-2.5 rounded-md font-mono text-[13px] text-ink"
+            className="group flex items-center gap-3 rounded-md font-mono text-[15px] tracking-tight text-ink"
           >
             <img
               src={`${import.meta.env.BASE_URL}favicon.svg`}
               alt=""
-              width="28"
-              height="28"
-              className="h-7 w-7 transition-transform duration-300 ease-out-expo group-hover:-rotate-6"
+              width="32"
+              height="32"
+              className="h-8 w-8 transition-transform duration-300 ease-out-expo group-hover:-rotate-6"
             />
-            <span aria-hidden="true" className="hidden sm:inline">
-              brieuc<span className="text-faint">.co</span>
+            <span aria-hidden="true">
+              brieuc<span className="text-pink">.co</span>
             </span>
           </a>
 

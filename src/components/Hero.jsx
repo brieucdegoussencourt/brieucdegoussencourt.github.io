@@ -44,7 +44,7 @@ export default function Hero() {
             className="mt-4 text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-7xl"
           >
             Bonjour, <br className="sm:hidden" />
-            je suis Brieuc<span className="text-red">.</span>
+            je suis Brieuc<span className="text-pink">.</span>
           </Typewriter>
 
           <Scramble
