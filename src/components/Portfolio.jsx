@@ -138,7 +138,7 @@ function CaseStudy({ project }) {
                   href={project.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`${linkClass} min-h-11 text-blue hover:text-ink`}
+                  className={`${linkClass} min-h-11 text-pink-deep hover:text-ink`}
                 >
                   <span className="link-underline">voir le projet</span>
                   <span className="sr-only"> {project.title}</span>

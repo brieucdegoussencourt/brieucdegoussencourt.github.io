@@ -79,7 +79,7 @@ export default function Footer() {
           <Container className="flex flex-col gap-3 py-5 font-mono text-[13px] text-white/60 md:flex-row md:items-center md:justify-between">
             <p>
               <span className="text-white">brieuc</span>
-              <span className="text-white/40">.dev</span>
+              <span className="text-white/40">.co</span>
               <span className="mx-2 text-white/30" aria-hidden="true">·</span>© {year}
             </p>
 

@@ -82,7 +82,7 @@ export default function Nav() {
               className="h-7 w-7 transition-transform duration-300 ease-out-expo group-hover:-rotate-6"
             />
             <span aria-hidden="true" className="hidden sm:inline">
-              brieuc<span className="text-faint">.dev</span>
+              brieuc<span className="text-faint">.co</span>
             </span>
           </a>
 
@@ -143,7 +143,7 @@ export default function Nav() {
       <motion.div
         aria-hidden="true"
         style={{ scaleX: progress }}
-        className={`absolute inset-x-0 -bottom-px h-px origin-left bg-blue transition-opacity duration-300 ${
+        className={`absolute inset-x-0 -bottom-px h-px origin-left bg-pink transition-opacity duration-300 ${
           scrolled ? "opacity-100" : "opacity-0"
         }`}
       />
@@ -175,7 +175,7 @@ export default function Nav() {
                       aria-current={active === l.href ? "true" : undefined}
                       className="flex min-h-12 items-center font-mono text-sm text-ink-soft hover:text-ink aria-[current]:text-ink"
                     >
-                      <span aria-hidden="true" className="mr-1 text-green">❯</span>
+                      <span aria-hidden="true" className="mr-1 text-pink-deep">❯</span>
                       {l.label}
                     </a>
                   </motion.li>

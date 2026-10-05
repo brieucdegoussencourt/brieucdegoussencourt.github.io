@@ -3,7 +3,7 @@
 /*
   Developer-centric light theme — restrained and high-contrast.
   Off-white canvas, neutral grays, deep charcoal ink, with small hits of
-  interface colour (status green, link blue, warning amber, close red).
+  interface colour: a single pink accent, plus the window-chrome dots.
   Tokens become Tailwind utilities (e.g. --color-ink → text-ink / bg-ink).
 */
 @theme {
@@ -18,13 +18,15 @@
   --color-muted: #6b6b73; /* captions (AA on canvas) */
   --color-faint: #a1a1aa; /* decorative only */
 
-  --color-green: #16a34a;
-  --color-green-soft: #dcfce7;
-  --color-blue: #2563eb;
-  --color-blue-soft: #dbeafe;
-  --color-amber: #d97706;
+  --color-pink: #ec4899; /* accent fills, lines, dots */
+  --color-pink-deep: #be185d; /* accent text (AA on canvas & surface) */
+  --color-pink-light: #f9a8d4; /* accent text on ink */
+  --color-pink-soft: #fce7f3; /* tints */
+
+  /* Window-chrome dots only */
+  --color-green: #22c55e;
+  --color-amber: #f59e0b;
   --color-red: #ef4444;
-  --color-violet: #7c3aed;
 
   --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace;
@@ -55,7 +57,7 @@
   }
 
   ::selection {
-    background: var(--color-blue-soft);
+    background: var(--color-pink-soft);
     color: var(--color-ink);
   }
 
@@ -74,7 +76,7 @@
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-blue);
+    outline: 2px solid var(--color-pink-deep);
     outline-offset: 3px;
     border-radius: 4px;
   }

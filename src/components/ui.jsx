@@ -20,7 +20,7 @@ export function Prompt({ cmd, tone = "light", cursor = false, className = "" }) 
   const dark = tone === "dark";
   return (
     <p className={`font-mono text-[13px] leading-6 ${className}`}>
-      <span className={dark ? "text-green-soft/80" : "text-green"}>~/brieuc</span>{" "}
+      <span className={dark ? "text-pink-light" : "text-pink-deep"}>~/brieuc</span>{" "}
       <span className={dark ? "text-white/40" : "text-faint"}>$</span>{" "}
       <span className={dark ? "text-white" : "text-ink"}>{cmd}</span>
       {cursor && (
@@ -124,7 +124,7 @@ const variants = {
   secondary:
     "border border-line-strong bg-surface text-ink shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-ink/30 hover:shadow-[0_8px_20px_-10px_rgba(24,24,27,0.25)]",
   primaryOnDark:
-    "bg-white text-ink hover:bg-green-soft hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6)]",
+    "bg-white text-ink hover:bg-pink-soft hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6)]",
   secondaryOnDark:
     "border border-white/20 bg-white/5 text-white hover:border-white/40 hover:bg-white/10",
 };

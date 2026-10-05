@@ -78,7 +78,7 @@ export default function Process() {
         <motion.span
           aria-hidden="true"
           style={{ scaleY: progress }}
-          className="absolute top-6 bottom-6 left-[19px] w-px origin-top bg-green sm:left-[23px]"
+          className="absolute top-6 bottom-6 left-[19px] w-px origin-top bg-pink sm:left-[23px]"
         />
 
         {steps.map((step) => (
@@ -105,7 +105,7 @@ function Step({ step }) {
         }}
         className="relative z-10 mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-line-strong bg-surface sm:h-12 sm:w-12"
       >
-        <svg viewBox="0 0 24 24" className="h-4 w-4 text-green" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <svg viewBox="0 0 24 24" className="h-4 w-4 text-pink" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
           <motion.path
             d="M5 12.5 10 17 19 7"
             variants={{
@@ -125,7 +125,7 @@ function Step({ step }) {
         <div className="md:col-span-5">
           <div className="flex items-center gap-2">
             <span className="font-mono text-xs text-faint">step_{step.index}</span>
-            <Chip className="group-hover:border-green/30 group-hover:bg-green-soft group-hover:text-green transition-colors duration-300">
+            <Chip className="group-hover:border-pink/30 group-hover:bg-pink-soft group-hover:text-pink-deep transition-colors duration-300">
               {step.label}
             </Chip>
           </div>

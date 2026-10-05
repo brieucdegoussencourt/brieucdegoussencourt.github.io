@@ -48,7 +48,7 @@ export default function About() {
         {notes.map((n) => (
           <motion.article key={n.title} variants={fadeUp} className="bg-surface p-6 sm:p-8">
             <h3 className="flex items-baseline gap-2 text-lg font-semibold tracking-tight text-ink">
-              <span aria-hidden="true" className="font-mono text-sm font-normal text-blue">
+              <span aria-hidden="true" className="font-mono text-sm font-normal text-pink-deep">
                 ##
               </span>
               {n.title}

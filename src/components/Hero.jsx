@@ -20,15 +20,8 @@ export default function Hero() {
           animate="show"
           className="lg:col-span-7"
         >
-          <motion.p
-            variants={fadeUp}
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-surface py-1 pr-3 pl-2 font-mono text-xs text-ink-soft shadow-[0_1px_2px_rgba(0,0,0,0.04)]"
-          >
-            <span className="relative flex h-2 w-2">
-              <span className="absolute inset-0 animate-ping rounded-full bg-green/60 motion-reduce:hidden" />
-              <span className="relative h-2 w-2 rounded-full bg-green" />
-            </span>
-            Disponible pour de nouveaux projets
+          <motion.p variants={fadeUp} className="font-mono text-sm text-muted">
+            <span className="text-pink-deep">//</span> développeur &amp; UX designer
           </motion.p>
 
           <motion.h1
@@ -37,19 +30,12 @@ export default function Hero() {
               hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
               show: { opacity: 1, y: 0, filter: "blur(0px)", transition: spring },
             }}
-            className="mt-6 text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-7xl"
+            className="mt-4 text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-7xl"
           >
             Bonjour, <br className="sm:hidden" />
             je suis Brieuc
-            <span className="text-green">.</span>
+            <span className="text-pink">.</span>
           </motion.h1>
-
-          <motion.p
-            variants={fadeUp}
-            className="mt-4 font-mono text-sm text-muted"
-          >
-            <span className="text-faint">//</span> Développeur &amp; UX Designer
-          </motion.p>
 
           <motion.p
             variants={fadeUp}

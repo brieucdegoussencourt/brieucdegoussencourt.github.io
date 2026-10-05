@@ -20,7 +20,7 @@ const LENS_CELLS = 7; // lens is LENS_CELLS × LENS_CELLS blocks
 const TOTAL_MS = DISSOLVE_MS + STEPS.length * STEP_MS;
 const TYPE_MS = 38;
 
-const GREEN = "#22c55e";
+const PINK = "#ec4899";
 const BG = "#f4f4f2";
 
 // Downsample once per block size so each frame is a single scaled draw.
@@ -114,7 +114,7 @@ export default function Terminal({ className = "" }) {
           const y = Math.floor(p * SIZE);
           ctx.save();
           ctx.globalAlpha = 0.85;
-          ctx.fillStyle = GREEN;
+          ctx.fillStyle = PINK;
           ctx.fillRect(0, y, SIZE, 3);
           ctx.restore();
         } else {
@@ -161,7 +161,7 @@ export default function Terminal({ className = "" }) {
     ctx.clip();
     drawPixelated(ctx, lensSrc.current);
     ctx.restore();
-    ctx.strokeStyle = GREEN;
+    ctx.strokeStyle = PINK;
     ctx.lineWidth = 3;
     ctx.strokeRect(x + 1.5, y + 1.5, w - 3, w - 3);
   };
@@ -187,7 +187,7 @@ export default function Terminal({ className = "" }) {
 
       <div className="space-y-3 p-4 font-mono text-[12.5px] leading-6 text-ink-soft sm:p-5 sm:text-[13px]">
         <p aria-hidden="true" className="truncate">
-          <span className="text-green">❯</span>{" "}
+          <span className="text-pink-deep">❯</span>{" "}
           <span className="text-ink">{CMD.slice(0, typed)}</span>
           {typed < CMD.length && <Caret />}
         </p>
@@ -213,7 +213,7 @@ export default function Terminal({ className = "" }) {
         <p aria-hidden="true" className="flex items-center justify-between gap-3">
           {done ? (
             <span>
-              <span className="text-green">✓</span> rendu terminé{" "}
+              <span className="text-pink-deep">✓</span> rendu terminé{" "}
               <span className="text-faint">· 640×640</span>
             </span>
           ) : (
@@ -230,7 +230,7 @@ export default function Terminal({ className = "" }) {
         </p>
 
         <p aria-hidden="true" className={done ? "" : "invisible"}>
-          <span className="text-green">❯</span> <Caret />
+          <span className="text-pink-deep">❯</span> <Caret />
         </p>
       </div>
     </div>
