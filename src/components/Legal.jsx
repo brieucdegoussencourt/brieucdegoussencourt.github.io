@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { iconButtonClass } from "./ui.jsx";
 
-const EMAIL = "brieuc.degoussencourt@gmail.com";
+const EMAIL = "hello@brieuc.co";
 const PHONE = "+32 472 80 22 25";
 
 // TODO (Brieuc): remplacer les champs « à compléter » par tes vraies infos.
