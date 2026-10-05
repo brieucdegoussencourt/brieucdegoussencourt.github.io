@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Brieuc de Goussencourt">
   <!-- Squircle tile (obsidian) with a hairline border -->
   <rect x="0.75" y="0.75" width="98.5" height="98.5" rx="24" fill="#111318" stroke="#2A2F3A" stroke-width="1.5" />
-  <!-- Balanced geometric B with even bowls -->
-  <path fill="#FFFFFF" fill-rule="evenodd" d="M24 22H51C61 22 68 26 68 35.5C68 41.5 64.5 46 58.5 48C65.5 50 70 55 70 62C70 72 62 78 51 78H24V22ZM36 32V43H49.5C54.5 43 57 41 57 37.5C57 34 54.5 32 49.5 32H36ZM36 53V68H50.5C56 68 58.5 65.5 58.5 60.5C58.5 55.5 56 53 50.5 53H36Z" />
+  <!-- Medium-weight geometric B (8-unit stroke) with round bowls -->
+  <path fill="#FFFFFF" fill-rule="evenodd" d="M24 22H53A15 15 0 0 1 63.55 47.67A17 17 0 0 1 53 78H24V22ZM32 30V44H53A7 7 0 0 0 53 30H32ZM32 52V70H53A9 9 0 0 0 53 52H32Z" />
   <!-- Pink cursor dot -->
   <rect x="75" y="66" width="12" height="12" rx="2" fill="#EC4899" />
 </svg>

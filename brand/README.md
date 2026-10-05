@@ -11,16 +11,24 @@ header). This file extracts the rules from it.
 | --- | --- |
 | [`mark.svg`](mark.svg) | The **B.** mark — master vector (also `public/favicon.svg`) |
 | [`mark-512.png`](mark-512.png) | Raster mark for places that refuse SVG |
-| `public/email/logo.png` | 144 px mark for the email signature (served at brieuc.co/email/logo.png) |
+| `public/email/logo.png` | 144 px mark for the email signature, on a softer slate tile (served at brieuc.co/email/logo.png) |
 | [`og-image.svg`](og-image.svg) | 1200×630 social share card → `public/og-image.png` (render with headless Chrome so Inter / JetBrains Mono load; ImageMagick's SVG renderer breaks the text) |
 
 - **Mark:** squircle tile (`rx` = 24% of the side) in obsidian `#111318` with a
-  1.5px `#2A2F3A` hairline; a bold geometric white **B** with even bowls; a
-  rounded pink square "cursor dot" sitting on the baseline to its right.
+  1.5px `#2A2F3A` hairline; a medium-weight geometric white **B** (uniform
+  8-unit stroke on the 100-unit tile, round bowls, the lower one slightly
+  wider); a rounded pink square "cursor dot" sitting on the baseline to its
+  right.
 - **Wordmark:** `brieuc` in charcoal (white on dark) + `.co` in brand pink,
   bold geometric sans, tight tracking. The dot is part of `.co` and is pink.
 - **Lockup:** mark left, wordmark right, wordmark cap-height ≈ half the tile.
 - Never recolour the B or the tile; the pink dot is the only accent in the mark.
+  One exception: the **email signature** uses an ink-soft `#334155` tile (no
+  visible hairline) with the name and `brieuc.co` in the same `#334155`, so it
+  sits lighter in inboxes.
+- **Rasters** (`mark-512.png`, `public/apple-touch-icon.png`,
+  `public/email/logo.png`, `public/og-image.png`) are rendered from the SVGs
+  with headless Chrome — re-render them whenever the mark changes.
 
 ## Colour
 
@@ -32,6 +40,7 @@ header). This file extracts the rules from it.
 | Pink light | `#F9A8D4` | Pink text on dark surfaces |
 | Charcoal | `#0F172A` | Primary text, primary buttons |
 | Obsidian | `#111318` | Logo tile, dark surfaces |
+| Ink soft | `#334155` | Primary button hover; email-signature tile and name |
 | Surface dark | `#181B22` | Raised panels on obsidian |
 | Border dark | `#2A2F3A` | Hairlines on obsidian |
 | Blueprint | `#E2E8F0` | Hairlines and the grid on light |
