@@ -121,7 +121,7 @@ function Step({ step }) {
         variants={fadeUp}
         whileHover={{ y: -2 }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
-        className="group grid gap-3 rounded-xl border border-line bg-surface p-5 transition-[border-color,box-shadow] duration-300 hover:border-line-strong hover:shadow-[0_16px_40px_-20px_rgba(24,24,27,0.25)] sm:p-7 md:grid-cols-12 md:gap-8"
+        className="group grid gap-3 rounded-xl border border-line bg-surface p-5 transition-[border-color,box-shadow] duration-300 hover:border-line-strong hover:shadow-[0_16px_40px_-20px_rgba(15,23,42,0.25)] sm:p-7 md:grid-cols-12 md:gap-8"
       >
         <div className="md:col-span-5">
           <div className="flex items-center gap-2">

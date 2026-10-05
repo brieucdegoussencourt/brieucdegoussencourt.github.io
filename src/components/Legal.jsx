@@ -30,7 +30,7 @@ export default function Legal({ className = "" }) {
         ref={dialog}
         aria-labelledby="legal-title"
         onClick={(e) => e.target === dialog.current && dialog.current.close()}
-        className="m-auto max-h-[85vh] w-[calc(100%-2rem)] max-w-2xl rounded-xl border border-line-strong bg-surface p-0 text-left text-ink shadow-[0_38px_90px_-44px_rgba(24,24,27,0.6)] backdrop:bg-ink/50 backdrop:backdrop-blur-sm"
+        className="m-auto max-h-[85vh] w-[calc(100%-2rem)] max-w-2xl rounded-xl border border-line-strong bg-surface p-0 text-left text-ink shadow-[0_38px_90px_-44px_rgba(15,23,42,0.6)] backdrop:bg-ink/50 backdrop:backdrop-blur-sm"
       >
         <div className="p-8 sm:p-10">
           <div className="flex items-start justify-between gap-6">

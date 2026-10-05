@@ -20,8 +20,8 @@ const LENS_CELLS = 7; // lens is LENS_CELLS × LENS_CELLS blocks
 const TOTAL_MS = DISSOLVE_MS + STEPS.length * STEP_MS;
 const TYPE_MS = 38;
 
-const PINK = "#e4467d";
-const BG = "#f4f4f2";
+const PINK = "#ec4899";
+const BG = "#f1f5f9";
 
 // Downsample once per block size so each frame is a single scaled draw.
 function pixelated(img, block) {
@@ -175,7 +175,7 @@ export default function Terminal({ className = "" }) {
 
   return (
     <div
-      className={`overflow-hidden rounded-xl border border-line-strong bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_60px_-24px_rgba(24,24,27,0.25)] ${className}`}
+      className={`overflow-hidden rounded-xl border border-line-strong bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_60px_-24px_rgba(15,23,42,0.25)] ${className}`}
     >
       {/* Title bar */}
       <div aria-hidden="true" className="flex items-center gap-2 border-b border-line bg-subtle px-4 py-2.5">

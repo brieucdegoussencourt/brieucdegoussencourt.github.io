@@ -7,15 +7,17 @@
   Email signature — open this file in a browser, select the signature
   (between the dashed guides), copy, and paste into Gmail →
   Settings → General → Signature. Table layout + inline styles + web-safe
-  fonts only, so it survives Gmail/Outlook/Apple Mail.
+  fonts only (Inter / JetBrains Mono are listed first for clients that
+  have them, with web-safe fallbacks), so it survives Gmail/Outlook/Apple Mail.
+  Colours and mark follow brand/README.md.
 
   The logo is a PNG (email clients block SVG) served from the live site:
   public/email/logo.png → https://brieuc.co/email/logo.png. It must be
   deployed before the signature is pasted.
 -->
 <style>
-  body { background:#fafaf9; padding:48px; font-family:Arial, sans-serif; color:#6b6b73; }
-  .guide { border:1px dashed #d4d3cf; padding:24px; background:#ffffff; display:inline-block; }
+  body { background:#f8fafc; padding:48px; font-family:Arial, sans-serif; color:#64748b; }
+  .guide { border:1px dashed #cbd5e1; padding:24px; background:#ffffff; display:inline-block; }
   p.note { font-size:13px; margin:0 0 16px; }
 </style>
 </head>
@@ -24,23 +26,23 @@
 <div class="guide">
 
 <!-- ===== SIGNATURE START ===== -->
-<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-family:Arial, Helvetica, sans-serif; color:#18181b;">
+<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse; font-family:Inter, Arial, Helvetica, sans-serif; color:#0f172a;">
   <tr>
     <td valign="top" style="padding:2px 16px 0 0;">
-      <a href="https://brieuc.co" style="text-decoration:none;"><img src="https://brieuc.co/email/logo.png" width="72" height="72" alt="B." style="display:block; width:72px; height:72px; border:0; border-radius:14px;"></a>
+      <a href="https://brieuc.co" style="text-decoration:none;"><img src="https://brieuc.co/email/logo.png" width="72" height="72" alt="B." style="display:block; width:72px; height:72px; border:0; border-radius:17px;"></a>
     </td>
-    <td valign="top" style="padding:0 0 0 16px; border-left:1px solid #e7e6e3;">
-      <div style="font-family:Menlo, Consolas, 'Courier New', monospace; font-size:12px; line-height:18px; color:#6b6b73; white-space:nowrap;"><span style="color:#be185d;">//</span> développeur &amp; UX designer</div>
-      <div style="font-size:18px; line-height:24px; font-weight:bold; letter-spacing:-0.4px; color:#18181b; padding:2px 0 8px; white-space:nowrap;">Brieuc de Goussencourt<span style="color:#e4467d;">.</span></div>
-      <div style="font-family:Menlo, Consolas, 'Courier New', monospace; font-size:12px; line-height:20px; white-space:nowrap;">
-        <span style="color:#be185d;">❯</span>&nbsp;<a href="https://brieuc.co" style="color:#18181b; text-decoration:none;">brieuc<span style="color:#e4467d;">.co</span></a>
-        <span style="color:#d4d3cf;">&nbsp;/&nbsp;</span>
-        <a href="https://www.linkedin.com/in/brieuc-de-goussencourt-003324304" style="color:#3f3f46; text-decoration:none;">linkedin</a>
-        <span style="color:#d4d3cf;">&nbsp;/&nbsp;</span>
-        <a href="https://github.com/brieucdegoussencourt" style="color:#3f3f46; text-decoration:none;">github</a>
+    <td valign="top" style="padding:0 0 0 16px; border-left:1px solid #e2e8f0;">
+      <div style="font-family:'JetBrains Mono', Menlo, Consolas, 'Courier New', monospace; font-size:12px; line-height:18px; color:#64748b; white-space:nowrap;"><span style="color:#be185d;">//</span> développeur &amp; UX designer</div>
+      <div style="font-size:18px; line-height:24px; font-weight:bold; letter-spacing:-0.5px; color:#0f172a; padding:2px 0 8px; white-space:nowrap;">Brieuc de Goussencourt<span style="color:#ec4899;">.</span></div>
+      <div style="font-family:'JetBrains Mono', Menlo, Consolas, 'Courier New', monospace; font-size:12px; line-height:20px; white-space:nowrap;">
+        <span style="color:#be185d;">❯</span>&nbsp;<a href="https://brieuc.co" style="color:#0f172a; text-decoration:none; font-weight:bold;">brieuc<span style="color:#ec4899;">.co</span></a>
+        <span style="color:#cbd5e1;">&nbsp;/&nbsp;</span>
+        <a href="https://www.linkedin.com/in/brieuc-de-goussencourt-003324304" style="color:#334155; text-decoration:none;">linkedin</a>
+        <span style="color:#cbd5e1;">&nbsp;/&nbsp;</span>
+        <a href="https://github.com/brieucdegoussencourt" style="color:#334155; text-decoration:none;">github</a>
       </div>
-      <div style="font-family:Menlo, Consolas, 'Courier New', monospace; font-size:12px; line-height:20px; white-space:nowrap;">
-        <span style="color:#be185d;">❯</span>&nbsp;<a href="tel:+32472802225" style="color:#3f3f46; text-decoration:none;">+32 472 80 22 25</a>
+      <div style="font-family:'JetBrains Mono', Menlo, Consolas, 'Courier New', monospace; font-size:12px; line-height:20px; white-space:nowrap;">
+        <span style="color:#be185d;">❯</span>&nbsp;<a href="tel:+32472802225" style="color:#334155; text-decoration:none;">+32 472 80 22 25</a>
       </div>
     </td>
   </tr>

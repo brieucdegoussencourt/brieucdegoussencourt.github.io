@@ -11,7 +11,7 @@ export const CAL_LINK = "brieuc-de-goussencourt-bwmrs2/let-s-have-a-conversation
 export const CAL_NAMESPACE = "let-s-have-a-conversation";
 
 // Brand colour used for the modal's highlights (ink, matching the site).
-export const CAL_BRAND = "#18181b";
+export const CAL_BRAND = "#0f172a";
 
 // ---------------------------------------------------------------------------
 // Shared Cal.com wiring. Call useCalInit() once at app level, then spread

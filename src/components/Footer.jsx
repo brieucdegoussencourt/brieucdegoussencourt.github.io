@@ -24,7 +24,7 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="px-2 pb-2 sm:px-3 sm:pb-3">
-      <div className="overflow-hidden rounded-2xl bg-ink text-white">
+      <div className="overflow-hidden rounded-2xl bg-obsidian text-white">
         {/* Closing invitation, framed as a terminal session */}
         <section aria-labelledby="contact-title" className="py-16 sm:py-24">
           <Container>
@@ -79,8 +79,10 @@ export default function Footer() {
         <div className="border-t border-white/10">
           <Container className="flex flex-col gap-3 py-5 font-mono text-[13px] text-white/60 md:flex-row md:items-center md:justify-between">
             <p>
-              <span className="text-white">brieuc</span>
-              <span className="text-pink">.co</span>
+              <span className="font-sans font-bold tracking-[-0.03em]">
+                <span className="text-white">brieuc</span>
+                <span className="text-pink">.co</span>
+              </span>
               <span className="mx-2 text-white/30" aria-hidden="true">·</span>© {year}
             </p>
 

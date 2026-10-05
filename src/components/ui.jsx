@@ -126,9 +126,9 @@ const sizes = {
 
 const variants = {
   primary:
-    "bg-ink text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_1px_2px_rgba(0,0,0,0.2)] hover:bg-ink-soft hover:shadow-[0_8px_20px_-8px_rgba(24,24,27,0.5)]",
+    "bg-ink text-white shadow-[0_1px_0_rgba(255,255,255,0.12)_inset,0_1px_2px_rgba(0,0,0,0.2)] hover:bg-ink-soft hover:shadow-[0_8px_20px_-8px_rgba(15,23,42,0.5)]",
   secondary:
-    "border border-line-strong bg-surface text-ink shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-ink/30 hover:shadow-[0_8px_20px_-10px_rgba(24,24,27,0.25)]",
+    "border border-line-strong bg-surface text-ink shadow-[0_1px_2px_rgba(0,0,0,0.04)] hover:border-ink/30 hover:shadow-[0_8px_20px_-10px_rgba(15,23,42,0.25)]",
   primaryOnDark:
     "bg-white text-ink hover:bg-pink-soft hover:shadow-[0_8px_24px_-8px_rgba(0,0,0,0.6)]",
   secondaryOnDark:

@@ -72,7 +72,7 @@ export default function Nav() {
           <a
             href="#top"
             aria-label="Brieuc de Goussencourt — accueil"
-            className="group flex items-center gap-3 rounded-md font-mono text-[15px] tracking-tight text-ink"
+            className="group flex items-center gap-3 rounded-md text-[17px] font-bold tracking-[-0.03em] text-ink"
           >
             <img
               src={`${import.meta.env.BASE_URL}favicon.svg`}

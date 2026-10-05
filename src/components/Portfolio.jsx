@@ -79,7 +79,7 @@ function CaseStudy({ project }) {
         aria-labelledby={titleId}
         variants={fadeUp}
         whileHover="hover"
-        className="group overflow-hidden rounded-xl border border-line bg-surface transition-[border-color,box-shadow] duration-500 hover:border-line-strong hover:shadow-[0_30px_70px_-34px_rgba(24,24,27,0.35)]"
+        className="group overflow-hidden rounded-xl border border-line bg-surface transition-[border-color,box-shadow] duration-500 hover:border-line-strong hover:shadow-[0_30px_70px_-34px_rgba(15,23,42,0.35)]"
       >
         {/* Browser chrome */}
         <div className="flex items-center gap-3 border-b border-line bg-subtle px-4 py-2.5">

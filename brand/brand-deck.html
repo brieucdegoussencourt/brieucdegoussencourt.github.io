@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>brieuc.co — Visual Identity & Presentation Deck</title>
+  
+  <!-- Inter & JetBrains Mono Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace'],
+          },
+          colors: {
+            obsidian: '#111318',
+            surfaceDark: '#181B22',
+            borderDark: '#2A2F3A',
+            charcoal: '#0F172A',
+            brandPink: '#EC4899',
+            brandPinkDark: '#DB2777',
+            blueprint: '#E2E8F0',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Technical Blueprint Grid Pattern */
+    .blueprint-grid-light {
+      background-size: 28px 28px;
+      background-image: 
+        linear-gradient(to right, rgba(226, 232, 240, 0.7) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(226, 232, 240, 0.7) 1px, transparent 1px);
+    }
+    
+    .blueprint-grid-dark {
+      background-size: 28px 28px;
+      background-image: 
+        linear-gradient(to right, rgba(42, 47, 58, 0.45) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(42, 47, 58, 0.45) 1px, transparent 1px);
+    }
+
+    /* Terminal Blinking Cursor */
+    @keyframes cursor-blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    .animate-blink {
+      animation: cursor-blink 1.05s step-start infinite;
+    }
+
+    /* Smooth Slide Transition Container */
+    .slide-panel {
+      transition: opacity 0.28s ease, transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .slide-enter {
+      opacity: 1;
+      transform: translateY(0px) scale(1);
+    }
+    .slide-hidden-left {
+      opacity: 0;
+      transform: translateX(-16px) scale(0.995);
+      pointer-events: none;
+    }
+    .slide-hidden-right {
+      opacity: 0;
+      transform: translateX(16px) scale(0.995);
+      pointer-events: none;
+    }
+
+    /* Custom Scrollbar for Drawer */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: rgba(148, 163, 184, 0.3);
+      border-radius: 9999px;
+    }
+  </style>
+</head>
+
+<body class="h-full bg-slate-100 text-charcoal font-sans antialiased select-none overflow-hidden transition-colors duration-300 dark:bg-[#0B0D11] dark:text-slate-100">
+
+  <!-- Top Global Header / Window Title Bar -->
+  <header class="h-14 border-b border-slate-200 dark:border-borderDark bg-white/90 dark:bg-obsidian/90 backdrop-blur px-4 md:px-6 flex items-center justify-between z-30 relative transition-colors duration-300">
+    <!-- Left: macOS Window Controls & Title -->
+    <div class="flex items-center gap-3">
+      <div class="flex items-center gap-2">
+        <span class="w-3 h-3 rounded-full bg-[#EF4444] inline-block shadow-sm"></span>
+        <span class="w-3 h-3 rounded-full bg-[#F59E0B] inline-block shadow-sm"></span>
+        <span class="w-3 h-3 rounded-full bg-[#10B981] inline-block shadow-sm"></span>
+      </div>
+      <div class="h-4 w-[1px] bg-slate-300 dark:bg-borderDark mx-1"></div>
+      <div class="flex items-center gap-2 font-mono text-xs text-slate-500 dark:text-slate-400">
+        <span class="text-charcoal dark:text-slate-200 font-semibold flex items-center gap-1.5">
+          <span class="w-1.5 h-1.5 rounded-full bg-brandPink"></span>
+          brieuc.deck
+        </span>
+        <span class="hidden sm:inline text-slate-400">/</span>
+        <span class="hidden sm:inline" id="header-command-label">$ /scope-of-work</span>
+      </div>
+    </div>
+
+    <!-- Center: Vim Statusline Tag -->
+    <div class="hidden md:flex items-center gap-2 px-2.5 py-1 rounded bg-slate-100 dark:bg-surfaceDark border border-slate-200 dark:border-borderDark font-mono text-[11px]">
+      <span class="px-1.5 py-0.5 rounded bg-blue-600 text-white font-bold text-[10px] tracking-wider uppercase">NORMAL</span>
+      <span class="text-slate-500 dark:text-slate-400">utf-8</span>
+      <span class="text-slate-300 dark:text-borderDark">|</span>
+      <span class="text-brandPink font-medium" id="vim-slide-counter">SLIDE 01/04</span>
+    </div>
+
+    <!-- Right: Header Controls -->
+    <div class="flex items-center gap-2">
+      <!-- Thumbnail Drawer Button -->
+      <button id="toggle-drawer-btn" class="px-2.5 py-1.5 rounded-lg border border-slate-200 dark:border-borderDark bg-white dark:bg-surfaceDark hover:border-brandPink text-slate-700 dark:text-slate-300 font-mono text-xs flex items-center gap-1.5 transition-all" title="View all slide thumbnails">
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/></svg>
+        <span class="hidden sm:inline">Slides</span>
+      </button>
+
+      <!-- Theme Switcher -->
+      <button id="theme-toggle-btn" class="p-2 rounded-lg border border-slate-200 dark:border-borderDark bg-white dark:bg-surfaceDark hover:border-brandPink text-slate-700 dark:text-slate-300 transition-all" title="Toggle Light / Dark Mode">
+        <svg id="moon-icon" class="w-4 h-4 hidden dark:block text-brandPink" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/></svg>
+        <svg id="sun-icon" class="w-4 h-4 block dark:hidden text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/></svg>
+      </button>
+
+      <!-- Fullscreen Toggle -->
+      <button id="fullscreen-btn" class="p-2 rounded-lg border border-slate-200 dark:border-borderDark bg-white dark:bg-surfaceDark hover:border-brandPink text-slate-700 dark:text-slate-300 transition-all" title="Toggle Fullscreen">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 8V4m0 0h4M4 4l5 5m11-5h-4m4 0v4m0-4l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main class="relative w-full h-[calc(100vh-7rem)] flex items-center justify-center p-3 sm:p-6 lg:p-10 overflow-hidden">
+    
+    <!-- Slide Viewport (16:9 Aspect Frame) -->
+    <div id="deck-stage" class="relative w-full max-w-6xl aspect-[16/9.5] sm:aspect-[16/9] max-h-full rounded-2xl border border-slate-200 dark:border-borderDark bg-white dark:bg-obsidian shadow-2xl overflow-hidden transition-all duration-300">
+      
+      <!-- Blueprint Grid Background Layer -->
+      <div id="grid-bg" class="absolute inset-0 pointer-events-none blueprint-grid-light dark:blueprint-grid-dark opacity-60"></div>
+      
+      <!-- Subtle Ambient Lighting Glow -->
+      <div class="absolute -top-32 -right-32 w-80 h-80 bg-brandPink/10 rounded-full blur-3xl pointer-events-none"></div>
+
+      <!-- ================= SLIDE 1: Title / Identity ================= -->
+      <section id="slide-0" class="slide-panel slide-enter absolute inset-0 p-6 sm:p-10 lg:p-14 flex flex-col justify-between overflow-y-auto">
+        <!-- Top Command Header -->
+        <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-borderDark/80 pb-4">
+          <div class="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+            <span class="text-brandPink font-bold">$</span>
+            <span class="text-charcoal dark:text-slate-200">./brieuc --init-identity</span>
+            <span class="inline-block w-2 h-4 bg-brandPink animate-blink ml-0.5"></span>
+          </div>
+          <span class="font-mono text-xs text-slate-400">OCT 2026 // REV 0.9</span>
+        </div>
+
+        <!-- Center Brand Lockup & Bio -->
+        <div class="my-auto py-6 flex flex-col gap-6">
+          <!-- Standalone SVG Lockup: Squircle B. + brieuc.co -->
+          <div class="w-full max-w-md">
+            <svg class="w-full h-auto" viewBox="0 0 540 120" fill="none" role="img" aria-label="brieuc.co lockup">
+              <!-- Icon Squircle -->
+              <rect x="10" y="10" width="100" height="100" rx="24" fill="#111318" />
+              <rect x="10" y="10" width="100" height="100" rx="24" stroke="#2A2F3A" stroke-width="1.5" />
+              <!-- Balanced Geometric 'B' with even upper & lower bowls -->
+              <path fill-rule="evenodd" clip-rule="evenodd" d="
+                M 34 32 H 61 C 71 32 78 36 78 45.5 C 78 51.5 74.5 56 68.5 58 C 75.5 60 80 65 80 72 C 80 82 72 88 61 88 H 34 V 32 Z
+                M 46 42 V 53 H 59.5 C 64.5 53 67 51 67 47.5 C 67 44 64.5 42 59.5 42 H 46 Z
+                M 46 63 V 78 H 60.5 C 66 78 68.5 75.5 68.5 70.5 C 68.5 65.5 66 63 60.5 63 H 46 Z" 
+                fill="#FFFFFF" />
+              <!-- Electric Pink Cursor Dot -->
+              <rect x="85" y="76" width="12" height="12" rx="2" fill="#EC4899" />
+
+              <!-- Wordmark: brieuc.co -->
+              <g transform="translate(142, 0)">
+                <!-- 'b' -->
+                <path d="M 0 35 H 10 V 50 C 13.5 46.5 18 45 23 45 C 34.5 45 42 53.5 42 66.5 C 42 79.5 34.5 88 23 88 C 18 88 13.5 86.5 10 83 V 87 H 0 V 35 Z M 10 66.5 C 10 74 15 79 21.5 79 C 28 79 32 74 32 66.5 C 32 59 28 54 21.5 54 C 15 54 10 59 10 66.5 Z" class="fill-charcoal dark:fill-white" />
+                <!-- 'r' -->
+                <path d="M 52 46 H 62 V 53 C 65 47.5 70 45 76.5 45 C 78.5 45 80.5 45.5 82 46.5 V 56.5 C 79.5 55 77 54.5 74.5 54.5 C 67.5 54.5 62 59.5 62 68 V 87 H 52 V 46 Z" class="fill-charcoal dark:fill-white" />
+                <!-- 'i' -->
+                <path d="M 92 34 H 102 V 42 H 92 V 34 Z M 92 46 H 102 V 87 H 92 V 46 Z" class="fill-charcoal dark:fill-white" />
+                <!-- 'e' -->
+                <path d="M 144 68 H 122 C 122.5 74.5 127 79 134 79 C 138.5 79 142 77 144 74 L 151 79 C 147 84.5 141 88 133.5 88 C 121 88 112 79 112 66.5 C 112 54 121 45 133 45 C 145 45 153 53.5 153 66 C 153 66.8 153 67.5 152.8 68 H 144 Z M 122 61 H 143 C 142.5 55.5 138.5 52.5 133 52.5 C 127.5 52.5 123 55.5 122 61 Z" class="fill-charcoal dark:fill-white" />
+                <!-- 'u' -->
+                <path d="M 163 46 H 173 V 68 C 173 74 177 78.5 183.5 78.5 C 190 78.5 194 74 194 68 V 46 H 204 V 87 H 194 V 81 C 190.5 85.5 186 88 180.5 88 C 169.5 88 163 80 163 68 V 46 Z" class="fill-charcoal dark:fill-white" />
+                <!-- 'c' -->
+                <path d="M 245 54.5 L 238 59.5 C 235.5 56 232 54 227 54 C 220 54 215 59.5 215 66.5 C 215 73.5 220 79 227 79 C 232 79 235.5 77 238 73.5 L 245 78.5 C 241 84.5 235 88 226.5 88 C 214 88 205 78.5 205 66.5 C 205 54.5 214 45 226.5 45 C 235 45 241 48.5 245 54.5 Z" class="fill-charcoal dark:fill-white" />
+                <!-- '.' in pink -->
+                <rect x="256" y="77" width="10" height="10" rx="2" fill="#EC4899" />
+                <!-- 'c' in pink -->
+                <path d="M 314 54.5 L 307 59.5 C 304.5 56 301 54 296 54 C 289 54 284 59.5 284 66.5 C 284 73.5 289 79 296 79 C 301 79 304.5 77 307 73.5 L 314 78.5 C 310 84.5 304 88 295.5 88 C 283 88 274 78.5 274 66.5 C 274 54.5 283 45 295.5 45 C 304 45 310 48.5 314 54.5 Z" fill="#EC4899" />
+                <!-- 'o' in pink -->
+                <path d="M 324 66.5 C 324 54.5 333 45 345 45 C 357 45 366 54.5 366 66.5 C 366 78.5 357 88 345 88 C 333 88 324 78.5 324 66.5 Z M 334 66.5 C 334 74 338.5 79 345 79 C 351.5 79 356 74 356 66.5 C 356 59 351.5 54 345 54 C 338.5 54 334 59 334 66.5 Z" fill="#EC4899" />
+              </g>
+            </svg>
+          </div>
+
+          <div class="space-y-3 max-w-2xl">
+            <h1 class="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight leading-tight">
+              Developer & UX Designer
+            </h1>
+            <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base leading-relaxed">
+Building custom digital tools for modern web experiences.
+            </p>
+          </div>
+        </div>
+
+        <!-- Slide Footer Metadata -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pt-4 border-t border-slate-200/80 dark:border-borderDark/80 font-mono text-xs text-slate-500 dark:text-slate-400">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> Ready
+            </span>
+            <span class="hidden sm:inline">Brussels / Remote</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span>Press</span>
+            <kbd class="px-1.5 py-0.5 rounded border border-slate-300 dark:border-borderDark bg-slate-100 dark:bg-surfaceDark text-[10px]">Space</kbd>
+            <span>or</span>
+            <kbd class="px-1.5 py-0.5 rounded border border-slate-300 dark:border-borderDark bg-slate-100 dark:bg-surfaceDark text-[10px]">→</kbd>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 2: Scope of Work / Architecture ================= -->
+      <section id="slide-1" class="slide-panel slide-hidden-right absolute inset-0 p-6 sm:p-10 lg:p-14 flex flex-col justify-between overflow-y-auto">
+        <!-- Top Command Header -->
+        <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-borderDark/80 pb-3">
+          <div class="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+            <span class="text-brandPink font-bold">$</span>
+            <span class="text-charcoal dark:text-slate-200">cat /core-capabilities.yml</span>
+          </div>
+          <span class="font-mono text-xs text-brandPink font-semibold">02 // SCOPE</span>
+        </div>
+
+        <!-- Content Grid: 3 Terminal Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 my-auto py-4">
+          <!-- Card 1 -->
+          <div class="p-5 rounded-xl border border-slate-200 dark:border-borderDark bg-white/70 dark:bg-surfaceDark/70 backdrop-blur hover:border-brandPink transition-all group">
+            <div class="font-mono text-xs text-brandPink mb-2 flex items-center justify-between">
+              <span>01. SYSTEMS</span>
+              <span class="text-slate-400 group-hover:text-brandPink transition-colors">→</span>
+            </div>
+            <h3 class="font-bold text-lg mb-2 text-charcoal dark:text-white">Design Systems & Tokens</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Building tokenized component libraries synchronized directly between Figma and production Tailwind/CSS repositories.
+            </p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">Tokens</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">Storybook</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">Figma API</span>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="p-5 rounded-xl border border-slate-200 dark:border-borderDark bg-white/70 dark:bg-surfaceDark/70 backdrop-blur hover:border-brandPink transition-all group">
+            <div class="font-mono text-xs text-brandPink mb-2 flex items-center justify-between">
+              <span>02. FRONTEND</span>
+              <span class="text-slate-400 group-hover:text-brandPink transition-colors">→</span>
+            </div>
+            <h3 class="font-bold text-lg mb-2 text-charcoal dark:text-white">Interactive Engineering</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              High-performance web apps built with Next.js, React, and TypeScript. Fluid motion, gesture control, and 60fps animations.
+            </p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">Next.js 15</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">Framer Motion</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">Tailwind</span>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="p-5 rounded-xl border border-slate-200 dark:border-borderDark bg-white/70 dark:bg-surfaceDark/70 backdrop-blur hover:border-brandPink transition-all group">
+            <div class="font-mono text-xs text-brandPink mb-2 flex items-center justify-between">
+              <span>03. MICRO-CRAFT</span>
+              <span class="text-slate-400 group-hover:text-brandPink transition-colors">→</span>
+            </div>
+            <h3 class="font-bold text-lg mb-2 text-charcoal dark:text-white">The Polish Layer</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed mb-4">
+              Keyboard shortcut navigation, custom SVG icon mechanics, sound feedback, and meticulous zero-latency tactile response.
+            </p>
+            <div class="flex flex-wrap gap-1.5 font-mono text-[11px]">
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">Hotkeys</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">WebGL/3D</span>
+              <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-obsidian border border-slate-200 dark:border-borderDark text-slate-600 dark:text-slate-300">A11y AA+</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Footer Code Snippet -->
+        <div class="pt-3 border-t border-slate-200/80 dark:border-borderDark/80 flex items-center justify-between font-mono text-xs text-slate-500">
+          <div><span class="text-emerald-500">✓</span> verified production ready</div>
+          <div>architecture_spec.v2</div>
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 3: Milestones & Metrics ================= -->
+      <section id="slide-2" class="slide-panel slide-hidden-right absolute inset-0 p-6 sm:p-10 lg:p-14 flex flex-col justify-between overflow-y-auto">
+        <!-- Top Command Header -->
+        <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-borderDark/80 pb-3">
+          <div class="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+            <span class="text-brandPink font-bold">$</span>
+            <span class="text-charcoal dark:text-slate-200">./deploy --metrics --sprint</span>
+          </div>
+          <span class="font-mono text-xs text-brandPink font-semibold">03 // BENCHMARKS</span>
+        </div>
+
+        <!-- Metrics & Sprint Timeline -->
+        <div class="my-auto py-4 space-y-6">
+          <!-- Stat Counters -->
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-borderDark bg-white/70 dark:bg-surfaceDark/70">
+              <div class="text-2xl sm:text-3xl font-mono font-bold text-brandPink">100/100</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider font-mono mt-1">Lighthouse Score</div>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-borderDark bg-white/70 dark:bg-surfaceDark/70">
+              <div class="text-2xl sm:text-3xl font-mono font-bold text-charcoal dark:text-white">&lt;45ms</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider font-mono mt-1">Interaction Latency</div>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-borderDark bg-white/70 dark:bg-surfaceDark/70">
+              <div class="text-2xl sm:text-3xl font-mono font-bold text-charcoal dark:text-white">100%</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider font-mono mt-1">Type Safety (Strict)</div>
+            </div>
+            <div class="p-4 rounded-xl border border-slate-200 dark:border-borderDark bg-white/70 dark:bg-surfaceDark/70">
+              <div class="text-2xl sm:text-3xl font-mono font-bold text-brandPink">4 Weeks</div>
+              <div class="text-xs text-slate-500 uppercase tracking-wider font-mono mt-1">Average MVP Delivery</div>
+            </div>
+          </div>
+
+          <!-- Milestones Bar -->
+          <div class="p-5 rounded-xl border border-slate-200 dark:border-borderDark bg-white/50 dark:bg-surfaceDark/50 space-y-3">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-slate-500">PROJECT ROLLOUT TIMELINE</span>
+              <span class="text-brandPink">STATUS: READY_TO_EXECUTE</span>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-4 gap-2 text-xs">
+              <div class="p-2.5 rounded bg-slate-100 dark:bg-obsidian border-l-2 border-brandPink">
+                <div class="font-mono text-slate-400 text-[10px]">PHASE 01</div>
+                <div class="font-semibold text-charcoal dark:text-slate-200">Architecture & Tokens</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-100 dark:bg-obsidian border-l-2 border-brandPink">
+                <div class="font-mono text-slate-400 text-[10px]">PHASE 02</div>
+                <div class="font-semibold text-charcoal dark:text-slate-200">Component Scaffolding</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-100 dark:bg-obsidian border-l-2 border-brandPink">
+                <div class="font-mono text-slate-400 text-[10px]">PHASE 03</div>
+                <div class="font-semibold text-charcoal dark:text-slate-200">Motion & State Sync</div>
+              </div>
+              <div class="p-2.5 rounded bg-slate-100 dark:bg-obsidian border-l-2 border-emerald-500">
+                <div class="font-mono text-slate-400 text-[10px]">PHASE 04</div>
+                <div class="font-semibold text-charcoal dark:text-slate-200">Audit & Handover</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Footer -->
+        <div class="pt-3 border-t border-slate-200/80 dark:border-borderDark/80 flex items-center justify-between font-mono text-xs text-slate-500">
+          <div>$ ./run --benchmark-suite</div>
+          <div>All Tests Passing (24/24)</div>
+        </div>
+      </section>
+
+      <!-- ================= SLIDE 4: Contact / Next Steps ================= -->
+      <section id="slide-3" class="slide-panel slide-hidden-right absolute inset-0 p-6 sm:p-10 lg:p-14 flex flex-col justify-between overflow-y-auto">
+        <!-- Top Command Header -->
+        <div class="flex items-center justify-between border-b border-slate-200/80 dark:border-borderDark/80 pb-3">
+          <div class="font-mono text-xs sm:text-sm text-slate-500 dark:text-slate-400 flex items-center gap-2">
+            <span class="text-brandPink font-bold">$</span>
+            <span class="text-charcoal dark:text-slate-200">./contact --direct</span>
+          </div>
+          <span class="font-mono text-xs text-brandPink font-semibold">04 // NEXT STEPS</span>
+        </div>
+
+        <!-- Terminal Box Style Contact Interface -->
+        <div class="my-auto py-4 max-w-xl mx-auto w-full">
+          <div class="rounded-xl border border-slate-200 dark:border-borderDark bg-white/90 dark:bg-surfaceDark/90 shadow-xl overflow-hidden">
+            <!-- Terminal Header -->
+            <div class="px-4 py-2.5 bg-slate-100 dark:bg-obsidian border-b border-slate-200 dark:border-borderDark flex items-center justify-between">
+              <div class="flex items-center gap-2 font-mono text-xs text-slate-500">
+                <span class="w-2.5 h-2.5 rounded-full bg-slate-400 dark:bg-slate-600"></span>
+                <span>brieuc@terminal:~</span>
+              </div>
+              <span class="text-[10px] font-mono text-brandPink">SSH CONNECTED</span>
+            </div>
+
+            <!-- Terminal Body -->
+            <div class="p-6 font-mono space-y-4 text-xs sm:text-sm">
+              <div class="text-slate-600 dark:text-slate-300">
+                <p class="mb-1 text-slate-400">// Ready to collaborate on high-impact interfaces?</p>
+                <p>Feel free to ping directly for freelance projects, technical design leadership, or advisory.</p>
+              </div>
+
+              <div class="p-4 rounded-lg bg-slate-50 dark:bg-obsidian border border-slate-200 dark:border-borderDark space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-500">Website:</span>
+                  <a href="https://brieuc.co" target="_blank" class="text-brandPink hover:underline font-bold">brieuc.co</a>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-500">Email:</span>
+                  <span class="text-charcoal dark:text-slate-200">hello@brieuc.co</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-500">GitHub:</span>
+                  <span class="text-charcoal dark:text-slate-200">@brieuc</span>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-slate-500">Location:</span>
+                  <span class="text-charcoal dark:text-slate-200">Paris, FR / UTC+1</span>
+                </div>
+              </div>
+
+              <div class="flex items-center justify-between pt-2">
+                <button id="copy-email-btn" class="px-4 py-2 rounded-lg bg-obsidian text-white dark:bg-brandPink dark:hover:bg-brandPinkDark text-xs font-mono font-medium flex items-center gap-2 transition-colors">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>
+                  <span>Copy hello@brieuc.co</span>
+                </button>
+                <span id="copy-status" class="text-emerald-500 text-xs hidden">✓ Copied to clipboard!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide Footer -->
+        <div class="pt-3 border-t border-slate-200/80 dark:border-borderDark/80 flex items-center justify-between font-mono text-xs text-slate-500">
+          <div>$ exit 0</div>
+          <div>Thank you for reading</div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Bottom Slide Control Bar -->
+  <footer class="fixed bottom-0 inset-x-0 h-14 border-t border-slate-200 dark:border-borderDark bg-white/90 dark:bg-obsidian/90 backdrop-blur px-4 md:px-8 flex items-center justify-between z-20 transition-colors duration-300">
+    <!-- Progress Indicator Pills -->
+    <div class="flex items-center gap-1.5" id="progress-pills">
+      <button onclick="goToSlide(0)" class="h-1.5 w-8 rounded-full bg-brandPink transition-all" aria-label="Slide 1"></button>
+      <button onclick="goToSlide(1)" class="h-1.5 w-4 rounded-full bg-slate-300 dark:bg-borderDark hover:bg-brandPink transition-all" aria-label="Slide 2"></button>
+      <button onclick="goToSlide(2)" class="h-1.5 w-4 rounded-full bg-slate-300 dark:bg-borderDark hover:bg-brandPink transition-all" aria-label="Slide 3"></button>
+      <button onclick="goToSlide(3)" class="h-1.5 w-4 rounded-full bg-slate-300 dark:bg-borderDark hover:bg-brandPink transition-all" aria-label="Slide 4"></button>
+    </div>
+
+    <!-- Center Slide Counter -->
+    <div class="font-mono text-xs text-slate-500 dark:text-slate-400 flex items-center gap-2">
+      <span>INDEX:</span>
+      <span class="text-charcoal dark:text-white font-bold" id="current-slide-num">01</span>
+      <span>/</span>
+      <span>04</span>
+    </div>
+
+    <!-- Navigation Buttons -->
+    <div class="flex items-center gap-2">
+      <button id="prev-btn" onclick="prevSlide()" class="p-2 rounded-lg border border-slate-200 dark:border-borderDark bg-white dark:bg-surfaceDark hover:border-brandPink text-slate-700 dark:text-slate-300 disabled:opacity-30 disabled:cursor-not-allowed transition-all" title="Previous Slide (← or K)">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+      </button>
+      <button id="next-btn" onclick="nextSlide()" class="px-3 py-1.5 rounded-lg border border-slate-200 dark:border-borderDark bg-obsidian text-white dark:bg-brandPink dark:hover:bg-brandPinkDark text-xs font-mono font-medium flex items-center gap-1.5 transition-all shadow-sm" title="Next Slide (→ or J or Space)">
+        <span>Next</span>
+        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+  </footer>
+
+  <!-- Slide Thumbnail Drawer (Bottom Popover) -->
+  <div id="slide-drawer" class="fixed inset-x-0 bottom-14 z-40 bg-white/95 dark:bg-obsidian/95 border-t border-slate-200 dark:border-borderDark backdrop-blur p-4 transform translate-y-full transition-transform duration-300 ease-out shadow-2xl">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-center justify-between mb-3 font-mono text-xs text-slate-500">
+        <span>QUICK SLIDE PICKER [1 - 4]</span>
+        <button id="close-drawer-btn" class="hover:text-brandPink">✕ Close</button>
+      </div>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <!-- Thumbnail 1 -->
+        <button onclick="goToSlide(0); closeDrawer();" class="p-3 text-left rounded-lg border border-slate-200 dark:border-borderDark hover:border-brandPink bg-slate-50 dark:bg-surfaceDark transition-all group">
+          <div class="font-mono text-[10px] text-brandPink">SLIDE 01</div>
+          <div class="text-xs font-bold text-charcoal dark:text-white mt-1 group-hover:text-brandPink">Brand Identity</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">$ /init-identity</div>
+        </button>
+        <!-- Thumbnail 2 -->
+        <button onclick="goToSlide(1); closeDrawer();" class="p-3 text-left rounded-lg border border-slate-200 dark:border-borderDark hover:border-brandPink bg-slate-50 dark:bg-surfaceDark transition-all group">
+          <div class="font-mono text-[10px] text-brandPink">SLIDE 02</div>
+          <div class="text-xs font-bold text-charcoal dark:text-white mt-1 group-hover:text-brandPink">Capabilities</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">$ /scope-of-work</div>
+        </button>
+        <!-- Thumbnail 3 -->
+        <button onclick="goToSlide(2); closeDrawer();" class="p-3 text-left rounded-lg border border-slate-200 dark:border-borderDark hover:border-brandPink bg-slate-50 dark:bg-surfaceDark transition-all group">
+          <div class="font-mono text-[10px] text-brandPink">SLIDE 03</div>
+          <div class="text-xs font-bold text-charcoal dark:text-white mt-1 group-hover:text-brandPink">Benchmarks</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">$ /metrics</div>
+        </button>
+        <!-- Thumbnail 4 -->
+        <button onclick="goToSlide(3); closeDrawer();" class="p-3 text-left rounded-lg border border-slate-200 dark:border-borderDark hover:border-brandPink bg-slate-50 dark:bg-surfaceDark transition-all group">
+          <div class="font-mono text-[10px] text-brandPink">SLIDE 04</div>
+          <div class="text-xs font-bold text-charcoal dark:text-white mt-1 group-hover:text-brandPink">Next Steps</div>
+          <div class="text-[11px] text-slate-400 font-mono mt-0.5">$ /contact</div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Slide Data Configuration
+    const TOTAL_SLIDES = 4;
+    let currentSlide = 0;
+    const commandLabels = [
+      "$ /init-identity",
+      "$ /scope-of-work",
+      "$ /metrics",
+      "$ /contact"
+    ];
+
+    // DOM Elements
+    const slides = [
+      document.getElementById('slide-0'),
+      document.getElementById('slide-1'),
+      document.getElementById('slide-2'),
+      document.getElementById('slide-3')
+    ];
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const currentSlideNum = document.getElementById('current-slide-num');
+    const vimCounter = document.getElementById('vim-slide-counter');
+    const headerCommandLabel = document.getElementById('header-command-label');
+    const progressPills = document.getElementById('progress-pills').children;
+    const slideDrawer = document.getElementById('slide-drawer');
+    const toggleDrawerBtn = document.getElementById('toggle-drawer-btn');
+    const closeDrawerBtn = document.getElementById('close-drawer-btn');
+    const copyEmailBtn = document.getElementById('copy-email-btn');
+    const copyStatus = document.getElementById('copy-status');
+
+    // Slide Switching Logic
+    function updateSlideView(oldIdx, newIdx) {
+      if (oldIdx === newIdx) return;
+      const direction = newIdx > oldIdx ? 'forward' : 'backward';
+
+      slides.forEach((slide, idx) => {
+        if (idx === newIdx) {
+          slide.classList.remove('slide-hidden-left', 'slide-hidden-right');
+          slide.classList.add('slide-enter');
+        } else if (idx < newIdx) {
+          slide.classList.remove('slide-enter', 'slide-hidden-right');
+          slide.classList.add('slide-hidden-left');
+        } else {
+          slide.classList.remove('slide-enter', 'slide-hidden-left');
+          slide.classList.add('slide-hidden-right');
+        }
+      });
+
+      // Update counters & labels
+      currentSlideNum.textContent = String(newIdx + 1).padStart(2, '0');
+      vimCounter.textContent = `SLIDE ${String(newIdx + 1).padStart(2, '0')}/04`;
+      headerCommandLabel.textContent = commandLabels[newIdx];
+
+      // Update pills
+      for (let i = 0; i < progressPills.length; i++) {
+        if (i === newIdx) {
+          progressPills[i].className = "h-1.5 w-8 rounded-full bg-brandPink transition-all";
+        } else {
+          progressPills[i].className = "h-1.5 w-4 rounded-full bg-slate-300 dark:bg-borderDark hover:bg-brandPink transition-all";
+        }
+      }
+
+      // Button disabled states
+      prevBtn.disabled = newIdx === 0;
+      nextBtn.disabled = newIdx === TOTAL_SLIDES - 1;
+    }
+
+    function goToSlide(index) {
+      if (index >= 0 && index < TOTAL_SLIDES) {
+        const prev = currentSlide;
+        currentSlide = index;
+        updateSlideView(prev, currentSlide);
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide < TOTAL_SLIDES - 1) {
+        goToSlide(currentSlide + 1);
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        goToSlide(currentSlide - 1);
+      }
+    }
+
+    // Keyboard Navigation (Vim keys + Arrows + Space)
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+
+      if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'l' || e.key === 'j') {
+        nextSlide();
+      } else if (e.key === 'ArrowLeft' || e.key === 'h' || e.key === 'k') {
+        prevSlide();
+      } else if (e.key >= '1' && e.key <= '4') {
+        goToSlide(parseInt(e.key) - 1);
+      } else if (e.key === 'Escape') {
+        closeDrawer();
+      }
+    });
+
+    // Thumbnail Drawer Controls
+    function openDrawer() {
+      slideDrawer.classList.remove('translate-y-full');
+    }
+    function closeDrawer() {
+      slideDrawer.classList.add('translate-y-full');
+    }
+    toggleDrawerBtn.addEventListener('click', () => {
+      if (slideDrawer.classList.contains('translate-y-full')) {
+        openDrawer();
+      } else {
+        closeDrawer();
+      }
+    });
+    closeDrawerBtn.addEventListener('click', closeDrawer);
+
+    // Theme Switcher (Dark / Light)
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    themeToggleBtn.addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark');
+    });
+
+    // Fullscreen API Handling
+    const fullscreenBtn = document.getElementById('fullscreen-btn');
+    fullscreenBtn.addEventListener('click', () => {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen().catch(() => {});
+      } else {
+        if (document.exitFullscreen) {
+          document.exitFullscreen();
+        }
+      }
+    });
+
+    // Copy Email to Clipboard helper
+    copyEmailBtn.addEventListener('click', () => {
+      const email = 'hello@brieuc.co';
+      const tempInput = document.createElement('input');
+      tempInput.value = email;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      try {
+        document.execCommand('copy');
+        copyStatus.classList.remove('hidden');
+        setTimeout(() => {
+          copyStatus.classList.add('hidden');
+        }, 2500);
+      } catch (err) {
+        console.error('Copy failed', err);
+      }
+      document.body.removeChild(tempInput);
+    });
+
+    // Initial state trigger
+    updateSlideView(-1, 0);
+  </script>
+</body>
+</html>
