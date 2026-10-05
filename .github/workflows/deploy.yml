@@ -1,9 +1,12 @@
-name: Deploy to GitHub Pages
+name: Redirect GitHub Pages to brieuc.co
 
 on:
   push:
     branches: [main]
   workflow_dispatch:
+
+# The site itself is hosted on Vercel (brieuc.co); GitHub Pages only serves
+# a redirect page so old brieucdegoussencourt.github.io links keep working.
 
 # Allow the workflow to publish to Pages
 permissions:
@@ -22,18 +25,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
-
-      - run: npm ci
-      - run: npm run build
-
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: dist
+          path: github-pages-redirect
 
   deploy:
     needs: build
