@@ -2,6 +2,7 @@ import { useRef } from "react";
 import { motion, useScroll, useSpring } from "motion/react";
 import { fadeUp, inView } from "../lib/motion.js";
 import { Block, Chip, Strong } from "./ui.jsx";
+import { Typewriter, Scramble } from "./TextFx.jsx";
 
 const steps = [
   {
@@ -129,9 +130,11 @@ function Step({ step }) {
               {step.label}
             </Chip>
           </div>
-          <h3 className="mt-3 text-xl font-semibold tracking-tight text-ink">{step.title}</h3>
+          <Typewriter as="h3" className="mt-3 text-xl font-semibold tracking-tight text-ink">
+            {step.title}
+          </Typewriter>
         </div>
-        <p className="text-base leading-relaxed text-ink-soft md:col-span-7">{step.body}</p>
+        <Scramble className="text-base leading-relaxed text-ink-soft md:col-span-7">{step.body}</Scramble>
       </motion.article>
     </motion.li>
   );

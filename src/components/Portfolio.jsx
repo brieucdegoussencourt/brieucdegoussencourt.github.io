@@ -2,6 +2,7 @@ import { motion } from "motion/react";
 import { GithubIcon } from "./icons.jsx";
 import { fadeUp, stagger, inView } from "../lib/motion.js";
 import { Block, Chip, Strong, NewTabHint, HoverArrow, linkClass } from "./ui.jsx";
+import { Typewriter, Scramble } from "./TextFx.jsx";
 
 /*
   A few real projects, each with a short description. Projects without `href`
@@ -125,12 +126,13 @@ function CaseStudy({ project }) {
               </span>
               <Chip>#{project.tag}</Chip>
             </div>
-            <h3
+            <Typewriter
+              as="h3"
               id={titleId}
               className="mt-3 text-2xl font-semibold tracking-tight text-ink"
             >
               {project.title}
-            </h3>
+            </Typewriter>
 
             {project.href ? (
               <div className="mt-4 flex flex-wrap items-center gap-x-6 gap-y-1 font-mono text-[13px]">
@@ -164,9 +166,9 @@ function CaseStudy({ project }) {
             )}
           </div>
 
-          <p className="text-base leading-relaxed text-ink-soft lg:col-span-7">
+          <Scramble className="text-base leading-relaxed text-ink-soft lg:col-span-7">
             {project.description}
-          </p>
+          </Scramble>
         </div>
       </motion.article>
     </motion.li>

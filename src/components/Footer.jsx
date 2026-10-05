@@ -3,6 +3,7 @@ import { LinkedInIcon, MailIcon, GithubIcon, PhoneIcon } from "./icons.jsx";
 import { calButtonProps } from "../lib/booking.js";
 import { fadeUp, stagger, inView } from "../lib/motion.js";
 import Legal from "./Legal.jsx";
+import { Typewriter, Scramble } from "./TextFx.jsx";
 import {
   Container,
   Prompt,
@@ -40,18 +41,18 @@ export default function Footer() {
               </motion.div>
 
               <div className="grid gap-6 pt-8 sm:pt-10 lg:grid-cols-12 lg:gap-12">
-                <motion.h2
+                <Typewriter
+                  as="h2"
                   id="contact-title"
-                  variants={fadeUp}
                   className="text-balance text-4xl font-semibold tracking-[-0.035em] sm:text-5xl lg:col-span-6"
                 >
                   Vous avez un projet en tête ?
-                </motion.h2>
+                </Typewriter>
                 <motion.div variants={fadeUp} className="space-y-8 lg:col-span-6 lg:pt-2">
-                  <p className="text-lg leading-relaxed text-white/70">
+                  <Scramble className="text-lg leading-relaxed text-white/70">
                     Le plus simple, c'est d'en parler. Prenez rendez-vous,
                     appelez-moi ou écrivez-moi, je vous réponds rapidement.
-                  </p>
+                  </Scramble>
 
                   <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     <button type="button" {...calButtonProps} className={buttonStyles.primaryOnDark}>

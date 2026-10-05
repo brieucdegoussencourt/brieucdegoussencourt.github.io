@@ -1,6 +1,7 @@
 import { motion } from "motion/react";
 import { fadeUp, stagger, inView } from "../lib/motion.js";
 import { Block, Strong } from "./ui.jsx";
+import { Typewriter, Scramble } from "./TextFx.jsx";
 
 const notes = [
   {
@@ -51,9 +52,9 @@ export default function About() {
               <span aria-hidden="true" className="font-mono text-sm font-normal text-pink-deep">
                 ##
               </span>
-              {n.title}
+              <Typewriter>{n.title}</Typewriter>
             </h3>
-            <p className="mt-3 text-base leading-relaxed text-ink-soft">{n.body}</p>
+            <Scramble className="mt-3 text-base leading-relaxed text-ink-soft">{n.body}</Scramble>
           </motion.article>
         ))}
       </motion.div>

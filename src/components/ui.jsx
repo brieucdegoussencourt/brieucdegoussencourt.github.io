@@ -2,9 +2,11 @@
   Shared layout primitives — one container, one "command block" section
   pattern and one set of buttons for the whole page.
 */
+import { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowIcon } from "./icons.jsx";
 import { fadeUp, stagger, inView } from "../lib/motion.js";
+import { Typewriter, Scramble } from "./TextFx.jsx";
 
 /* Same horizontal frame everywhere: 72rem max, 16px / 24px / 32px gutters. */
 export function Container({ className = "", children }) {
@@ -41,6 +43,8 @@ export function Prompt({ cmd, tone = "light", cursor = false, className = "" }) 
 */
 export function Block({ id, index, cmd, title, lead, children, className = "" }) {
   const titleId = `${id}-title`;
+  // The lead decodes once the title has finished typing.
+  const [titleDone, setTitleDone] = useState(false);
   return (
     <section id={id} aria-labelledby={titleId} className={`py-16 sm:py-24 ${className}`}>
       <Container>
@@ -57,20 +61,22 @@ export function Block({ id, index, cmd, title, lead, children, className = "" })
           </motion.div>
 
           <div className="grid gap-6 pt-8 sm:pt-10 lg:grid-cols-12 lg:gap-12">
-            <motion.h2
+            <Typewriter
+              as="h2"
               id={titleId}
-              variants={fadeUp}
+              onDone={() => setTitleDone(true)}
               className="text-balance text-3xl font-semibold tracking-[-0.03em] text-ink sm:text-4xl lg:col-span-5"
             >
               {title}
-            </motion.h2>
+            </Typewriter>
             {lead && (
-              <motion.div
-                variants={fadeUp}
+              <Scramble
+                as="div"
+                start={titleDone}
                 className="space-y-4 text-pretty text-lg leading-relaxed text-ink-soft lg:col-span-7 lg:pt-1.5"
               >
                 {lead}
-              </motion.div>
+              </Scramble>
             )}
           </div>
         </motion.div>
