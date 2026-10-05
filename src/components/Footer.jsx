@@ -66,7 +66,8 @@ export default function Footer() {
                     </a>
                     <a href={`mailto:${EMAIL}`} className={buttonStyles.secondaryOnDark}>
                       <MailIcon className="h-4 w-4" />
-                      <span className="sr-only">Envoyer un </span>E-mail
+                      <span className="sr-only">E-mail : </span>
+                      <span className="font-mono text-[13px]">{EMAIL}</span>
                     </a>
                   </div>
                 </motion.div>
