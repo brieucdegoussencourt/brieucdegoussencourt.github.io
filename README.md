@@ -83,3 +83,18 @@ The site deploys on **Vercel** (brieuc.co) on push to `main`.
 `.github/workflows/deploy.yml` publishes only `github-pages-redirect/` to
 GitHub Pages, so old `brieucdegoussencourt.github.io` links forward to
 brieuc.co.
+
+## Email
+
+The public contact address is **hello@brieuc.co** (`EMAIL` in `Footer.jsx`
+and `Legal.jsx`). The domain has no mailbox: [ImprovMX](https://improvmx.com)
+forwards it to the personal Gmail inbox. DNS lives in Vercel (brieuc.co →
+DNS Records):
+
+| Type | Name | Value | Priority |
+| --- | --- | --- | --- |
+| MX | `@` | `mx1.improvmx.com` | 10 |
+| MX | `@` | `mx2.improvmx.com` | 20 |
+| TXT | `@` | `v=spf1 include:spf.improvmx.com ~all` | — |
+
+Aliases are managed in the ImprovMX dashboard.
