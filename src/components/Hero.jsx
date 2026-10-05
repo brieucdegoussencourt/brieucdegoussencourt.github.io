@@ -21,7 +21,7 @@ const blocks = [
       { text: "Bonjour, " },
       { br: "sm:hidden" },
       { text: "je suis Brieuc" },
-      { text: ".", className: "text-pink" },
+      { text: ".", className: "text-red" },
     ],
   },
   {

@@ -23,7 +23,7 @@
   --color-pink-light: #f9a8d4; /* accent text on ink */
   --color-pink-soft: #fce7f3; /* tints */
 
-  /* Window-chrome dots only */
+  /* Window-chrome dots (red also marks the logo and heading period) */
   --color-green: #22c55e;
   --color-amber: #f59e0b;
   --color-red: #ef4444;
