@@ -1,65 +1,45 @@
-import { useReveal } from "../lib/useReveal.js";
+import { motion } from "motion/react";
 import { calButtonProps } from "../lib/booking.js";
-import { Container, Strong, buttonStyles, HoverArrow } from "./ui.jsx";
+import { fadeUp, stagger, spring } from "../lib/motion.js";
+import { Container, Strong, Kbd, buttonStyles, HoverArrow } from "./ui.jsx";
+import Terminal from "./Terminal.jsx";
 
 export default function Hero() {
-  const r1 = useReveal();
-  const r2 = useReveal({ rootMargin: "0px" });
-
   return (
     <section
       id="top"
       aria-labelledby="hero-title"
-      className="relative overflow-hidden bg-gradient-to-b from-stone/60 via-sand/40 to-canvas pt-20 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28"
+      className="relative overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40"
     >
-      {/* Quiet warm wash for a touch of depth */}
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0">
-        <div className="absolute -right-32 -top-24 h-[34rem] w-[34rem] rounded-full bg-clay-soft/20 blur-3xl" />
-      </div>
+      <div aria-hidden="true" className="bg-grid pointer-events-none absolute inset-0" />
 
-      <Container className="relative">
-        <div
-          ref={r1}
-          className="reveal rounded-3xl border border-stone bg-canvas px-5 py-6 text-center shadow-[0_10px_30px_rgba(58,54,49,0.05),0_30px_80px_-24px_rgba(58,54,49,0.18)] sm:px-12 sm:py-20 lg:py-24"
+      <Container className="relative grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+        <motion.div
+          variants={stagger(0.09, 0.1)}
+          initial="hidden"
+          animate="show"
+          className="lg:col-span-7"
         >
-          <div className="reveal-item">
-            <div className="group mx-auto mb-4 h-[5.5rem] w-[5.5rem] overflow-hidden rounded-full shadow-[0_18px_40px_-20px_rgba(58,54,49,0.55)] ring-1 ring-stone ring-offset-4 ring-offset-canvas transition-shadow duration-500 ease-organic hover:shadow-[0_24px_50px_-18px_rgba(58,54,49,0.6)] sm:mb-8 sm:h-40 sm:w-40">
-              <picture>
-                <source srcSet="/picture/brieuc.avif" type="image/avif" />
-                <img
-                  src="/picture/brieuc.webp"
-                  alt="Portrait de Brieuc"
-                  width="640"
-                  height="640"
-                  fetchpriority="high"
-                  decoding="async"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-organic group-hover:scale-[1.08]"
-                />
-              </picture>
-            </div>
-          </div>
+          <motion.p variants={fadeUp} className="font-mono text-sm text-muted">
+            <span className="text-pink-deep">//</span> développeur &amp; UX designer
+          </motion.p>
 
-          <p
-            style={{ "--d": "120ms" }}
-            className="reveal-item mb-3 inline-flex items-center sm:mb-8 gap-2 whitespace-nowrap rounded-full border border-stone bg-sand/60 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-charcoal-soft sm:tracking-[0.2em]"
-          >
-            <span aria-hidden="true" className="h-1.5 w-1.5 rounded-full bg-clay" />
-            Développeur &amp; UX Designer
-          </p>
-
-          <h1
+          <motion.h1
             id="hero-title"
-            style={{ "--d": "260ms" }}
-            className="reveal-item font-serif text-4xl leading-[1.08] tracking-tight text-charcoal sm:text-5xl lg:text-6xl"
+            variants={{
+              hidden: { opacity: 0, y: 18, filter: "blur(6px)" },
+              show: { opacity: 1, y: 0, filter: "blur(0px)", transition: spring },
+            }}
+            className="mt-4 text-5xl font-semibold leading-[1.02] tracking-[-0.045em] text-ink sm:text-6xl lg:text-7xl"
           >
-            Bonjour,{" "}
-            <br className="md:hidden" />
-            je suis <span className="italic text-clay-deep">Brieuc</span>
-          </h1>
+            Bonjour, <br className="sm:hidden" />
+            je suis Brieuc
+            <span className="text-pink">.</span>
+          </motion.h1>
 
-          <p
-            style={{ "--d": "420ms" }}
-            className="reveal-item mx-auto mt-3 max-w-2xl text-pretty text-base leading-[1.7] text-charcoal-soft sm:mt-6 sm:text-xl sm:leading-relaxed"
+          <motion.p
+            variants={fadeUp}
+            className="mt-6 max-w-xl text-pretty text-lg leading-relaxed text-ink-soft"
           >
             J'accompagne <Strong>indépendants</Strong> et <Strong>entreprises</Strong>{" "}
             dans la création de leurs <Strong>sites</Strong>,{" "}
@@ -67,22 +47,31 @@ export default function Hero() {
             Du design d'interface à la mise en production : des{" "}
             <Strong>solutions fluides</Strong>, taillées{" "}
             <Strong>sur mesure</Strong> pour optimiser votre activité.
-          </p>
+          </motion.p>
 
-          <div
-            ref={r2}
-            className="reveal mt-6 flex flex-col items-stretch justify-center gap-3 sm:mt-10 sm:flex-row sm:items-center"
-            style={{ transitionDelay: "580ms" }}
+          <motion.div
+            variants={fadeUp}
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
           >
             <button type="button" {...calButtonProps} className={buttonStyles.primary}>
               Parlons de votre projet
-              <HoverArrow />
+              <Kbd className="border-white/20 text-white/70">↵</Kbd>
             </button>
             <a href="#work" className={buttonStyles.secondary}>
               Voir mes réalisations
+              <HoverArrow />
             </a>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24, scale: 0.98 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ ...spring, delay: 0.35 }}
+          className="lg:col-span-5"
+        >
+          <Terminal />
+        </motion.div>
       </Container>
     </section>
   );

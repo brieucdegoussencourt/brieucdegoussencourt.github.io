@@ -1,6 +1,9 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Brieuc de Goussencourt">
-  <rect width="64" height="64" rx="14" fill="#3a3631" />
-  <text x="50%" y="50%" dy="0.02em" text-anchor="middle" dominant-baseline="central"
-        font-family="Georgia, 'Playfair Display', serif" font-size="34" fill="#f6f2ec">B</text>
-  <circle cx="46" cy="44" r="3.2" fill="#b08968" />
+  <rect width="64" height="64" rx="12" fill="#18181b" />
+  <!-- Geometric "B" on a 6.5-unit stroke: straight stem, two bowls, crisp counters -->
+  <path fill="#fafaf9" fill-rule="evenodd"
+        d="M13 14H29A8.5 8.5 0 0 1 29 31H31A9.5 9.5 0 0 1 31 50H13Z
+           M19.5 20.5H27.4A3.625 3.625 0 0 1 27.4 27.75H19.5Z
+           M19.5 34.5H29.5A4.5 4.5 0 0 1 29.5 43.5H19.5Z" />
+  <rect x="44" y="43.5" width="6.5" height="6.5" fill="#ec4899" />
 </svg>

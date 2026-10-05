@@ -7,7 +7,7 @@ const PHONE = "+32 472 80 22 25";
 // TODO (Brieuc): remplacer les champs « à compléter » par tes vraies infos.
 function ToFill({ children = "à compléter" }) {
   return (
-    <span className="rounded bg-dawn/30 px-1.5 font-medium text-charcoal">
+    <span className="rounded bg-amber/15 px-1.5 font-mono text-[0.9em] text-ink">
       [{children}]
     </span>
   );
@@ -30,18 +30,18 @@ export default function Legal({ className = "" }) {
         ref={dialog}
         aria-labelledby="legal-title"
         onClick={(e) => e.target === dialog.current && dialog.current.close()}
-        className="m-auto max-h-[85vh] w-[calc(100%-2rem)] max-w-2xl rounded-3xl border border-stone bg-canvas p-0 text-left text-charcoal shadow-[0_38px_90px_-44px_rgba(58,54,49,0.6)] backdrop:bg-charcoal/60 backdrop:backdrop-blur-sm"
+        className="m-auto max-h-[85vh] w-[calc(100%-2rem)] max-w-2xl rounded-xl border border-line-strong bg-surface p-0 text-left text-ink shadow-[0_38px_90px_-44px_rgba(24,24,27,0.6)] backdrop:bg-ink/50 backdrop:backdrop-blur-sm"
       >
         <div className="p-8 sm:p-10">
           <div className="flex items-start justify-between gap-6">
-            <h2 id="legal-title" className="font-serif text-3xl tracking-tight">
+            <h2 id="legal-title" className="text-2xl font-semibold tracking-tight">
               Mentions légales
             </h2>
             <button
               type="button"
               onClick={() => dialog.current?.close()}
               aria-label="Fermer"
-              className={`${iconButtonClass} -mr-2 -mt-1 text-charcoal-soft hover:text-charcoal`}
+              className={`${iconButtonClass} -mr-2 -mt-1 text-muted hover:text-ink`}
             >
               <svg
                 viewBox="0 0 24 24"
@@ -57,7 +57,7 @@ export default function Legal({ className = "" }) {
             </button>
           </div>
 
-          <div className="mt-8 space-y-7 text-base leading-relaxed text-charcoal-soft">
+          <div className="mt-8 space-y-7 text-base leading-relaxed text-ink-soft">
             <Block title="Éditeur du site">
               <p>
                 Brieuc de Goussencourt, développeur
@@ -69,7 +69,7 @@ export default function Legal({ className = "" }) {
                 TVA : <ToFill />
                 <br />
                 E-mail :{" "}
-                <a href={`mailto:${EMAIL}`} className="underline underline-offset-2 transition-colors duration-300 hover:text-charcoal">
+                <a href={`mailto:${EMAIL}`} className="underline underline-offset-2 transition-colors duration-300 hover:text-ink">
                   {EMAIL}
                 </a>
                 <br />
@@ -133,8 +133,8 @@ export default function Legal({ className = "" }) {
 
 function Block({ title, children }) {
   return (
-    <section className="space-y-2 border-t border-stone pt-5">
-      <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-charcoal">
+    <section className="space-y-2 border-t border-line pt-5">
+      <h3 className="font-mono text-xs font-medium uppercase tracking-wider text-ink">
         {title}
       </h3>
       {children}

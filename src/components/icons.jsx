@@ -1,6 +1,6 @@
 /*
   Minimal line iconography — 1.5px strokes, rounded joins, no fills.
-  Quiet and architectural, matching the Japandi directive. Each icon
+  Quiet and precise, matching the interface aesthetic. Each icon
   inherits `currentColor` and sizes to its container via className.
 */
 
@@ -13,39 +13,6 @@ const base = {
   viewBox: "0 0 24 24",
   "aria-hidden": "true",
 };
-
-export function CompassIcon({ className = "h-6 w-6" }) {
-  // Strategy / direction
-  return (
-    <svg className={className} {...base}>
-      <circle cx="12" cy="12" r="9" />
-      <path d="M15.5 8.5 13 13l-4.5 2.5L11 11l4.5-2.5Z" />
-    </svg>
-  );
-}
-
-export function LayersIcon({ className = "h-6 w-6" }) {
-  // Clean UI / design surface
-  return (
-    <svg className={className} {...base}>
-      <path d="M12 3 3 8l9 5 9-5-9-5Z" />
-      <path d="m3 12 9 5 9-5" />
-      <path d="m3 16 9 5 9-5" />
-    </svg>
-  );
-}
-
-export function FlowIcon({ className = "h-6 w-6" }) {
-  // Connected systems / APIs & real-time data, without jargon
-  return (
-    <svg className={className} {...base}>
-      <circle cx="5" cy="6" r="2" />
-      <circle cx="19" cy="6" r="2" />
-      <circle cx="12" cy="18" r="2" />
-      <path d="M7 6h10M5 8v4a3 3 0 0 0 3 3h2m9-7v4a3 3 0 0 1-3 3h-2" />
-    </svg>
-  );
-}
 
 export function ArrowIcon({ className = "h-4 w-4" }) {
   return (

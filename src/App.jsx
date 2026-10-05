@@ -4,6 +4,7 @@ import Process from "./components/Process.jsx";
 import About from "./components/About.jsx";
 import Portfolio from "./components/Portfolio.jsx";
 import Footer from "./components/Footer.jsx";
+import { MotionConfig } from "motion/react";
 import { useCalInit } from "./lib/booking.js";
 
 export default function App() {
@@ -11,11 +12,11 @@ export default function App() {
   useCalInit();
 
   return (
-    <>
+    <MotionConfig reducedMotion="user">
       {/* Skip link for keyboard & screen-reader users */}
       <a
         href="#main"
-        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-charcoal focus:px-5 focus:py-2 focus:text-sm focus:text-canvas"
+        className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-lg focus:bg-ink focus:px-4 focus:py-2 focus:text-sm focus:text-white"
       >
         Aller au contenu
       </a>
@@ -28,6 +29,6 @@ export default function App() {
         <Portfolio />
       </main>
       <Footer />
-    </>
+    </MotionConfig>
   );
 }
