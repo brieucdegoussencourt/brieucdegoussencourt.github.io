@@ -1,11 +1,12 @@
-import { useReveal } from "../lib/useReveal.js";
-import { Section, SectionHeader, Strong } from "./ui.jsx";
-import { CompassIcon, LayersIcon, FlowIcon } from "./icons.jsx";
+import { useRef } from "react";
+import { motion, useScroll, useSpring } from "motion/react";
+import { fadeUp, inView } from "../lib/motion.js";
+import { Block, Chip, Strong } from "./ui.jsx";
 
 const steps = [
   {
-    icon: CompassIcon,
     index: "01",
+    label: "cadrage",
     title: "Cadrage & Maquette",
     body: (
       <>
@@ -17,8 +18,8 @@ const steps = [
     ),
   },
   {
-    icon: LayersIcon,
     index: "02",
+    label: "prototype",
     title: "Prototype & Ajustements",
     body: (
       <>
@@ -30,8 +31,8 @@ const steps = [
     ),
   },
   {
-    icon: FlowIcon,
     index: "03",
+    label: "deploy",
     title: "Mise en ligne & Suivi",
     body: (
       <>
@@ -45,63 +46,93 @@ const steps = [
 ];
 
 export default function Process() {
+  // The pipeline rail fills as the steps scroll through the viewport.
+  const listRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ["start 75%", "end 60%"],
+  });
+  const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30 });
+
   return (
-    <Section id="approach" labelledBy="approach-title">
-      <SectionHeader
-        id="approach-title"
-        eyebrow="Méthode"
-        title="Un accompagnement clair, en trois étapes."
-      >
+    <Block
+      id="approach"
+      index="02"
+      cmd="./methode --etapes=3"
+      title="Un accompagnement clair, en trois étapes."
+      lead={
         <p>
           Tout commence par un <Strong>échange</Strong> pour cerner vos enjeux
           et poser les bases. L'objectif : tirer le meilleur de la technologie
           pour concevoir un <Strong>outil robuste</Strong> qui{" "}
           <Strong>simplifie votre quotidien</Strong>.
         </p>
-      </SectionHeader>
+      }
+    >
+      <ol ref={listRef} className="relative mt-12 space-y-4 sm:mt-14">
+        {/* Rail */}
+        <span
+          aria-hidden="true"
+          className="absolute top-6 bottom-6 left-[19px] w-px bg-line sm:left-[23px]"
+        />
+        <motion.span
+          aria-hidden="true"
+          style={{ scaleY: progress }}
+          className="absolute top-6 bottom-6 left-[19px] w-px origin-top bg-green sm:left-[23px]"
+        />
 
-      <ol className="mt-12 grid gap-px overflow-hidden rounded-3xl border border-stone bg-stone md:grid-cols-3 lg:mt-16">
-        {steps.map((step, i) => (
-          <ProcessCard key={step.title} step={step} index={i} />
+        {steps.map((step) => (
+          <Step key={step.index} step={step} />
         ))}
       </ol>
-    </Section>
+    </Block>
   );
 }
 
-function ProcessCard({ step, index }) {
-  const ref = useReveal();
-  const Icon = step.icon;
+function Step({ step }) {
   return (
-    <li
-      ref={ref}
-      className="reveal group relative flex flex-col bg-canvas p-8 lg:p-10"
-      style={{ transitionDelay: `${index * 110}ms` }}
+    <motion.li
+      variants={{ hidden: {}, show: {} }}
+      {...inView}
+      className="relative grid grid-cols-[40px_1fr] gap-4 sm:grid-cols-[48px_1fr] sm:gap-6"
     >
-      {/* Hover: warm wash + accent line growing along the bottom edge */}
-      <span
+      {/* Status node: draws a check once in view */}
+      <motion.span
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 bg-sand/70 opacity-0 transition-opacity duration-500 ease-organic group-hover:opacity-100"
-      />
-      <span
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left scale-x-0 bg-clay transition-transform duration-700 ease-organic group-hover:scale-x-100"
-      />
-      <div className="relative flex items-center justify-between">
-        <span
-          aria-hidden="true"
-          className="flex h-12 w-12 items-center justify-center rounded-xl bg-sand text-clay-deep transition-[background-color,color,transform] duration-500 ease-organic group-hover:-translate-y-0.5 group-hover:-rotate-6 group-hover:bg-clay-deep group-hover:text-canvas"
-        >
-          <Icon className="h-6 w-6" />
-        </span>
-        <span aria-hidden="true" className="font-serif text-2xl text-stone-deep transition-colors duration-500 ease-organic group-hover:text-clay">
-          {step.index}
-        </span>
-      </div>
-      <h3 className="relative mt-8 text-lg font-semibold text-charcoal">{step.title}</h3>
-      <p className="relative mt-3 text-base leading-relaxed text-charcoal-soft">
-        {step.body}
-      </p>
-    </li>
+        variants={{
+          hidden: { scale: 0.6, opacity: 0 },
+          show: { scale: 1, opacity: 1, transition: { type: "spring", bounce: 0.4, duration: 0.6 } },
+        }}
+        className="relative z-10 mt-4 flex h-10 w-10 items-center justify-center rounded-full border border-line-strong bg-surface sm:h-12 sm:w-12"
+      >
+        <svg viewBox="0 0 24 24" className="h-4 w-4 text-green" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+          <motion.path
+            d="M5 12.5 10 17 19 7"
+            variants={{
+              hidden: { pathLength: 0 },
+              show: { pathLength: 1, transition: { delay: 0.25, duration: 0.5, ease: "easeOut" } },
+            }}
+          />
+        </svg>
+      </motion.span>
+
+      <motion.article
+        variants={fadeUp}
+        whileHover={{ y: -2 }}
+        transition={{ type: "spring", stiffness: 400, damping: 30 }}
+        className="group grid gap-3 rounded-xl border border-line bg-surface p-5 transition-[border-color,box-shadow] duration-300 hover:border-line-strong hover:shadow-[0_16px_40px_-20px_rgba(24,24,27,0.25)] sm:p-7 md:grid-cols-12 md:gap-8"
+      >
+        <div className="md:col-span-5">
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-xs text-faint">step_{step.index}</span>
+            <Chip className="group-hover:border-green/30 group-hover:bg-green-soft group-hover:text-green transition-colors duration-300">
+              {step.label}
+            </Chip>
+          </div>
+          <h3 className="mt-3 text-xl font-semibold tracking-tight text-ink">{step.title}</h3>
+        </div>
+        <p className="text-base leading-relaxed text-ink-soft md:col-span-7">{step.body}</p>
+      </motion.article>
+    </motion.li>
   );
 }

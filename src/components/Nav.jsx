@@ -1,18 +1,24 @@
 import { useEffect, useState } from "react";
+import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
 import { calButtonProps } from "../lib/booking.js";
-import { Container, buttonClass, linkClass, iconButtonClass } from "./ui.jsx";
+import { springSnappy } from "../lib/motion.js";
+import { Container, buttonClass, iconButtonClass } from "./ui.jsx";
 
 const links = [
-  { href: "#about", label: "Vision" },
-  { href: "#approach", label: "Méthode" },
-  { href: "#work", label: "Réalisations" },
-  { href: "#contact", label: "Contact" },
+  { href: "#about", label: "vision" },
+  { href: "#approach", label: "méthode" },
+  { href: "#work", label: "projets" },
+  { href: "#contact", label: "contact" },
 ];
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
+  const [hovered, setHovered] = useState(null);
+
+  const { scrollYProgress } = useScroll();
+  const progress = useSpring(scrollYProgress, { stiffness: 200, damping: 40 });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -52,59 +58,67 @@ export default function Nav() {
   }, [open]);
 
   const solid = scrolled || open;
+  // The pill follows the hovered link, falling back to the active section.
+  const highlighted = hovered ?? active;
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-500 ${
-        open
-          ? "border-stone/60 bg-canvas shadow-[0_24px_40px_-24px_rgba(58,54,49,0.35)]"
-          : solid
-            ? "border-stone/60 bg-canvas/90 backdrop-blur-md"
-            : "border-transparent"
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-colors duration-300 ${
+        solid ? "border-line bg-canvas/85 backdrop-blur-md" : "border-transparent"
       }`}
     >
       <Container>
-        <nav
-          aria-label="Navigation principale"
-          className="flex h-18 items-center justify-between gap-6"
-        >
+        <nav aria-label="Navigation principale" className="flex h-16 items-center justify-between gap-6">
           <a
             href="#top"
             aria-label="Brieuc de Goussencourt — accueil"
-            className="block shrink-0 rounded-lg transition-all duration-300 ease-organic hover:-translate-y-0.5 hover:shadow-[0_12px_24px_-12px_rgba(58,54,49,0.7)] motion-reduce:hover:translate-y-0"
+            className="group flex items-center gap-2.5 rounded-md font-mono text-[13px] text-ink"
           >
             <img
               src={`${import.meta.env.BASE_URL}favicon.svg`}
               alt=""
-              width="36"
-              height="36"
-              className="h-9 w-9"
+              width="28"
+              height="28"
+              className="h-7 w-7 transition-transform duration-300 ease-out-expo group-hover:-rotate-6"
             />
+            <span aria-hidden="true" className="hidden sm:inline">
+              brieuc<span className="text-faint">.dev</span>
+            </span>
           </a>
 
-          <ul className="hidden items-center gap-8 md:flex">
+          <ul
+            className="hidden items-center rounded-lg border border-line bg-surface/70 p-1 md:flex"
+            onMouseLeave={() => setHovered(null)}
+          >
             {links.map((l) => (
               <li key={l.href}>
                 <a
                   href={l.href}
                   aria-current={active === l.href ? "true" : undefined}
-                  className={`${linkClass} min-h-11 text-sm font-medium text-charcoal-soft hover:text-charcoal aria-[current]:text-charcoal`}
+                  onMouseEnter={() => setHovered(l.href)}
+                  onFocus={() => setHovered(l.href)}
+                  onBlur={() => setHovered(null)}
+                  className="relative flex h-8 items-center px-3 font-mono text-[13px] text-muted transition-colors duration-200 hover:text-ink aria-[current]:text-ink"
                 >
-                  <span className="link-underline">{l.label}</span>
+                  {highlighted === l.href && (
+                    <motion.span
+                      layoutId="nav-pill"
+                      transition={springSnappy}
+                      className="absolute inset-0 rounded-md bg-subtle ring-1 ring-line"
+                    />
+                  )}
+                  <span className="relative">
+                    <span aria-hidden="true" className="text-faint">./</span>
+                    {l.label}
+                  </span>
                 </a>
               </li>
             ))}
           </ul>
 
           <div className="flex items-center gap-2">
-            {/* Desktop only: on mobile the header keeps just logo + menu;
-                Contact lives in the menu. */}
             <div className="hidden md:block">
-              <button
-                type="button"
-                {...calButtonProps}
-                className={buttonClass("primary", "sm")}
-              >
+              <button type="button" {...calButtonProps} className={buttonClass("primary", "sm")}>
                 Prendre rendez-vous
               </button>
             </div>
@@ -115,51 +129,62 @@ export default function Nav() {
               aria-expanded={open}
               aria-controls="mobile-menu"
               aria-label={open ? "Fermer le menu" : "Ouvrir le menu"}
-              className={`${iconButtonClass} -mr-2 text-charcoal md:hidden`}
+              className={`${iconButtonClass} -mr-2 text-ink md:hidden`}
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="h-5 w-5"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                aria-hidden="true"
-              >
-                {open ? (
-                  <path d="M6 6l12 12M18 6 6 18" />
-                ) : (
-                  <path d="M4 7h16M4 12h16M4 17h16" />
-                )}
+              <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" aria-hidden="true">
+                {open ? <path d="M6 6l12 12M18 6 6 18" /> : <path d="M4 8h16M4 16h16" />}
               </svg>
             </button>
           </div>
         </nav>
       </Container>
 
+      {/* Reading progress */}
+      <motion.div
+        aria-hidden="true"
+        style={{ scaleX: progress }}
+        className={`absolute inset-x-0 -bottom-px h-px origin-left bg-blue transition-opacity duration-300 ${
+          scrolled ? "opacity-100" : "opacity-0"
+        }`}
+      />
+
       {/* Mobile menu */}
-      <div
-        id="mobile-menu"
-        hidden={!open}
-        className="border-t border-stone/60 md:hidden"
-      >
-        <Container>
-          <ul className="py-3">
-            {links.map((l) => (
-              <li key={l.href} className="border-b border-stone/50 last:border-0">
-                <a
-                  href={l.href}
-                  onClick={() => setOpen(false)}
-                  aria-current={active === l.href ? "true" : undefined}
-                  className={`${linkClass} flex min-h-12 text-base font-medium text-charcoal-soft hover:text-charcoal aria-[current]:text-charcoal`}
-                >
-                  <span className="link-underline">{l.label}</span>
-                </a>
-              </li>
-            ))}
-          </ul>
-        </Container>
-      </div>
+      <AnimatePresence initial={false}>
+        {open && (
+          <motion.div
+            id="mobile-menu"
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ type: "spring", bounce: 0, duration: 0.4 }}
+            className="overflow-hidden border-t border-line md:hidden"
+          >
+            <Container>
+              <ul className="py-2">
+                {links.map((l, i) => (
+                  <motion.li
+                    key={l.href}
+                    initial={{ opacity: 0, x: -8 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.04 * i + 0.05, type: "spring", bounce: 0, duration: 0.4 }}
+                    className="border-b border-line last:border-0"
+                  >
+                    <a
+                      href={l.href}
+                      onClick={() => setOpen(false)}
+                      aria-current={active === l.href ? "true" : undefined}
+                      className="flex min-h-12 items-center font-mono text-sm text-ink-soft hover:text-ink aria-[current]:text-ink"
+                    >
+                      <span aria-hidden="true" className="mr-1 text-green">❯</span>
+                      {l.label}
+                    </a>
+                  </motion.li>
+                ))}
+              </ul>
+            </Container>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

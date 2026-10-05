@@ -1,6 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Brieuc de Goussencourt">
-  <rect width="64" height="64" rx="14" fill="#3a3631" />
-  <text x="50%" y="50%" dy="0.02em" text-anchor="middle" dominant-baseline="central"
-        font-family="Georgia, 'Playfair Display', serif" font-size="34" fill="#f6f2ec">B</text>
-  <circle cx="46" cy="44" r="3.2" fill="#b08968" />
+  <rect width="64" height="64" rx="14" fill="#18181b" />
+  <path d="M17 22l10 10-10 10" fill="none" stroke="#fafaf9" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" />
+  <rect x="32" y="39" width="15" height="5" rx="2.5" fill="#22c55e" />
 </svg>
