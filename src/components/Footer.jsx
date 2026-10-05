@@ -24,7 +24,7 @@ export default function Footer() {
 
   return (
     <footer id="contact" className="px-2 pb-2 sm:px-3 sm:pb-3">
-      <div className="overflow-hidden rounded-2xl bg-obsidian text-white">
+      <div className="overflow-hidden rounded-2xl bg-obsidian text-white dark:ring-1 dark:ring-obsidian-line">
         {/* Closing invitation, framed as a terminal session */}
         <section aria-labelledby="contact-title" className="py-16 sm:py-24">
           <Container>
@@ -57,7 +57,7 @@ export default function Footer() {
                   <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                     <button type="button" {...calButtonProps} className={buttonStyles.primaryOnDark}>
                       Prendre rendez-vous
-                      <Kbd className="border-ink/15 text-ink/60">↵</Kbd>
+                      <Kbd className="border-obsidian/15 text-obsidian/60">↵</Kbd>
                     </button>
                     <a href={`tel:${PHONE.replace(/\s/g, "")}`} className={buttonStyles.secondaryOnDark}>
                       <PhoneIcon className="h-4 w-4" />

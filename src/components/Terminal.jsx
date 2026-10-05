@@ -21,7 +21,9 @@ const TOTAL_MS = DISSOLVE_MS + STEPS.length * STEP_MS;
 const TYPE_MS = 38;
 
 const PINK = "#ec4899";
-const BG = "#f1f5f9";
+// Dissolve background follows the theme (--color-subtle).
+const bg = () =>
+  getComputedStyle(document.documentElement).getPropertyValue("--color-subtle").trim() || "#f1f5f9";
 
 // Downsample once per block size so each frame is a single scaled draw.
 function pixelated(img, block) {
@@ -100,7 +102,7 @@ export default function Terminal({ className = "" }) {
           // Blocks pop in at random under a sweeping scan line.
           const p = t / DISSOLVE_MS;
           const target = Math.floor(p * order.length);
-          ctx.fillStyle = BG;
+          ctx.fillStyle = bg();
           ctx.fillRect(0, 0, SIZE, SIZE);
           for (let n = 0; n < target; n++) {
             const k = order[n];

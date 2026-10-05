@@ -1,5 +1,8 @@
 @import "tailwindcss";
 
+/* Dark mode is opt-in via the nav toggle, which sets <html class="dark">. */
+@custom-variant dark (&:where(.dark, .dark *));
+
 /*
   Developer-centric light theme — tokens follow the brand deck
   (brand/brand-deck.html, spec in brand/README.md): cool slate neutrals,
@@ -24,6 +27,9 @@
   --color-pink-light: #f9a8d4; /* accent text on ink */
   --color-pink-soft: #fce7f3; /* tints */
 
+  /* Text/icons sitting on an ink fill (primary buttons) */
+  --color-on-ink: #ffffff;
+
   /* Dark surfaces: logo tile, footer */
   --color-obsidian: #111318;
   --color-obsidian-raised: #181b22;
@@ -47,6 +53,29 @@
   }
 }
 
+/*
+  Dark theme: same tokens, inverted. Ink becomes near-white, surfaces become
+  obsidian, and the deep pink lightens to keep AA contrast on dark.
+*/
+.dark {
+  color-scheme: dark;
+  --color-canvas: #0b0d11;
+  --color-surface: #12151b;
+  --color-subtle: #191d25;
+  --color-line: #232833;
+  --color-line-strong: #333a47;
+
+  --color-ink: #f1f5f9;
+  --color-ink-soft: #cbd5e1;
+  --color-muted: #94a3b8;
+  --color-faint: #64748b;
+
+  --color-pink-deep: #f472b6;
+  --color-pink-soft: #3d1029;
+
+  --color-on-ink: #0b0d11;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
@@ -57,6 +86,7 @@
   }
 
   body {
+    transition: background-color 0.3s, color 0.3s;
     background-color: var(--color-canvas);
     color: var(--color-ink);
     font-family: var(--font-sans);

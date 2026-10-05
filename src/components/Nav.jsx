@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion, useScroll, useSpring } from "motion/react";
-import { calButtonProps } from "../lib/booking.js";
 import { springSnappy } from "../lib/motion.js";
 import { Container, buttonClass, iconButtonClass } from "./ui.jsx";
 
@@ -11,7 +10,23 @@ const links = [
   { href: "#contact", label: "contact" },
 ];
 
+const THEME_COLOR = { light: "#f8fafc", dark: "#0b0d11" };
+
+/* Light/dark switch: toggles <html class="dark"> and remembers the choice. */
+function useTheme() {
+  const [dark, setDark] = useState(() => document.documentElement.classList.contains("dark"));
+  useEffect(() => {
+    document.documentElement.classList.toggle("dark", dark);
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", THEME_COLOR[dark ? "dark" : "light"]);
+    try {
+      localStorage.setItem("theme", dark ? "dark" : "light");
+    } catch {}
+  }, [dark]);
+  return [dark, () => setDark((d) => !d)];
+}
+
 export default function Nav() {
+  const [dark, toggleTheme] = useTheme();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState("");
@@ -117,11 +132,19 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <div className="hidden md:block">
-              <button type="button" {...calButtonProps} className={buttonClass("primary", "sm")}>
-                Prendre rendez-vous
-              </button>
-            </div>
+            <button type="button" onClick={toggleTheme} aria-pressed={dark} className={buttonClass("primary", "sm")}>
+              <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                {dark ? (
+                  <>
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" />
+                  </>
+                ) : (
+                  <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" />
+                )}
+              </svg>
+              {dark ? "Light Mode" : "Dark Mode"}
+            </button>
 
             <button
               type="button"

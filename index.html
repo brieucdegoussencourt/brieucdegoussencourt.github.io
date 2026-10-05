@@ -11,6 +11,15 @@
       content="Brieuc de Goussencourt, développeur. Sites web, applications et solutions sur mesure pour les indépendants et les entreprises."
     />
     <meta name="theme-color" content="#f8fafc" />
+    <!-- Apply the saved theme before first paint (no flash). -->
+    <script>
+      try {
+        if (localStorage.getItem("theme") === "dark") {
+          document.documentElement.classList.add("dark");
+          document.querySelector('meta[name="theme-color"]').content = "#0b0d11";
+        }
+      } catch {}
+    </script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />

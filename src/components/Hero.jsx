@@ -71,7 +71,7 @@ export default function Hero() {
             <motion.div variants={fadeUp} className="flex flex-col">
               <button type="button" {...calButtonProps} className={buttonStyles.primary}>
                 Parlons de votre projet
-                <Kbd className="border-white/20 text-white/70">↵</Kbd>
+                <Kbd className="border-on-ink/20 text-on-ink/70">↵</Kbd>
               </button>
             </motion.div>
             <motion.div variants={fadeUp} className="flex flex-col">
