@@ -222,7 +222,7 @@ export default function Terminal({ className = "" }) {
           />
         </div>
 
-        <p aria-hidden="true" className="flex items-center justify-between gap-3">
+        <p aria-hidden="true" className="flex items-center justify-between gap-3 whitespace-nowrap">
           {done ? (
             <span>
               <span className="text-pink-deep">✓</span> rendu terminé{" "}
@@ -236,7 +236,7 @@ export default function Terminal({ className = "" }) {
               <span className="tabular-nums">{String(progress).padStart(3, " ")}%</span>
             </span>
           )}
-          <span className="hidden text-muted sm:inline">
+          <span className="hidden text-muted sm:inline split:hidden lg:inline">
             {done ? "survolez-moi" : "rendering…"}
           </span>
         </p>

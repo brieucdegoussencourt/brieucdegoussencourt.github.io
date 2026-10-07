@@ -11,6 +11,7 @@
   Tokens become Tailwind utilities (e.g. --color-ink → text-ink / bg-ink).
 */
 @theme {
+  --breakpoint-split: 45rem; /* 720px: hero goes side by side */
   --color-canvas: #f8fafc; /* off-white page */
   --color-surface: #ffffff; /* raised panels */
   --color-subtle: #f1f5f9; /* insets, title bars */

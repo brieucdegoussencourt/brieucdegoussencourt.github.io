@@ -22,8 +22,8 @@ export default function Hero() {
     >
       <div aria-hidden="true" className="bg-grid pointer-events-none absolute inset-0" />
 
-      <Container className="relative grid items-center gap-10 lg:grid-cols-12 lg:gap-10">
-        <div ref={copyRef} className="lg:col-span-7">
+      <Container className="relative flex flex-col gap-10 split:flex-row split:items-center">
+        <div ref={copyRef} className="min-w-0 flex-1">
           <Typewriter
             as="p"
             speed={30}
@@ -65,7 +65,7 @@ export default function Hero() {
             variants={stagger(0.08)}
             initial="hidden"
             animate={step >= 3 ? "show" : "hidden"}
-            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center"
+            className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center split:flex-col split:items-start lg:flex-row lg:items-center"
           >
             {/* Motion animates wrappers, so the buttons keep their own CSS transitions. */}
             <motion.div variants={fadeUp} className="flex flex-col">
@@ -84,12 +84,12 @@ export default function Hero() {
         </div>
 
         {/* On mobile the terminal comes first, so the pixel render is the
-            first thing you see; side by side from lg up. */}
+            first thing you see; side by side from 720px up. */}
         <motion.div
           initial={{ opacity: 0, y: 24, scale: 0.98 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ ...spring, delay: 0.2 }}
-          className="order-first lg:order-none lg:col-span-5"
+          className="order-first split:order-none split:w-[45%] split:max-w-[calc(360px+2.5rem+4px)] split:shrink-0"
         >
           <Terminal />
         </motion.div>
