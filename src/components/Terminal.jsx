@@ -57,6 +57,15 @@ export default function Terminal({ className = "" }) {
   const [typed, setTyped] = useState(reduce ? CMD.length : 0);
   const [progress, setProgress] = useState(reduce ? 100 : 0);
   const done = progress >= 100;
+  // Displayed size of the portrait, in CSS pixels, kept live while resizing.
+  const [shown, setShown] = useState(SIZE);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ro = new ResizeObserver(([entry]) => setShown(Math.round(entry.contentRect.width)));
+    ro.observe(canvas);
+    return () => ro.disconnect();
+  }, []);
 
   // 1. Type the command.
   useEffect(() => {
@@ -177,7 +186,7 @@ export default function Terminal({ className = "" }) {
 
   return (
     <div
-      className={`overflow-hidden rounded-xl border border-line-strong bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_60px_-24px_rgba(15,23,42,0.25)] ${className}`}
+      className={`mx-auto max-w-[calc(640px+2rem+4px)] overflow-hidden rounded-xl sm:max-w-[calc(640px+2.5rem+4px)] border border-line-strong bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_60px_-24px_rgba(15,23,42,0.25)] ${className}`}
     >
       {/* Title bar */}
       <div aria-hidden="true" className="flex items-center gap-2 border-b border-line bg-subtle px-4 py-2.5">
@@ -194,7 +203,8 @@ export default function Terminal({ className = "" }) {
           {typed < CMD.length && <Caret />}
         </p>
 
-        <div className="relative overflow-hidden rounded-md border border-line bg-subtle">
+        {/* Never upscaled: the portrait tops out at its native 640×640. */}
+        <div className="relative mx-auto max-w-[642px] overflow-hidden rounded-md border border-line bg-subtle">
           <canvas
             ref={canvasRef}
             width={SIZE}
@@ -216,7 +226,7 @@ export default function Terminal({ className = "" }) {
           {done ? (
             <span>
               <span className="text-pink-deep">✓</span> rendu terminé{" "}
-              <span className="text-muted">· 640×640</span>
+              <span className="tabular-nums text-muted">· {shown}×{shown}</span>
             </span>
           ) : (
             <span>
