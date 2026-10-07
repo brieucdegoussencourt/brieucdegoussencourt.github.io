@@ -186,7 +186,7 @@ export default function Terminal({ className = "" }) {
 
   return (
     <div
-      className={`mx-auto max-w-[calc(480px+2rem+4px)] overflow-hidden rounded-xl sm:max-w-[calc(480px+2.5rem+4px)] border border-line-strong bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_60px_-24px_rgba(15,23,42,0.25)] ${className}`}
+      className={`mx-auto max-w-[calc(360px+2rem+4px)] overflow-hidden rounded-xl sm:max-w-[calc(360px+2.5rem+4px)] border border-line-strong bg-surface shadow-[0_1px_2px_rgba(0,0,0,0.04),0_24px_60px_-24px_rgba(15,23,42,0.25)] ${className}`}
     >
       {/* Title bar */}
       <div aria-hidden="true" className="flex items-center gap-2 border-b border-line bg-subtle px-4 py-2.5">
@@ -203,8 +203,8 @@ export default function Terminal({ className = "" }) {
           {typed < CMD.length && <Caret />}
         </p>
 
-        {/* Displayed at most 480×480 (the 640px source stays crisp on retina). */}
-        <div className="relative mx-auto max-w-[482px] overflow-hidden rounded-md border border-line bg-subtle">
+        {/* Displayed at most 360×360 (the 640px source stays crisp on retina). */}
+        <div className="relative mx-auto max-w-[362px] overflow-hidden rounded-md border border-line bg-subtle">
           <canvas
             ref={canvasRef}
             width={SIZE}
