@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396">
+  <!-- LinkedIn personal profile banner (1584×396, rendered at 2x to linkedin-profile-banner.png).
+       Left ~500px kept quiet: LinkedIn overlaps the profile photo there. -->
+  <defs>
+    <style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=JetBrains+Mono:wght@400;700&amp;display=block");</style>
+    <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
+      <path d="M28 0H0V28" fill="none" stroke="#E2E8F0" stroke-width="1" />
+    </pattern>
+    <radialGradient id="glow" cx="1" cy="0" r="0.6" gradientTransform="scale(1 4)">
+      <stop offset="0" stop-color="#EC4899" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#EC4899" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1584" height="396" fill="#F8FAFC" />
+  <rect width="1584" height="396" fill="url(#grid)" opacity="0.8" />
+  <rect width="1584" height="396" fill="url(#glow)" />
+
+  <!-- Prompt -->
+  <text x="560" y="128" font-family="JetBrains Mono, Menlo, monospace" font-size="22" fill="#5B6B80"><tspan fill="#BE185D">~/brieuc</tspan> $ <tspan fill="#0F172A">./brieuc --build</tspan></text>
+  <rect x="925" y="107" width="12" height="27" fill="#EC4899" />
+
+  <!-- Headline -->
+  <text x="557" y="210" font-family="Inter, Helvetica, Arial, sans-serif" font-weight="700" font-size="54" letter-spacing="-1.7" fill="#0F172A">Sites, apps &amp; outils, taillés sur mesure<tspan fill="#EC4899">.</tspan></text>
+
+  <!-- Role + URL -->
+  <text x="560" y="266" font-family="JetBrains Mono, Menlo, monospace" font-size="22" fill="#5B6B80"><tspan fill="#BE185D">//</tspan> développeur &amp; UX designer <tspan fill="#CBD5E1">/</tspan> <tspan fill="#0F172A" font-weight="700">brieuc</tspan><tspan fill="#EC4899" font-weight="700">.co</tspan></text>
+</svg>
