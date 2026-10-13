@@ -12,6 +12,7 @@ header). This file extracts the rules from it.
 | [`mark.svg`](mark.svg) | The **B.** mark — master vector (also `public/favicon.svg`) |
 | [`mark-512.png`](mark-512.png) | Raster mark for places that refuse SVG |
 | [`linkedin-logo.png`](linkedin-logo.png) | 400×400 full-bleed square (no squircle corners) for the LinkedIn page logo, since LinkedIn applies its own crop |
+| [`linkedin-banner.svg`](linkedin-banner.svg) | LinkedIn page cover, 1128×191 → `linkedin-banner.png` at 2x (headless Chrome, like the OG card). Left ~260px stays quiet because the page logo overlaps it |
 | `public/email/logo.png` | 144 px mark for the email signature, on a softer slate tile (served at brieuc.co/email/logo.png) |
 | [`og-image.svg`](og-image.svg) | 1200×630 social share card → `public/og-image.png` (render with headless Chrome so Inter / JetBrains Mono load; ImageMagick's SVG renderer breaks the text) |
 
