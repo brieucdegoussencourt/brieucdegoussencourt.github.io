@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1584" height="396" viewBox="0 0 1584 396">
   <!-- LinkedIn personal profile banner (1584×396, rendered at 2x to linkedin-profile-banner.png).
-       Left ~330px kept quiet: LinkedIn overlaps the profile photo there. -->
+       Left ~500px kept quiet: LinkedIn overlaps the profile photo there. -->
   <defs>
     <style>@import url("https://fonts.googleapis.com/css2?family=Inter:wght@700&amp;family=JetBrains+Mono:wght@400;700&amp;display=block");</style>
     <pattern id="grid" width="28" height="28" patternUnits="userSpaceOnUse">
@@ -14,13 +14,6 @@
   <rect width="1584" height="396" fill="#F8FAFC" />
   <rect width="1584" height="396" fill="url(#grid)" opacity="0.8" />
   <rect width="1584" height="396" fill="url(#glow)" />
-
-  <!-- Mark: 152px B. tile, left of the text block, clear of the profile photo (x < ~330) -->
-  <g transform="translate(372 114) scale(1.52)">
-    <rect x="0.75" y="0.75" width="98.5" height="98.5" rx="24" fill="#111318" stroke="#2A2F3A" stroke-width="1.5" />
-    <path fill="#FFFFFF" fill-rule="evenodd" d="M24 22H53A15 15 0 0 1 63.55 47.67A17 17 0 0 1 53 78H24V22ZM32 30V44H53A7 7 0 0 0 53 30H32ZM32 52V70H53A9 9 0 0 0 53 52H32Z" />
-    <rect x="75" y="66" width="12" height="12" rx="2" fill="#EC4899" />
-  </g>
 
   <!-- Prompt -->
   <text x="560" y="128" font-family="JetBrains Mono, Menlo, monospace" font-size="22" fill="#5B6B80"><tspan fill="#BE185D">~/brieuc</tspan> $ <tspan fill="#0F172A">./brieuc --build</tspan></text>
