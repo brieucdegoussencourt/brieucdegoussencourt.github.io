@@ -132,7 +132,7 @@ export default function Nav() {
           </ul>
 
           <div className="flex items-center gap-2">
-            <button type="button" onClick={toggleTheme} aria-pressed={dark} className={buttonClass("primary", "sm")}>
+            <button type="button" onClick={toggleTheme} className={buttonClass("primary", "sm")}>
               <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 {dark ? (
                   <>
@@ -143,7 +143,7 @@ export default function Nav() {
                   <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" />
                 )}
               </svg>
-              {dark ? "Light Mode" : "Dark Mode"}
+              <span lang="en">{dark ? "Light Mode" : "Dark Mode"}</span>
             </button>
 
             <button

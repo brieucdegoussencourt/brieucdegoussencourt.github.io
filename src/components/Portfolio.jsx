@@ -111,7 +111,7 @@ function CaseStudy({ project }) {
             <motion.img
               src={`${project.image}-1200.webp`}
               srcSet={srcSet(project.image)}
-              sizes="(min-width: 1152px) 1104px, calc(100vw - 2rem)"
+              sizes="(min-width: 1152px) 1088px, (min-width: 1024px) calc(100vw - 4rem), (min-width: 640px) calc(100vw - 3rem), calc(100vw - 2rem)"
               alt={project.imageAlt || `Aperçu de ${project.title}`}
               loading="lazy"
               decoding="async"

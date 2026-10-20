@@ -12,14 +12,8 @@
     />
     <meta name="theme-color" content="#f8fafc" />
     <!-- Apply the saved theme before first paint (no flash). -->
-    <script>
-      try {
-        if (localStorage.getItem("theme") === "dark") {
-          document.documentElement.classList.add("dark");
-          document.querySelector('meta[name="theme-color"]').content = "#0b0d11";
-        }
-      } catch {}
-    </script>
+    <!-- Its hash is allow-listed in the CSP (vercel.json); the build checks it. -->
+    <script>try{if(localStorage.getItem("theme")==="dark"){document.documentElement.classList.add("dark");document.querySelector('meta[name="theme-color"]').content="#0b0d11"}}catch{}</script>
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
@@ -55,22 +49,8 @@
       }
     </script>
 
-    <!-- Fonts: Inter (body) + JetBrains Mono (interface) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <!-- Loaded without blocking first paint; text animates in, so the swap is unseen. -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      onload="this.onload=null;this.rel='stylesheet'"
-    />
-    <noscript>
-      <link
-        rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
-      />
-    </noscript>
+    <!-- Portrait drawn by the hero terminal: fetch it alongside the JS. -->
+    <link rel="preload" as="image" type="image/webp" href="/picture/brieuc.webp" />
 
     <title>Brieuc de Goussencourt — Développeur</title>
   </head>

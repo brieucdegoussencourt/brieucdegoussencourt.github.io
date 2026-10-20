@@ -8,11 +8,9 @@ on:
 # The site itself is hosted on Vercel (brieuc.co); GitHub Pages only serves
 # a redirect page so old brieucdegoussencourt.github.io links keep working.
 
-# Allow the workflow to publish to Pages
+# Least privilege: read-only by default, Pages write only for the deploy job
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # One deploy at a time; don't cancel an in-progress production deploy
 concurrency:
@@ -33,6 +31,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

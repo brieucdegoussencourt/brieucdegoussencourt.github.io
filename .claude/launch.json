@@ -3,7 +3,7 @@
   "configurations": [
     {
       "name": "dev",
-      "runtimeExecutable": "/Users/brieuc/.nvm/versions/node/v20.20.2/bin/node",
+      "runtimeExecutable": "/Users/brieuc/.nvm/versions/node/v22.20.0/bin/node",
       "runtimeArgs": [
         "node_modules/vite/bin/vite.js",
         "--port",
@@ -13,7 +13,7 @@
     },
     {
       "name": "dev-alt",
-      "runtimeExecutable": "/Users/brieuc/.nvm/versions/node/v20.20.2/bin/node",
+      "runtimeExecutable": "/Users/brieuc/.nvm/versions/node/v22.20.0/bin/node",
       "runtimeArgs": [
         "node_modules/vite/bin/vite.js",
         "--port",
@@ -21,6 +21,18 @@
         "--strictPort"
       ],
       "port": 5174
+    },
+    {
+      "name": "preview",
+      "runtimeExecutable": "/Users/brieuc/.nvm/versions/node/v22.20.0/bin/node",
+      "runtimeArgs": [
+        "node_modules/vite/bin/vite.js",
+        "preview",
+        "--port",
+        "4173",
+        "--strictPort"
+      ],
+      "port": 4173
     }
   ]
 }

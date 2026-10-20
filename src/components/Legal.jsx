@@ -79,8 +79,8 @@ export default function Legal({ className = "" }) {
 
             <Block title="Hébergement">
               <p>
-                Ce site est hébergé par GitHub Pages (GitHub, Inc.), 88 Colin P.
-                Kelly Jr. Street, San Francisco, CA 94107, États-Unis.
+                Ce site est hébergé par Vercel Inc., 440 N Barranca Avenue
+                #4133, Covina, CA 91723, États-Unis.
               </p>
             </Block>
 
@@ -103,9 +103,10 @@ export default function Legal({ className = "" }) {
                 La prise de rendez-vous passe par Cal.com : les informations
                 que vous y saisissez (nom, e-mail, message) servent uniquement
                 à organiser notre rendez-vous et sont traitées par Cal.com
-                selon sa propre politique de confidentialité. Les polices de
-                caractères sont chargées depuis Google Fonts, ce qui transmet
-                votre adresse IP à Google.
+                selon sa propre politique de confidentialité. Le module de
+                réservation n'est chargé que lorsque vous approchez un bouton
+                de prise de rendez-vous. Les polices de caractères sont
+                hébergées sur ce site : aucune requête vers Google.
               </p>
               <p>
                 Conformément au RGPD, vous pouvez à tout moment demander

@@ -75,83 +75,87 @@ export default function Terminal({ className = "" }) {
     return () => clearTimeout(t);
   }, [typed, reduce]);
 
-  // 2. Load the image, then run the render once the command is typed.
+  // 2. Load the image right away (index.html preloads it), in parallel with the typing.
+  const [img, setImg] = useState(null);
   useEffect(() => {
-    if (typed < CMD.length) return;
+    let live = true;
+    const image = new Image();
+    image.decoding = "async";
+    image.onload = () => live && setImg(image);
+    image.src = SRC;
+    return () => {
+      live = false;
+    };
+  }, []);
+
+  // 3. Run the render once the command is typed and the image is ready.
+  useEffect(() => {
+    if (typed < CMD.length || !img) return;
     const ctx = canvasRef.current.getContext("2d");
     let raf = 0;
-    let cancelled = false;
 
-    const img = new Image();
-    img.decoding = "async";
-    img.src = SRC;
-    img.onload = () => {
-      if (cancelled) return;
-      imgRef.current = img;
-      lensSrc.current = pixelated(img, LENS_BLOCK);
+    imgRef.current = img;
+    lensSrc.current = pixelated(img, LENS_BLOCK);
 
-      if (reduce) {
-        ctx.drawImage(img, 0, 0, SIZE, SIZE);
-        setProgress(100);
-        return;
+    if (reduce) {
+      ctx.drawImage(img, 0, 0, SIZE, SIZE);
+      setProgress(100);
+      return;
+    }
+
+    const levels = STEPS.map((b) => (b === 1 ? null : pixelated(img, b)));
+    // Block colours for the dissolve phase.
+    const grid = levels[0];
+    const cols = grid.width;
+    const data = grid.getContext("2d").getImageData(0, 0, cols, cols).data;
+    const order = shuffle(cols * cols);
+    const background = bg();
+    let lastPct = -1;
+    const start = performance.now();
+
+    const frame = (now) => {
+      const t = now - start;
+      if (t < DISSOLVE_MS) {
+        // Blocks pop in at random under a sweeping scan line.
+        const p = t / DISSOLVE_MS;
+        const target = Math.floor(p * order.length);
+        ctx.fillStyle = background;
+        ctx.fillRect(0, 0, SIZE, SIZE);
+        for (let n = 0; n < target; n++) {
+          const k = order[n];
+          const x = k % cols;
+          const y = Math.floor(k / cols);
+          const i = k * 4;
+          ctx.fillStyle = `rgb(${data[i]},${data[i + 1]},${data[i + 2]})`;
+          ctx.fillRect(x * DISSOLVE_BLOCK, y * DISSOLVE_BLOCK, DISSOLVE_BLOCK, DISSOLVE_BLOCK);
+        }
+        // Scan line sweeping down.
+        const y = Math.floor(p * SIZE);
+        ctx.save();
+        ctx.globalAlpha = 0.85;
+        ctx.fillStyle = PINK;
+        ctx.fillRect(0, y, SIZE, 3);
+        ctx.restore();
+      } else {
+        const step = Math.min(
+          STEPS.length - 1,
+          Math.floor((t - DISSOLVE_MS) / STEP_MS),
+        );
+        if (levels[step]) drawPixelated(ctx, levels[step]);
+        else ctx.drawImage(img, 0, 0, SIZE, SIZE);
       }
 
-      const levels = STEPS.map((b) => (b === 1 ? null : pixelated(img, b)));
-      // Block colours for the dissolve phase.
-      const grid = levels[0];
-      const cols = grid.width;
-      const data = grid.getContext("2d").getImageData(0, 0, cols, cols).data;
-      const order = shuffle(cols * cols);
-      let lastPct = -1;
-      const start = performance.now();
-
-      const frame = (now) => {
-        const t = now - start;
-        if (t < DISSOLVE_MS) {
-          // Blocks pop in at random under a sweeping scan line.
-          const p = t / DISSOLVE_MS;
-          const target = Math.floor(p * order.length);
-          ctx.fillStyle = bg();
-          ctx.fillRect(0, 0, SIZE, SIZE);
-          for (let n = 0; n < target; n++) {
-            const k = order[n];
-            const x = k % cols;
-            const y = Math.floor(k / cols);
-            const i = k * 4;
-            ctx.fillStyle = `rgb(${data[i]},${data[i + 1]},${data[i + 2]})`;
-            ctx.fillRect(x * DISSOLVE_BLOCK, y * DISSOLVE_BLOCK, DISSOLVE_BLOCK, DISSOLVE_BLOCK);
-          }
-          // Scan line sweeping down.
-          const y = Math.floor(p * SIZE);
-          ctx.save();
-          ctx.globalAlpha = 0.85;
-          ctx.fillStyle = PINK;
-          ctx.fillRect(0, y, SIZE, 3);
-          ctx.restore();
-        } else {
-          const step = Math.min(
-            STEPS.length - 1,
-            Math.floor((t - DISSOLVE_MS) / STEP_MS),
-          );
-          if (levels[step]) drawPixelated(ctx, levels[step]);
-          else ctx.drawImage(img, 0, 0, SIZE, SIZE);
-        }
-
-        const pct = Math.min(100, Math.floor((t / TOTAL_MS) * 100));
-        if (pct !== lastPct) setProgress((lastPct = pct));
-        if (t < TOTAL_MS) raf = requestAnimationFrame(frame);
-        else ctx.drawImage(img, 0, 0, SIZE, SIZE);
-      };
-      raf = requestAnimationFrame(frame);
+      const pct = Math.min(100, Math.floor((t / TOTAL_MS) * 100));
+      if (pct !== lastPct) setProgress((lastPct = pct));
+      if (t < TOTAL_MS) raf = requestAnimationFrame(frame);
+      else ctx.drawImage(img, 0, 0, SIZE, SIZE);
     };
+    raf = requestAnimationFrame(frame);
 
-    return () => {
-      cancelled = true;
-      cancelAnimationFrame(raf);
-    };
-  }, [typed >= CMD.length, reduce]); // eslint-disable-line react-hooks/exhaustive-deps
+    return () => cancelAnimationFrame(raf);
+  }, [typed >= CMD.length, img, reduce]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // 3. Pixel lens on hover, snapped to the block grid.
+  // 4. Pixel lens on hover, snapped to the block grid.
   const drawLens = (e) => {
     const img = imgRef.current;
     if (!done || !img) return;

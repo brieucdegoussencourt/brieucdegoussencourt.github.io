@@ -17,11 +17,11 @@ export function Container({ className = "", children }) {
   );
 }
 
-/* Shell prompt: `~/brieuc $ <cmd>` */
+/* Shell prompt: `~/brieuc $ <cmd>` — decorative, so hidden from screen readers. */
 export function Prompt({ cmd, tone = "light", cursor = false, className = "" }) {
   const dark = tone === "dark";
   return (
-    <p className={`font-mono text-[13px] leading-6 ${className}`}>
+    <p aria-hidden="true" className={`font-mono text-[13px] leading-6 ${className}`}>
       <span className={dark ? "text-pink-light" : "text-pink-deep"}>~/brieuc</span>{" "}
       <span className={dark ? "text-white/40" : "text-faint"}>$</span>{" "}
       <span className={dark ? "text-white" : "text-ink"}>{cmd}</span>
