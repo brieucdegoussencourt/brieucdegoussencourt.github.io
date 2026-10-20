@@ -13,6 +13,8 @@ export default function Hero() {
   const copyRef = useRef(null);
   const inView = useInView(copyRef, { once: true, margin: "0px 0px -25% 0px" });
   const [step, setStep] = useState(0);
+  // Type the heading faster on phones, where it's read after a scroll.
+  const [mobile] = useState(() => !window.matchMedia("(min-width: 640px)").matches);
 
   return (
     <section
@@ -37,7 +39,7 @@ export default function Hero() {
           <Typewriter
             as="h1"
             id="hero-title"
-            speed={55}
+            speed={mobile ? 32 : 55}
             start={step >= 1}
             delay={200}
             onDone={() => setStep(2)}
